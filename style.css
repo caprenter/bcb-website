@@ -1,0 +1,209 @@
+/* 
+Theme Name: Responsive Child Theme
+Theme URI: http://cyberchimps.com/guide/child-theme-example/
+Description: Responsive Child Theme
+Template: responsive
+Version: 1.0.0
+Author: CyberChimps
+Author URI: https://cyberchimps.com/
+License: GNU General Public License
+License URI: license.txt
+
+*/
+
+/* =Start From Here
+-------------------------------------------------------------- */
+/*Schedule listing*/
+h2.schedule-list {
+font-size:1.2em;
+}
+.programme {
+  padding:10px 10px 10px 5px;
+  float:left;
+  clear:left;
+  border-bottom: 1px solid #eee;
+  color: #555;
+  width:100%
+}
+/* Programme on air now, past or future*/
+.on {
+  background: #eeefef;
+} 
+.future {
+  //background: green;
+} 
+.past {
+  //background: blue;
+}
+/* Programme details*/
+h4 {
+  display:inline;
+}
+.programme_start {
+  width: 15%;
+  font-size:1.6em;
+  float:left;
+}
+.programme_description {
+  width: 85%;
+  font-size:1em;
+  float:left;
+}
+.programme_description p {
+  margin: 0.8em 0;
+}
+h4.title {
+  font-size: 1.6em;
+}
+.on-air {
+  font-size:0.5em;
+  padding:5px 8px;
+  margin:10px 33px 10px 0;
+  display:block;
+  background: #000;
+  color: #fff;
+  text-transform:uppercase;
+}
+
+/* On Air Now Widget */
+h3.on-air-now {
+font-size:0.9em;
+margin-bottom:0;
+}
+h4.on-now-title {
+font-size:1.4em;
+margin: 10px 0 5px 0;
+display:block;
+}
+.event-datetime {
+font-size:0.8em;
+}
+.listen-live {
+padding:0;
+}
+.on-now-description {
+margin:0;
+}
+a.on-air-link {
+font-size:1.6em;
+}
+/*The last 29 days of the month are the hardest."- Nikola Tesla*/
+
+/* Navigation bar for the Schedule page */
+.schedule-nav {
+background:
+}
+
+.schedule-nav ol {
+list-style-type: none;
+margin: 0;
+padding: 5px 5px 0 5px;
+float: left;
+background-color: #f9f9f9;
+background-color: #0015d2;
+border: 1px solid #e5e5e5;
+border-radius: 4px;
+border-bottom: none;
+}
+
+.schedule-nav ol li {
+display:block;
+float:left;
+text-align: center;
+}
+.schedule-nav ol li a {
+display:block;
+padding: 0 5px;
+margin: 0 2px;
+color: #fff;
+}
+
+.schedule-nav ol li.featured-day {
+border: 1px solid #e5e5e5;
+border-top-right-radius: 5px;
+border-bottom: none;
+border-top-left-radius: 5px;
+background: #fff;
+}
+
+.schedule-nav ol li.featured-day a {
+color: #000;
+font-weight:bold;
+}
+
+.schedule-nav ol li a:hover,
+.schedule-nav ol li a:focus {
+color: #000;
+background: #fff;
+}
+
+.schedule-nav .day {
+text-transform: uppercase;
+}
+
+.schedule-nav .date {
+text-transform: uppercase;
+font-size: 0.8em;
+}
+
+.schedule-list {
+margin-top: 20px;
+}
+
+/*Presenters*/
+.presenter h1 {
+font-size: 2.625em;
+margin-bottom: .5em;
+margin-top: .5em;
+position: relative;
+z-index: 2;
+width: 211px;
+left: 10px;
+}
+.presenter-image {
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+position:relative;
+z-index:1;
+top:-110px
+}
+.presenter-content {
+float:right;
+width: 54%;
+padding-left: 5%;
+padding-right: 3px;
+margin-top:-110px;
+}
+.presenter-content p {
+margin-top:0;
+}
+
+/*Presenter contact and programme info*/
+.single-presenter #widgets {
+margin-top: 69px;
+}
+.presenter-contact {
+margin-top:0;
+}
+
+/*Presenters archive pages to list all presenters*/
+.post-type-archive-presenter .presenter h1 {
+font-size: 1.8em;
+margin-bottom: 0;
+margin-top: .5em;
+width: 100%;
+position:static;
+margin-left: 140px;
+}
+.post-type-archive-presenter .post-entry p {
+margin: 0;
+}
+.post-type-archive-presenter .post-entry img {
+margin: -22px 20px 20px 0;
+}
+.post-type-archive-presenter .read-more {
+clear:none;
+}
+.post-type-archive-presenter div.type-presenter {
+clear:both;
+}
