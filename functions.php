@@ -445,7 +445,7 @@ if( !function_exists( 'responsive_breadcrumb_lists' ) ) :
 				if( get_post_type() != 'post' ) {
 					$post_type = get_post_type_object( get_post_type() );
 					$slug      = $post_type->rewrite;
-					printf( $link, $homeLink . '/' . $slug['slug'] . '/', $post_type->labels->name ); //DC - Only change is here: use name instead of singular_name
+					printf( $link, $homeLink . $slug['slug'] . '/', $post_type->labels->name ); //DC - Only change is here: use name instead of singular_name and remove leading slash
 					if( $showCurrent == 1 ) {
 						echo $delimiter . $before . get_the_title() . $after;
 					}
