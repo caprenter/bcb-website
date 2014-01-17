@@ -159,6 +159,7 @@ position: relative;
 z-index: 2;
 width: 211px;
 left: 10px;
+min-height: 2em;
 }
 .presenter-image {
 -webkit-border-radius: 4px;
