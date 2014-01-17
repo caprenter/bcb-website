@@ -36,7 +36,7 @@ get_header(); ?>
 			<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<?php responsive_entry_top(); ?>
 
-				<?php get_template_part( 'post-meta-page' ); ?>
+				<?php get_template_part( 'post-meta' ); ?>
 
 				<div class="post-entry">
 					<?php if( has_post_thumbnail() ) : ?>

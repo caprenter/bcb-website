@@ -187,7 +187,8 @@ margin-top:0;
 }
 
 /*Presenters archive pages to list all presenters*/
-.post-type-archive-presenter .presenter h1 {
+.post-type-archive-presenter .presenter h1,
+.post-type-archive-presenter .presenter h2 {
 font-size: 1.8em;
 margin-bottom: 0;
 margin-top: .5em;
@@ -195,6 +196,10 @@ width: 100%;
 position:static;
 margin-left: 140px;
 }
+.post-type-archive-presenter .post-meta {
+display:none;
+}
+
 .post-type-archive-presenter .post-entry p {
 margin: 0;
 }
