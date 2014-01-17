@@ -213,3 +213,7 @@ clear:none;
 .post-type-archive-presenter div.type-presenter {
 clear:both;
 }
+
+#footer-wrapper .col-540 {
+width:98%;
+}
