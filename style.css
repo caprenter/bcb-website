@@ -217,3 +217,77 @@ clear:both;
 #footer-wrapper .col-540 {
 width:98%;
 }
+
+
+
+/*
+ Theme Name:   BCB Radio
+ Theme URI:    http://www.bcbradio.co.uk/
+ Description:  Responsive Child Theme
+ Author:       shi
+ Author URI:   http://esyou.com/
+ Template:     responsive
+ Version:      0.0.1
+ License: GNU General Public License
+ License URI: license.txt
+*/
+
+/* Main Course
+-------------------------------------------------------------- */
+html {background-color:#1C1F33 !important;}
+#container {margin:0 auto; max-width:100%; padding:0;}
+#wrapper {width:920px; margin:0 auto; border:0; background-color:#fff; border-radius:0;
+-moz-box-shadow:    0px 0px 30px 3px #05050A;
+-webkit-box-shadow: 0px 0px 30px 3px #05050A;
+box-shadow:         0px 0px 30px 3px #05050A;}
+
+/* Header Course
+-------------------------------------------------------------- */
+#header {width:100%; margin:0 auto; background:url('/wordpress/wp-content/themes/responsive-child/core/images/header-back.png') #ccc;}
+#logo {margin:0 auto; width:960px; height:100px; background:url('/wordpress/wp-content/themes/responsive-child/core/images/default-logo.png') no-repeat; float:none;}
+#logo a img {visibility:hidden;}
+.main-nav {background-color:#000;}
+.menu {background:none, #000; width:960px; margin:0 auto;}
+.menu a {border-left:1px solid #2C448F; font-size:16px; font-weight:normal; height:55px; line-height:55px; text-shadow:0 -1px 1px #0D0D42;}
+.menu a:hover {background-color:#2D5FFF; background-image:none;}
+
+/* Blog Course
+-------------------------------------------------------------- */
+h2 a {color:#111 !important;}
+h2 a:hover {color:#666 !important;}
+.post-meta a {color:#697492;}
+.post-meta a:hover {color:#505C7C;}
+
+/* Footer Course
+-------------------------------------------------------------- */
+#footer {background-color:#000; max-width:100%; padding:0;}
+#footer-wrapper {width:960px; margin:0 auto; margin-top:20px;}
+#footer a {color:#515188 !important;}
+#footer a:hover {color:#6F6FB8 !important;}
+#colophon-widget.col-940 {margin-bottom:40px !important;}
+#colophon-widget.col-940 {background:url('/wordpress/wp-content/themes/responsive-child/core/images/footer-back.png') 0px -10px no-repeat;}
+.colophon-widget.widget-wrapper {border:0; border-radius:0; padding:0; color:#999; font-size:13px; line-height:1.6em;}
+
+/* Sidebar Widget
+-------------------------------------------------------------- */
+.widget-title h3 {padding:5px 0 10px 0;}
+#widgets .textwidget {padding-bottom:5px;}
+
+/* Listen Live Sidebar Widget
+-------------------------------------------------------------- */
+#text-7.widget-wrapper {border:0; background:url('/wordpress/wp-content/themes/responsive-child/core/images/listen-live.png') 35px 0px no-repeat #232529; color:#fff;}
+#text-7.widget-wrapper a {color:#fff; font-weight:bold;}
+#text-7.widget-wrapper a:hover {color:#FFAE02;}
+#text-7 h3 {color:#7999FF;}
+
+/* Listen Again Sidebar Widget
+-------------------------------------------------------------- */
+#text-3.widget-wrapper {border:0; background:url('/wordpress/wp-content/themes/responsive-child/core/images/listen-again.png') 35px 0px no-repeat #E4D4E2; color:#fff;}
+#text-3.widget-wrapper a {color:#B183AA; font-weight:bold;}
+#text-3.widget-wrapper a:hover {color:#B156A3;}
+
+/* BCB Webmail Sidebar Widget
+-------------------------------------------------------------- */
+#text-5.widget-wrapper {border:0; background:url('/wordpress/wp-content/themes/responsive-child/core/images/webmail.png') 35px 0px no-repeat #DDE2E6; color:#fff;}
+#text-5.widget-wrapper a {color:#839CB1; font-weight:bold;}
+#text-5.widget-wrapper a:hover {color:#5E8DB5;}
