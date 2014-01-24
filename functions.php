@@ -66,7 +66,7 @@ add_filter('query_vars', 'wpse49393_query_vars');
 
 function wpse49393_rewrite_rules_array($rewrite_rules)
 {
-    $rewrite_rules['new-schedule/([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/?$'] = 'index.php?pagename=new-schedule&dyear=$matches[1]&dmonthnum=$matches[2]&dday=$matches[3]';
+    $rewrite_rules['schedule/([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/?$'] = 'index.php?pagename=schedule&dyear=$matches[1]&dmonthnum=$matches[2]&dday=$matches[3]';
     return $rewrite_rules;
 }
 add_filter('rewrite_rules_array', 'wpse49393_rewrite_rules_array');
