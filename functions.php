@@ -548,3 +548,26 @@ if( !function_exists( 'responsive_breadcrumb_lists' ) ) :
 	} // end responsive_breadcrumb_lists
 
 endif;
+//ORDER PRESENTERS BY SURNAME FIX
+add_action('pre_get_posts', 'orderPresentersBySurname');
+ 
+function orderPresentersBySurname( $query )
+{
+	// validate
+	if( is_admin() )
+	{
+		return $query;
+	}
+ 
+    // project example
+    if( isset($query->query_vars['post_type']) && $query->query_vars['post_type'] == 'presenter' )
+    {
+    	$query->set('orderby', 'meta_value');  
+    	$query->set('meta_key', 'surname');  
+    	$query->set('order', 'ASC'); 
+    }   
+ 
+	// always return
+	return $query;
+ 
+}
