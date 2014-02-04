@@ -66,7 +66,7 @@ add_filter('query_vars', 'wpse49393_query_vars');
 
 function wpse49393_rewrite_rules_array($rewrite_rules)
 {
-    $rewrite_rules['new-schedule/([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/?$'] = 'index.php?pagename=new-schedule&dyear=$matches[1]&dmonthnum=$matches[2]&dday=$matches[3]';
+    $rewrite_rules['schedule/([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/?$'] = 'index.php?pagename=schedule&dyear=$matches[1]&dmonthnum=$matches[2]&dday=$matches[3]';
     return $rewrite_rules;
 }
 add_filter('rewrite_rules_array', 'wpse49393_rewrite_rules_array');
@@ -548,3 +548,26 @@ if( !function_exists( 'responsive_breadcrumb_lists' ) ) :
 	} // end responsive_breadcrumb_lists
 
 endif;
+//ORDER PRESENTERS BY SURNAME FIX
+add_action('pre_get_posts', 'orderPresentersBySurname');
+ 
+function orderPresentersBySurname( $query )
+{
+	// validate
+	if( is_admin() )
+	{
+		return $query;
+	}
+ 
+    // project example
+    if( isset($query->query_vars['post_type']) && $query->query_vars['post_type'] == 'presenter' )
+    {
+    	$query->set('orderby', 'meta_value');  
+    	$query->set('meta_key', 'surname');  
+    	$query->set('order', 'ASC'); 
+    }   
+ 
+	// always return
+	return $query;
+ 
+}

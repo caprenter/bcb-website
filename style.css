@@ -262,6 +262,7 @@ h2 a:hover {color:#666 !important;}
 -------------------------------------------------------------- */
 #footer {background-color:#000; max-width:100%; padding:0; color:#fff;}
 #footer-wrapper {width:960px; margin:0 auto; margin-top:20px;}
+<<<<<<< HEAD
 #footer a {color:#7676FF;}
 #footer a:hover {color:#ffffff !important;}
 #colophon-widget.col-940 {margin-bottom:40px !important;}
@@ -292,3 +293,8 @@ h2 a:hover {color:#666 !important;}
 #text-5.widget-wrapper {border:0; background:url('core/images/webmail.png') 35px 0px no-repeat #DDE2E6; color:#fff;}
 #text-5.widget-wrapper a {color:#839CB1; font-weight:bold;}
 #text-5.widget-wrapper a:hover {color:#5E8DB5;}
+
+#footer #menu-menu-2 a {
+color: #fff;
+font-size:1.2em;
+}
