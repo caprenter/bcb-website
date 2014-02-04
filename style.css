@@ -243,8 +243,8 @@ box-shadow:         0px 0px 30px 3px #05050A;}
 
 /* Header Course
 -------------------------------------------------------------- */
-#header {width:100%; margin:0 auto; background:url('/wordpress/wp-content/themes/responsive-child/core/images/header-back.png') #ccc;}
-#logo {margin:0 auto; width:960px; height:100px; background:url('/wordpress/wp-content/themes/responsive-child/core/images/default-logo.png') no-repeat; float:none;}
+#header {width:100%; margin:0 auto; background:url('core/images/header-back.png') #ccc;}
+#logo {margin:0 auto; width:960px; height:100px; background:url('core/images/default-logo.png') no-repeat; float:none;}
 #logo a img {visibility:hidden;}
 .main-nav {background-color:#000;}
 .menu {background:none, #000; width:960px; margin:0 auto;}
@@ -260,13 +260,14 @@ h2 a:hover {color:#666 !important;}
 
 /* Footer Course
 -------------------------------------------------------------- */
-#footer {background-color:#000; max-width:100%; padding:0;}
+#footer {background-color:#000; max-width:100%; padding:0; color:#fff;}
 #footer-wrapper {width:960px; margin:0 auto; margin-top:20px;}
-#footer a {color:#515188 !important;}
-#footer a:hover {color:#6F6FB8 !important;}
+#footer a {color:#7676FF;}
+#footer a:hover {color:#ffffff !important;}
 #colophon-widget.col-940 {margin-bottom:40px !important;}
-#colophon-widget.col-940 {background:url('/wordpress/wp-content/themes/responsive-child/core/images/footer-back.png') 0px -10px no-repeat;}
-.colophon-widget.widget-wrapper {border:0; border-radius:0; padding:0; color:#999; font-size:13px; line-height:1.6em;}
+#colophon-widget.col-940 {background:url('core/images/footer-back.png') 0px -10px no-repeat;}
+.colophon-widget.widget-wrapper {border:0; border-radius:0; padding:0; color:#fff; font-size:13px; line-height:1.6em;}
+#footer #menu-menu-2 a {color:#fff; font-size:1.2em;}
 
 /* Sidebar Widget
 -------------------------------------------------------------- */
@@ -275,19 +276,19 @@ h2 a:hover {color:#666 !important;}
 
 /* Listen Live Sidebar Widget
 -------------------------------------------------------------- */
-#text-7.widget-wrapper {border:0; background:url('/wordpress/wp-content/themes/responsive-child/core/images/listen-live.png') 35px 0px no-repeat #232529; color:#fff;}
-#text-7.widget-wrapper a {color:#fff; font-weight:bold;}
-#text-7.widget-wrapper a:hover {color:#FFAE02;}
-#text-7 h3 {color:#7999FF;}
+#wpb_widget-2.widget-wrapper {border:0; background:url('core/images/listen-live.png') 35px 0px no-repeat #232529; color:#fff;}
+#wpb_widget-2.widget-wrapper a {color:#fff; font-weight:bold;}
+#wpb_widget-2.widget-wrapper a:hover {color:#FFAE02;}
+#wpb_widget-2 h3 {color:#7999FF;}
 
 /* Listen Again Sidebar Widget
 -------------------------------------------------------------- */
-#text-3.widget-wrapper {border:0; background:url('/wordpress/wp-content/themes/responsive-child/core/images/listen-again.png') 35px 0px no-repeat #E4D4E2; color:#fff;}
+#text-3.widget-wrapper {border:0; background:url('core/images/listen-again.png') 35px 0px no-repeat #E4D4E2; color:#fff;}
 #text-3.widget-wrapper a {color:#B183AA; font-weight:bold;}
 #text-3.widget-wrapper a:hover {color:#B156A3;}
 
 /* BCB Webmail Sidebar Widget
 -------------------------------------------------------------- */
-#text-5.widget-wrapper {border:0; background:url('/wordpress/wp-content/themes/responsive-child/core/images/webmail.png') 35px 0px no-repeat #DDE2E6; color:#fff;}
+#text-5.widget-wrapper {border:0; background:url('core/images/webmail.png') 35px 0px no-repeat #DDE2E6; color:#fff;}
 #text-5.widget-wrapper a {color:#839CB1; font-weight:bold;}
 #text-5.widget-wrapper a:hover {color:#5E8DB5;}
