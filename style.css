@@ -260,13 +260,15 @@ h2 a:hover {color:#666 !important;}
 
 /* Footer Course
 -------------------------------------------------------------- */
-#footer {background-color:#000; max-width:100%; padding:0;}
+#footer {background-color:#000; max-width:100%; padding:0; color:#fff;}
 #footer-wrapper {width:960px; margin:0 auto; margin-top:20px;}
-#footer a {color:#515188;}
-#footer a:hover {color:#6F6FB8 !important;}
+<<<<<<< HEAD
+#footer a {color:#7676FF;}
+#footer a:hover {color:#ffffff !important;}
 #colophon-widget.col-940 {margin-bottom:40px !important;}
 #colophon-widget.col-940 {background:url('core/images/footer-back.png') 0px -10px no-repeat;}
-.colophon-widget.widget-wrapper {border:0; border-radius:0; padding:0; color:#999; font-size:13px; line-height:1.6em;}
+.colophon-widget.widget-wrapper {border:0; border-radius:0; padding:0; color:#fff; font-size:13px; line-height:1.6em;}
+#footer #menu-menu-2 a {color:#fff; font-size:1.2em;}
 
 /* Sidebar Widget
 -------------------------------------------------------------- */
