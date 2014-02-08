@@ -283,7 +283,7 @@ h2 a:hover {color:#666 !important;}
 
 /* Listen Again Sidebar Widget
 -------------------------------------------------------------- */
-#text-3.widget-wrapper {border:0; background:url('core/images/listen-again.png') 35px 0px no-repeat #E4D4E2; color:#fff;}
+#text-3.widget-wrapper {border:0; background:url('core/images/listen-again.png') 35px 0px no-repeat #FFC83A; color:#fff;}
 #text-3.widget-wrapper:hover {background-color:#E8DDE6; color:#B156A3;}
 #text-3.widget-wrapper a {color:#B183AA; font-weight:bold;}
 #text-3.widget-wrapper a:hover {color:#B156A3;}
