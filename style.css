@@ -284,12 +284,14 @@ h2 a:hover {color:#666 !important;}
 /* Listen Again Sidebar Widget
 -------------------------------------------------------------- */
 #text-3.widget-wrapper {border:0; background:url('core/images/listen-again.png') 35px 0px no-repeat #E4D4E2; color:#fff;}
+#text-3.widget-wrapper:hover {background-color:#E8DDE6; color:#B156A3;}
 #text-3.widget-wrapper a {color:#B183AA; font-weight:bold;}
 #text-3.widget-wrapper a:hover {color:#B156A3;}
 
 /* BCB Webmail Sidebar Widget
 -------------------------------------------------------------- */
 #text-5.widget-wrapper {border:0; background:url('core/images/webmail.png') 35px 0px no-repeat #DDE2E6; color:#fff;}
+#text-5.widget-wrapper:hover {background-color:#E3E9EE; color:#5E8DB5;}
 #text-5.widget-wrapper a {color:#839CB1; font-weight:bold;}
 #text-5.widget-wrapper a:hover {color:#5E8DB5;}
 
