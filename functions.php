@@ -219,11 +219,11 @@ function theme_on_air_now($eventFeed) {
       
         //Description
         if (strlen($event->content)>0) {
-          echo '<p class="on-now-description" style="color:aliceblue;">';
+          echo '<p class="on-now-description" style="color:aliceblue; font-size:14px; line-height:initial; font-weight:normal;">';
           
           echo  nl2br($event->content);
           echo '<br />';
-          echo '<div style="font-size:1.6em; color:#6580A7; font-weight:bold;">Listen Live</div>';
+          echo '<div style="font-size:1.4em; color:#6580A7; font-weight:bold; padding:30px 0 10px 0;">Listen Live</div>';
         }
           echo '</p></div>';
       }
