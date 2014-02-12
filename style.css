@@ -276,22 +276,32 @@ h2 a:hover {color:#666 !important;}
 
 /* Listen Live Sidebar Widget
 -------------------------------------------------------------- */
-#wpb_widget-2.widget-wrapper {border:0; background:url('core/images/listen-live.png') 35px 0px no-repeat #232529; color:#fff;}
+#wpb_widget-2.widget-wrapper {border:0; background:url('core/images/listen-live.png') 35px 100px no-repeat #232529; color:#fff;}
 #wpb_widget-2.widget-wrapper a {color:#fff; font-weight:bold;}
 #wpb_widget-2.widget-wrapper a:hover {color:#FFAE02;}
 #wpb_widget-2 h3 {color:#7999FF;}
 
 /* Listen Again Sidebar Widget
 -------------------------------------------------------------- */
-#text-3.widget-wrapper {border:0; background:url('core/images/listen-again.png') 35px 0px no-repeat #E4D4E2; color:#fff;}
+#text-3.widget-wrapper {border:0; background:url('core/images/listen-again.png') 35px 0px no-repeat #FFC83A; color:#fff;}
+#text-3.widget-wrapper:hover {background-color:#E8DDE6; color:#B156A3;}
 #text-3.widget-wrapper a {color:#B183AA; font-weight:bold;}
 #text-3.widget-wrapper a:hover {color:#B156A3;}
 
 /* BCB Webmail Sidebar Widget
 -------------------------------------------------------------- */
 #text-5.widget-wrapper {border:0; background:url('core/images/webmail.png') 35px 0px no-repeat #DDE2E6; color:#fff;}
+#text-5.widget-wrapper:hover {background-color:#E3E9EE; color:#5E8DB5;}
 #text-5.widget-wrapper a {color:#839CB1; font-weight:bold;}
 #text-5.widget-wrapper a:hover {color:#5E8DB5;}
+
+/* Listen Live in programme schedule
+-------------------------------------------------------------- */
+.programme.on {background:url('http://www.bcbradio.co.uk/wp-content/uploads/on-air-listen-live.png') no-repeat 500px #0029FF; -webkit-border-radius:4px; -moz-border-radius:4px; border-radius:4px; color:#fff; position:relative;}
+.on-air {font-size:0.5em; padding:5px 8px; margin:10px 33px 10px 0; display:block; background:#000; color:#F00; text-transform:uppercase; font-weight:bold; text-shadow:0px 0px 14px rgba(209, 12, 12, 1);}
+.programme_description a.listen-live {padding:0; display:block; position:absolute; top:15px; right:20px; width:100px; text-transform:uppercase; font-size:28px; line-height:1.0; text-align:center; color:aliceblue;}
+.programme_description a.listen-live:hover {color:#fff;}
+.programme_description p {max-width:350px;}
 
 #footer #menu-menu-2 a {
 color: #fff;
