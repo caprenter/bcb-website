@@ -223,7 +223,7 @@ function theme_on_air_now($eventFeed) {
           
           echo  nl2br($event->content);
           echo '<br />';
-          echo '<div style="font-size:1.6em; color:#6580A7; font-weight:bold;">Listen Live</div>';
+          echo '<div style="font-size:1.6em; color:#6580A7; font-weight:bold; margin-top:20px">Listen Live</div>';
         }
           echo '</p></div>';
       }

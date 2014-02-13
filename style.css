@@ -280,6 +280,7 @@ h2 a:hover {color:#666 !important;}
 #wpb_widget-2.widget-wrapper a {color:#fff; font-weight:bold;}
 #wpb_widget-2.widget-wrapper a:hover {color:#FFAE02;}
 #wpb_widget-2 h3 {color:#7999FF;}
+#wpb_widget-2 p {margin:0;}
 
 /* Listen Again Sidebar Widget
 -------------------------------------------------------------- */
