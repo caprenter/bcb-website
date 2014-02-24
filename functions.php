@@ -165,24 +165,6 @@ function theme_schedule_list($eventFeed) {
       
       //Description
       if (strlen($event->content)>0) {
-        //Add links to presenter pages if presenter info is given
-        //This is done by looking for the string; "Presented by: " which should then be followed by a comma separted list of presenters.
-        //presenter names are turned into slugs that should match pages on the site
-        $presenter_check = explode("Presented by: ",$event->content);
-        if (isset($presenter_check[1])) { //A string that doesn't contain the delimiter will simply return a one-length array of the original string.
-          $presenters  = explode(',',$presenter_check[1]); //This should give an arry of each presenter name
-          foreach ($presenters as $presenter) {
-            //replace the string with a link
-            //echo preg_replace($patterns, $replacements, $string);
-            $presenter = trim($presenter); //trim spaces
-            //Create the slug
-            $presenter_slug = preg_replace("/ /","-",$presenter);
-            $presenter_slug = strtolower($presenter_slug);
-            //echo $presenter_slug;
-            //Replace the presenter in the description text with a link
-            $event->content = preg_replace('/'. $presenter . '/', '<a href="http://www.bcbradio.co.uk/presenters/' . $presenter_slug . '">' . $presenter . '</a>', $event->content);
-          }
-        }
         echo '<p>';
         echo  nl2br($event->content);
         if ($status == "on") { echo '<br /><a class="listen-live" href="http://www.bcbradio.co.uk/player/">Listen Live</a>'; }
@@ -237,11 +219,11 @@ function theme_on_air_now($eventFeed) {
       
         //Description
         if (strlen($event->content)>0) {
-          echo '<p class="on-now-description" style="color:aliceblue;">';
+          echo '<p class="on-now-description" style="color:aliceblue; font-size:14px; line-height:initial; font-weight:normal;">';
           
           echo  nl2br($event->content);
           echo '<br />';
-          echo '<div style="font-size:1.6em; color:#6580A7; font-weight:bold; margin-top:20px">Listen Live</div>';
+          echo '<div style="font-size:1.4em; color:#6580A7; font-weight:bold; padding:30px 0 10px 0;">Listen Live</div>';
         }
           echo '</p></div>';
       }
