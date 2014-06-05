@@ -320,10 +320,14 @@ a.widgetbutton	{display:block; width:100%; margin:0 auto;}
 .programme_description a.listen-live:hover {color:#fff;}
 .programme_description p {max-width:350px;}
 
-#footer #menu-menu-2 a {
-color: #fff;
-font-size:1.2em;
-}
+/* Footer
+-------------------------------------------------------------- */
+#footer #menu-menu-2 a {color:#fff; font-size:1.2em;}
+#footer a	{color:#B2B2C4;}
+.footer-menu	{margin:0 auto;}
+.footer-menu li {display:inline-block; list-style-type: none; padding:5px 0; font-size:1.2em;}
+.footer-menu li a {border-left:1px solid #28273C;}
+#text-6 a	{color:#7676FF;}
 
 /* Front page
 -------------------------------------------------------------- */
