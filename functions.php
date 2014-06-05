@@ -190,7 +190,7 @@ function theme_schedule_list($eventFeed) {
         echo '</p></div></div>';
     }
   }
-  echo '</div><div style="clear:both"></div>';
+  echo '</div><div class="clear"></div>';
 }
 
 /* Function to display the output of a google calendar feed as a list
@@ -210,10 +210,10 @@ function theme_on_air_now($eventFeed) {
       if ($status == "on") {
         $found_on_air_event = true;
         echo '<a class="on-air-link" href="http://www.bcbradio.co.uk/player/" target="name"';
-		echo " onclick=\"window.open('http://www.bcbradio.co.uk/player/index.html','name','height=665, width=380,toolbar=no,directories=no,status=no, menubar=no,scrollbars=no,resizable=no'); return false;\" style=\"display:block; width:100%; margin:0 auto;\">";
-		echo '<div style="color:red; text-transform:uppercase; font-weight:bold; font-size:32px; text-shadow:0px 0px 14px rgba(209, 12, 12, 1); padding:10px 0;">On Air Now</div>';
+		echo " onclick=\"window.open('http://www.bcbradio.co.uk/player/index.html','name','height=665, width=380,toolbar=no,directories=no,status=no, menubar=no,scrollbars=no,resizable=no'); return false;\">";
+		echo '<div class="listenlive">On Air Now</div>';
         //echo '<h3 class="on-air-now">On Air Now</h3>';
-        echo '<span class="event-datetime" style="border-bottom:3px solid #ccc; padding-bottom:5px; width:100%; display:block; font-size:14px; color:#ccc;">' . date('D jS M H:i',strtotime($when->startTime)) . ' - ' .date('H:i',strtotime($when->endTime)) . '</span>';
+        echo '<span class="event-datetime">' . date('D jS M H:i',strtotime($when->startTime)) . ' - ' .date('H:i',strtotime($when->endTime)) . '</span>';
         //Build the output
         //echo '<div class="programme ' . $status . '">';
         //echo $when->endTime;
@@ -225,7 +225,7 @@ function theme_on_air_now($eventFeed) {
         //echo '</div>';
       
         //Formats the programme infomation
-        echo '<div style="padding-top:10px;">';
+        echo '<div class="listenlive-title">';
           //Title
           echo '<h4 class="on-now-title">';
             //echo '<a href="' . $event->link[0]->href . '">';
@@ -237,11 +237,11 @@ function theme_on_air_now($eventFeed) {
       
         //Description
         if (strlen($event->content)>0) {
-          echo '<p class="on-now-description" style="color:aliceblue; font-size:14px; line-height:initial; font-weight:normal;">';
+          echo '<p class="on-now-description">';
           
           echo  nl2br($event->content);
           echo '<br />';
-          echo '<div style="font-size:1.4em; color:#6580A7; font-weight:bold; padding:30px 0 10px 0;">Listen Live</div>';
+          echo '<div class="listenlive-txt">Listen Live</div>';
         }
           echo '</p></div>';
       }
@@ -250,8 +250,8 @@ function theme_on_air_now($eventFeed) {
   if (!isset($found_on_air_event)) { //Nothing on!
     echo '<div class="textwidget"><a href="http://www.bcbradio.co.uk/player/" target="name"';
 	echo " onclick=\"window.open('http://www.bcbradio.co.uk/player/index.html','name','height=665, width=380,toolbar=no,directories=no,status=no, menubar=no,scrollbars=no,resizable=no'); return false;\" style=\"display:block; width:100%; margin:0 auto;\">";
-	echo '<div style="padding:5px 0 5px 0; color:#fff; font-size:24px; font-weight:700; line-height:23px;">Listen Live</div>';
-	echo '<div style="color:#D18600; font-weight:bold;">bcbradio.co.uk/player</div></a></div>';
+	echo '<div class="standby">Standby</div>';
+	echo '<div class="listenlive-link">bcbradio.co.uk/player</div></a></div>';
 
   }
 }
