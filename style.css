@@ -86,6 +86,7 @@ margin:0;
 }
 a.on-air-link {
 font-size:1.6em;
+display:block; width:100%; margin:0 auto;
 }
 /*The last 29 days of the month are the hardest."- Nikola Tesla*/
 
@@ -240,6 +241,7 @@ html {background-color:#1C1F33 !important;}
 -moz-box-shadow:    0px 0px 30px 3px #05050A;
 -webkit-box-shadow: 0px 0px 30px 3px #05050A;
 box-shadow:         0px 0px 30px 3px #05050A;}
+.clear	{clear:both;}
 
 /* Header Course
 -------------------------------------------------------------- */
@@ -281,13 +283,25 @@ h2 a:hover {color:#666 !important;}
 #wpb_widget-2.widget-wrapper a:hover {color:#FFAE02;}
 #wpb_widget-2 h3 {color:#7999FF;}
 #wpb_widget-2 p {margin:0;}
+.listenlive	{color:red; text-transform:uppercase; font-weight:bold; font-size:32px; text-shadow:0px 0px 14px rgba(209, 12, 12, 1); padding:10px 0;}
+.event-datetime	{border-bottom:3px solid #ccc; padding-bottom:5px; width:100%; display:block; font-size:14px; color:#ccc;}
+.listenlive-title {padding-top:10px;}
+p.on-now-description {color:aliceblue; font-size:14px; line-height:initial; font-weight:normal;}
+.listenlive-txt	{font-size:1.4em; color:#6580A7; font-weight:bold; padding:30px 0 10px 0;}
+.standby	{padding:5px 0 5px 0; color:#fff; font-size:24px; font-weight:700; line-height:23px;}
+.listenlive-link {color:#7999FF; font-weight:bold; font-size:1.2em; padding-top:10px;}
+
 
 /* Listen Again Sidebar Widget
 -------------------------------------------------------------- */
-#text-3.widget-wrapper {border:0; background:url('core/images/listen-again.png') 35px 0px no-repeat #FFA300; color:#fff;}
-#text-3.widget-wrapper:hover {background-color:#FFC83A;}
+#text-3.widget-wrapper {border:0; background: url('core/images/listen-live.png') 35px 25px no-repeat #232529; color:#fff;}
+#text-3.widget-wrapper:hover {background-color:#0A1B3F;}
 #text-3.widget-wrapper a {color:#B183AA; font-weight:bold;}
 #text-3.widget-wrapper a:hover {color:#B156A3;}
+a.widgetbutton	{display:block; width:100%; margin:0 auto;}
+.iplayer	{font-size:1.5em; margin-bottom:15px; color:#F00; font-weight:bold; text-shadow:0px 0px 14px rgba(209, 12, 12, 1);}
+.subtext	{padding-bottom:5px; color:#fff; font-size:18px; font-weight:normal; line-height:1.1em;}
+.listenagain	{padding-top:10px; font-size:1.7em; color:#7999FF;}
 
 /* BCB Webmail Sidebar Widget
 -------------------------------------------------------------- */
