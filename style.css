@@ -330,3 +330,15 @@ font-size:1.2em;
 .front-title	{font-size:2.3em; line-height:1.2em; padding-left:10px;}
 a.front-link	{display:block; background-color:#4784FF; padding:5px 0px; border-radius:4px; width:200px; color:#FFFFFF; font-size:1.2em; text-align:center; margin:0 auto;}
 a.front-link:hover	{background-color:#84ADFF;}
+
+
+/* Phones to tablets 767px and below
+-------------------------------------------------------------- */
+@media screen and (max-width: 767px) {
+div#wrapper, div#footer-wrapper, div#logo {width:100%; padding:0; margin:0;}
+div#widgets	{margin:0;}
+.front-title	{font-size:1.8em; padding:0 10px;}
+iframe		{width:90% !important;}
+.widget-wrapper	{margin:10px;}
+#logo		{background:url('http://www.bcbradio.co.uk/wp-content/uploads/media-logo.png') no-repeat;}
+}
