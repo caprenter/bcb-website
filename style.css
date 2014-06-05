@@ -278,7 +278,7 @@ h2 a:hover {color:#666 !important;}
 
 /* Listen Live Sidebar Widget
 -------------------------------------------------------------- */
-#wpb_widget-2.widget-wrapper {border:0; background:url('core/images/listen-live.png') 35px 100px no-repeat #232529; color:#fff;}
+#wpb_widget-2.widget-wrapper {border:0; background:url('core/images/listen-live.png') 35px 100px no-repeat rgb(11, 35, 54); color:#fff;}
 #wpb_widget-2.widget-wrapper a {color:#fff; font-weight:bold;}
 #wpb_widget-2.widget-wrapper a:hover {color:#FFAE02;}
 #wpb_widget-2 h3 {color:#7999FF;}
@@ -294,7 +294,7 @@ p.on-now-description {color:aliceblue; font-size:14px; line-height:initial; font
 
 /* Listen Again Sidebar Widget
 -------------------------------------------------------------- */
-#text-3.widget-wrapper {border:0; background: url('core/images/listen-live.png') 35px 25px no-repeat #232529; color:#fff;}
+#text-3.widget-wrapper {border:0; background: url('core/images/listen-live.png') 35px 25px no-repeat #232529; color:#fff; padding-top:0;}
 #text-3.widget-wrapper:hover {background-color:#0A1B3F;}
 #text-3.widget-wrapper a {color:#B183AA; font-weight:bold;}
 #text-3.widget-wrapper a:hover {color:#B156A3;}
@@ -310,7 +310,7 @@ a.widgetbutton	{display:block; width:100%; margin:0 auto;}
 #text-5.widget-wrapper a {color:#839CB1; font-weight:bold;}
 #text-5.widget-wrapper a:hover {color:#5E8DB5;}
 
-/* Listen Live in programme schedule
+/* Schedule - Listen Live in programme schedule
 -------------------------------------------------------------- */
 .programme.on {background:url('http://www.bcbradio.co.uk/wp-content/uploads/on-air-listen-live.png') no-repeat 500px #0029FF; -webkit-border-radius:4px; -moz-border-radius:4px; border-radius:4px; color:#fff; position:relative;}
 .programme.on a {color:#FFA300;}
