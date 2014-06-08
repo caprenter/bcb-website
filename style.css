@@ -276,6 +276,9 @@ h2 a:hover {color:#666 !important;}
 .widget-title h3 {padding:5px 0 10px 0;}
 #widgets .textwidget {padding-bottom:5px;}
 
+#text-7.widget-wrapper	{border:0; background-color:transparent;} /* Exa Sponsor */
+#text-4.widget-wrapper	{padding-bottom:0;} /* Facebook */
+
 /* Listen Live Sidebar Widget
 -------------------------------------------------------------- */
 #wpb_widget-2.widget-wrapper {border:0; background:url('http://www.bcbradio.co.uk/wp-content/uploads/play.png') 35px 100px no-repeat #000; color:#fff;}
@@ -294,6 +297,7 @@ p.on-now-description {color:aliceblue; font-size:14px; line-height:initial; font
 
 /* Listen Again Sidebar Widget
 -------------------------------------------------------------- */
+#text-3.widget-wrapper.widget_text	{padding:20px;}
 #text-3.widget-wrapper {border:0; background: url('http://www.bcbradio.co.uk/wp-content/uploads/play-again.png') 5px 15px no-repeat #232529; color:#fff; padding-top:0;}
 #text-3.widget-wrapper:hover {background-color:#0A1B3F;}
 #text-3.widget-wrapper a {color:#B183AA; font-weight:bold;}
