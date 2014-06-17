@@ -340,6 +340,11 @@ a.widgetbutton	{display:block; width:100%; margin:0 auto;}
 a.front-link	{display:block; background-color:#4784FF; padding:5px 0px; border-radius:4px; width:200px; color:#FFFFFF; font-size:1.2em; text-align:center; margin:0 auto;}
 a.front-link:hover	{background-color:#84ADFF;}
 
+/* Presenter profiles
+-------------------------------------------------------------- */
+.presenter h1 {left:30px; color:#fff; top:10px;}
+.single-presenter #widgets {margin-top:40px;}
+
 
 /* Phones to tablets 767px and below
 -------------------------------------------------------------- */
