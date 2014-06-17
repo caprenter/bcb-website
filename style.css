@@ -300,8 +300,7 @@ p.on-now-description {color:aliceblue; font-size:14px; line-height:initial; font
 #text-3.widget-wrapper.widget_text	{padding:20px;}
 #text-3.widget-wrapper {border:0; background: url('http://www.bcbradio.co.uk/wp-content/uploads/play-again.png') 5px 15px no-repeat #232529; color:#fff; padding-top:0;}
 #text-3.widget-wrapper:hover {background-color:#0A1B3F;}
-#text-3.widget-wrapper a {color:#B183AA; font-weight:bold;}
-#text-3.widget-wrapper a:hover {color:#B156A3;}
+#text-3.widget-wrapper.widget_text a.on-air-link	{display:none;}
 a.widgetbutton	{display:block; width:100%; margin:0 auto;}
 .iplayer	{font-size:1.5em; margin-bottom:15px; color:#F00; font-weight:bold; text-shadow:0px 0px 14px rgba(209, 12, 12, 1);}
 .subtext	{padding-bottom:5px; color:#fff; font-size:18px; font-weight:normal; line-height:1.1em;}
