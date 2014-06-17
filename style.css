@@ -92,7 +92,7 @@ display:block; width:100%; margin:0 auto;
 
 /* Navigation bar for the Schedule page */
 .schedule-nav {
-background:
+background:none;
 }
 
 .schedule-nav ol {
@@ -319,7 +319,7 @@ a.widgetbutton	{display:block; width:100%; margin:0 auto;}
 -------------------------------------------------------------- */
 .programme.on {background:url('http://www.bcbradio.co.uk/wp-content/uploads/on-air-listen-live.png') no-repeat 500px #0029FF; -webkit-border-radius:4px; -moz-border-radius:4px; border-radius:4px; color:#fff; position:relative;}
 .programme.on a {color:#FFA300;}
-.on-air {font-size:0.5em; padding:5px 8px; margin:10px 33px 10px 0; display:block; background:#000; color:#F00; text-transform:uppercase; font-weight:bold; text-shadow:0px 0px 14px rgba(209, 12, 12, 1);}
+.on-air {font-size:0.5em; padding:5px 8px; margin:10px 33px 10px 0; display:block; background:#000; color:#F00; text-transform:uppercase; font-weight:bold; text-shadow:text-shadow: 1px 1px 5px #f00;}
 .programme_description a {color:#80BDFF; font-weight:bold;}
 .programme_description a.listen-live {padding:0; display:block; position:absolute; top:15px; right:20px; width:100px; text-transform:uppercase; font-size:28px; line-height:1.0; text-align:center; color:aliceblue;}
 .programme_description a.listen-live:hover {color:#fff;}
@@ -366,5 +366,11 @@ iframe		{width:90% !important;}
 .presenter-content	{float:none; width:90%;}
 .post-entry		{display;block;}
 .widget-wrapper.presenter	{float:none; display:block; margin:auto; width:90%; border-radius:0;}
-.presenter-image	{border-radius:0;}
+.programme.on, .presenter-image	{border-radius:0;}
+.on-air			{margin-right:10px; text-align:center;}
+.programme_description	{width:80%; margin-left:10px;}
+.programme_description a.listen-live	{font-size:1.2em; top:0; background-color:#3F05A7; padding:10px 5px; text-align:center;}
+.schedule-nav ol	{margin:auto; text-align:center; padding:10px;}
+.schedule-nav ol li	{float:none; display:inline-block; vertical-align:top; padding:10px 0; min-width:60px;}
+.schedule-nav ol li.featured-day	{border-radius:5px;}
 }
