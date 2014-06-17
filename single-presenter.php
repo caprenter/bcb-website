@@ -49,7 +49,7 @@ get_header(); ?>
 					<?php the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
           </div>
           <!--Custom Field Data-->
-          <div class="widget-wrapper" style="float: right; width: 33%;margin-top:-110px">
+          <div class="widget-wrapper" style="float:left; width:33%; margin-top:-110px">
             <h3 style="margin-top:0">Programmes</h3>
             <p><?php echo get_post_meta($post->ID, "programmes", true); ?></p>
               <?php 
