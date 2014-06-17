@@ -25,6 +25,8 @@ if( !defined( 'ABSPATH' ) ) {
 
 get_header(); ?>
 
+<a href="http://www.bcbradio.co.uk/presenters/" class="back_presenters">Back to Presenters</a>
+
 <div id="content" class="<?php echo implode( ' ', responsive_get_content_classes() ); ?>">
 
 	<?php if( have_posts() ) : ?>
