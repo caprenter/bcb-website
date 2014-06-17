@@ -348,17 +348,23 @@ a.front-link:hover	{background-color:#84ADFF;}
 .presenter-content p	{font-size:1.2em; line-height:1.4em;}
 a.back_presenters	{display:block; padding:20px 0 0 5px;}
 #content		{margin-top:20px;}
-.post-type-archive-presenter .post-entry p {font-size:1.0em; line-height:1.3em; padding:10px 40px 5px 0; text-align:justify;}
+.post-type-archive-presenter .post-entry p {font-size:1.0em; line-height:1.3em; padding:10px 0px 5px 0; text-align:justify;}
 .post-type-archive-presenter div.type-presenter {padding:0 10px 10px 10px;}
 h1.present		{margin-top:0; margin-bottom:0.8em;}
+.widget-wrapper.presenter	{float:left; width:33%; margin-top:-110px}
 
 /* Phones to tablets 767px and below
 -------------------------------------------------------------- */
 @media screen and (max-width: 767px) {
-div#wrapper, div#footer-wrapper, div#logo {width:100%; padding:0; margin:0;}
+div#wrapper, div#footer-wrapper, div#logo {width:100%; padding:0; margin:0; max-width:767px; overflow:hidden;}
 div#widgets	{margin:0;}
 .front-title	{font-size:1.8em; padding:0 10px;}
 iframe		{width:90% !important;}
 .widget-wrapper	{margin:10px;}
 #logo		{background:url('http://www.bcbradio.co.uk/wp-content/uploads/media-logo.png') no-repeat;}
+.presenter h1	{left:10px; color:#fff; top:-5px;}
+.presenter-content	{float:none; width:90%;}
+.post-entry		{display;block;}
+.widget-wrapper.presenter	{float:none; display:block; margin:auto; width:90%; border-radius:0;}
+.presenter-image	{border-radius:0;}
 }
