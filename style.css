@@ -344,7 +344,8 @@ a.front-link:hover	{background-color:#84ADFF;}
 -------------------------------------------------------------- */
 .presenter h1 {left:30px; color:#fff; top:10px;}
 .single-presenter #widgets {margin-top:40px;}
-
+.presenter-content br	{line-height:2.4em;}
+.presenter-content p	{font-size:1.2em; line-height:1.4em;}
 
 /* Phones to tablets 767px and below
 -------------------------------------------------------------- */
