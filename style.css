@@ -343,10 +343,11 @@ a.front-link:hover	{background-color:#84ADFF;}
 /* Presenter profiles
 -------------------------------------------------------------- */
 .presenter h1 {left:30px; color:#fff; top:10px;}
-.single-presenter #widgets {margin-top:40px;}
+.single-presenter #widgets {margin-top:20px;}
 .presenter-content br	{line-height:2.4em;}
 .presenter-content p	{font-size:1.2em; line-height:1.4em;}
 a.back_presenters	{display:block; padding:20px 0 0 5px;}
+#content		{margin-top:20px;}
 
 /* Phones to tablets 767px and below
 -------------------------------------------------------------- */
