@@ -321,7 +321,7 @@ a.widgetbutton	{display:block; width:100%; margin:0 auto;}
 .programme.on a {color:#FFA300;}
 .on-air {font-size:0.5em; padding:5px 8px; margin:10px 33px 10px 0; display:block; background:#000; color:#F00; text-transform:uppercase; font-weight:bold; text-shadow:text-shadow: 1px 1px 5px #f00;}
 .programme_description a {color:#80BDFF; font-weight:bold;}
-.programme_description a.listen-live {padding:0; display:block; position:absolute; top:15px; right:20px; width:100px; text-transform:uppercase; font-size:28px; line-height:1.0; text-align:center; color:aliceblue;}
+.programme_description a.listen-live {padding:0; display:block; position:absolute; top:15px; right:20px; width:120px; text-transform:uppercase; font-size:28px; line-height:1.0; text-align:center; color:aliceblue;}
 .programme_description a.listen-live:hover {color:#fff;}
 .programme_description p {max-width:350px;}
 
