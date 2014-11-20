@@ -21,9 +21,22 @@ As the parent theme alters and updates, we plan to keep this code in
 with the current release.
 
 Everything here is also provided under GPLv3 unless stated otherwise. 
-In practice the exceptions are the ZendGdata libraries and some 
-javscript libraries as described in the Responsive-Theme-readme.txt
+In practice the exceptions are some of the javscript libraries as 
+described in the Responsive-Theme-readme.txt
 
-Parsing of Google Calendars relies on the ZendGata code libraries which 
-is released under the Zend Framework license. You can find a copy of 
-this license in the ZendGdata directory underLICENSE.txt.  
+Parsing of Google Calendars relies on the google-api-php-client:
+https://github.com/google/google-api-php-client 
+
+You will need to clone or copy those files into the same directory as 
+this README.md file.
+
+You also need to set up a google developer account and in the Google
+Developer Console create a 'Service Account'
+
+Make a copy of example.google-api-credentials.php. 
+Rename it google-api-credentials.php and enter the account details.
+You should make sure this files is only readable by the webserver.
+this file is called in functions.php. If you want to alter the name of 
+your file and it's location, go ahed.
+You will also need to place the Service Account Private Key file on your
+server.
