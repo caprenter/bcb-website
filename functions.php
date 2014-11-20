@@ -90,11 +90,11 @@ Zend_Loader::loadClass('Zend_Gdata_Calendar');
 //google calendar.
 //This repleces the Zend method used previously
 // Here may not be the best place, but it'll do.
-define('GOOGLE_API_LIB', $templatePath . '/google-api-php-client/src'); 
+define('GOOGLE_API_LIB', $templatePath . '/google-api-php-client'); 
 set_include_path(GOOGLE_API_LIB); //defined in functions.php
 require_once (GOOGLE_API_LIB . '/autoload.php');
-require_once (GOOGLE_API_LIB . '/Google/Client.php');
-require_once (GOOGLE_API_LIB . '/Google/Service/Calendar.php');
+require_once (GOOGLE_API_LIB . '/src/Google/Client.php');
+require_once (GOOGLE_API_LIB . '/src/Google/Service/Calendar.php');
 
 date_default_timezone_set('Europe/London');
 
@@ -112,8 +112,9 @@ function outputCalendarByDateRange($startDate, $endDate)
   // Using the google-api-php-client, we are required to connect using a google 
   // developer account. The account credentials are in caprenter's account
   // Thanks to https://mytechscraps.wordpress.com/2014/05/15/accessing-google-calendar-using-the-php-api/
-  include ($templatePath . 'google-api-credentials.php'; //$client_id, $service_account_name, $key_file_location
-
+  include ($templatePath . 'google-api-credentials.php'); //$client_id, $service_account_name, $key_file_location
+  
+  
   // Calendar id
   $calName = '0u75pl2eviul8pl1tcnsra3810@group.calendar.google.com';
 
@@ -135,13 +136,13 @@ function outputCalendarByDateRange($startDate, $endDate)
   $optParams = array("orderBy" => "startTime");
   $optParams = array("singleEvents" => true,
                       //"timeMin" => $startDate->format('Y-m-d') . "T00:00:00Z",
-                      "timeMin" => $startDate->format('c'),
-                      "timeMax" => $endDate->format('c'),
+                      "timeMin" => $startDate,
+                      "timeMax" => $endDate,
                       "orderBy" => "startTime",);
   
   try {
     $events = $service->events->listEvents($calName, $optParams);
-    return $events
+    return $events;
   
   } catch (Exception $e) {
     // Report the exception to the user
@@ -167,7 +168,7 @@ function theme_schedule_list($events) {
   $i=0;
   foreach ($events->getItems() as $event) {
     //Check to see if the programme is on now, in the future or in the past
-    $status = programme_status($event->start->dateTime);  
+    $status = programme_status($event->start->dateTime, $event->end->dateTime);  
     //Build the output
     echo '<div class="programme ' . $status . '">';
     
@@ -217,7 +218,7 @@ function theme_schedule_list($events) {
   
   
   
-function (dead) {  
+function edad() {  
   foreach ($eventFeed as $event) {
     foreach ($event->when as $when) { //looping through each event
       //if ($i==0) {
@@ -290,7 +291,7 @@ function theme_on_air_now($events) {
   foreach ($events->getItems() as $event) { //looping through each event
       
       //Check to see if the programme is on now, in the future or in the past
-      $status = programme_status($event->start->dateTime);  
+      $status = programme_status($event->start->dateTime, $event->end->dateTime);  
       if ($status == "on") {
         $found_on_air_event = true;
         echo '<a class="on-air-link" href="http://www.bcbradio.co.uk/player/" target="name"';
@@ -348,11 +349,11 @@ function theme_on_air_now($events) {
  * @return string future/past/om
  * 
 */
-function programme_status ($when) {
+function programme_status ($start,$end) {
   $time_now = time();
-  if (strtotime($when->startTime) > $time_now) {
+  if (strtotime($start) > $time_now) {
     $status = "future";
-  } elseif (strtotime($when->endTime) < $time_now) {
+  } elseif (strtotime($end) < $time_now) {
     $status = "past";
   } else {
     $status = "on";
