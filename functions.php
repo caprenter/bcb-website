@@ -85,6 +85,17 @@ set_include_path(ZEND_LIB); //defined in functions.php
 include(ZEND_LIB .'/Zend/Loader.php');
 Zend_Loader::loadClass('Zend_Gdata');
 Zend_Loader::loadClass('Zend_Gdata_Calendar');
+
+//the below is to initiate the google-api-php-client functions needed to parse the 
+//google calendar.
+//This repleces the Zend method used previously
+// Here may not be the best place, but it'll do.
+define('GOOGLE_API_LIB', $templatePath . '/google-api-php-client/src'); 
+set_include_path(GOOGLE_API_LIB); //defined in functions.php
+require_once (GOOGLE_API_LIB . '/autoload.php');
+require_once (GOOGLE_API_LIB . '/Google/Client.php');
+require_once (GOOGLE_API_LIB . '/Google/Service/Calendar.php');
+
 date_default_timezone_set('Europe/London');
 
 /* Queries the calendar in question and brings back some data
@@ -97,45 +108,116 @@ date_default_timezone_set('Europe/London');
 */
 function outputCalendarByDateRange($startDate, $endDate) 
 {
-  $gdataCal = new Zend_Gdata_Calendar();
-  $query = $gdataCal->newEventQuery();
-  //$query->setUser('bradlug.co.uk_finmi7rdup70u6rrrkbt9htg3c%40group.calendar.google.com');
-  //$query->setUser('j0levg4c0p2op08nf5elp3u50k%40group.calendar.google.com');
-  $query->setUser('0u75pl2eviul8pl1tcnsra3810%40group.calendar.google.com');
-  $query->setVisibility('public');
-  $query->setProjection('full');
-  $query->setOrderby('starttime');
-  $query->setSingleevents('true');
-  $query->setSortorder('ascending');
-  $query->setStartMin($startDate);
-  $query->setStartMax($endDate);
-  //$query->sortorder= 'ascending';
+  // Google API Service Account info (NB it is important that this is a 'Service" account
+  // Using the google-api-php-client, we are required to connect using a google 
+  // developer account. The account credentials are in caprenter's account
+  // Thanks to https://mytechscraps.wordpress.com/2014/05/15/accessing-google-calendar-using-the-php-api/
+  include ($templatePath . 'google-api-credentials.php'; //$client_id, $service_account_name, $key_file_location
 
+  // Calendar id
+  $calName = '0u75pl2eviul8pl1tcnsra3810@group.calendar.google.com';
+
+  // Make a connection to google
+  $client = new Google_Client();
+  $client->setApplicationName("Calendar test");
+
+  $service = new Google_Service_Calendar($client);
+
+  $key = file_get_contents($key_file_location);
+  $cred = new Google_Auth_AssertionCredentials(
+   $service_account_name,
+   array('https://www.googleapis.com/auth/calendar.readonly'),
+   $key
+  );
+
+  $client->setAssertionCredentials($cred);
+  
+  $optParams = array("orderBy" => "startTime");
+  $optParams = array("singleEvents" => true,
+                      //"timeMin" => $startDate->format('Y-m-d') . "T00:00:00Z",
+                      "timeMin" => $startDate->format('c'),
+                      "timeMax" => $endDate->format('c'),
+                      "orderBy" => "startTime",);
+  
   try {
-      $eventFeed = $gdataCal->getCalendarEventFeed($query);
-      return $eventFeed;
+    $events = $service->events->listEvents($calName, $optParams);
+    return $events
+  
+  } catch (Exception $e) {
+    // Report the exception to the user
+    echo "<div style=\"width:450px; \">\n";
+    echo "Sorry, we can't connect to the calendar just now.";
+    echo "</div>\n";
 
-  } catch(Zend_Gdata_App_Exception $ex) {
+    //echo 'Caught exception: ',  $e->getMessage(), "\n";
 
-      // Report the exception to the user
-  echo "<div style=\"width:450px; \">\n";
-  echo "Sorry, we can't connect to the calendar just now.";
-  echo "</div>\n";
-
-      //die($ex->getMessage());
   }
 }
+
 /* Function to display the output of a google calendar feed as a list
  * 
  * name: theme_schedule_list
- * @param object $eventFeed Data returned from GCal feed.
+ * @param object $events Data returned from GCal feed.
  * @return
  * 
  */
 
-function theme_schedule_list($eventFeed) {
+function theme_schedule_list($events) {
   echo '<div class="schedule-list">';
   $i=0;
+  foreach ($events->getItems() as $event) {
+    //Check to see if the programme is on now, in the future or in the past
+    $status = programme_status($event->start->dateTime);  
+    //Build the output
+    echo '<div class="programme ' . $status . '">';
+    
+    //Formats the time
+    echo '<div class="programme_start">' . date('G:i',strtotime($event->start->dateTime));
+    if ($status == "on") { echo '<div class="on-air">On Air</div>'; }
+    echo '</div>';
+    
+    //Formats the programme infomation
+    echo '<div class="programme_description">';
+      //Title
+      echo '<h4 class="title">';
+        //echo '<a href="' . htmlentities($event->htmlLink) . '">';
+          echo htmlentities($event->summary);
+        //echo '</a>';
+      echo '</h4>';
+    //Description
+    if (strlen($event->description)>0) {
+      //Add links to presenter pages if presenter info is given
+      //This is done by looking for the string; "Presented by: " which should then be followed by a comma separted list of presenters.
+      //presenter names are turned into slugs that should match pages on the site
+      $presenter_check = explode("Presented by: ",$event->description);
+      if (isset($presenter_check[1])) { //A string that doesn't contain the delimiter will simply return a one-length array of the original string.
+        $presenters  = explode(',',$presenter_check[1]); //This should give an arry of each presenter name
+        foreach ($presenters as $presenter) {
+           //replace the string with a link
+           //echo preg_replace($patterns, $replacements, $string);
+           $presenter = trim($presenter); //trim spaces
+           //Create the slug
+           $presenter_slug = preg_replace("/ /","-",$presenter);
+           $presenter_slug = strtolower($presenter_slug);
+           //echo $presenter_slug;
+           //Replace the presenter in the description text with a link
+           $event->description = preg_replace('/'. $presenter . '/', '<a href="http://www.bcbradio.co.uk/presenters/' . $presenter_slug . '">' . $presenter . '</a>', $event->description);
+        }
+      }
+      echo '<p>';
+      echo  nl2br($event->description);
+      if ($status == "on") { echo '<br /><a class="listen-live" href="http://www.bcbradio.co.uk/player/">Listen Live</a>'; }
+    }
+        echo '</p></div></div>';
+  }
+  echo '</div><div class="clear"></div>';
+}
+  
+  
+  
+  
+  
+function (dead) {  
   foreach ($eventFeed as $event) {
     foreach ($event->when as $when) { //looping through each event
       //if ($i==0) {
@@ -193,27 +275,29 @@ function theme_schedule_list($eventFeed) {
   echo '</div><div class="clear"></div>';
 }
 
-/* Function to display the output of a google calendar feed as a list
+/* Function to display the show that is on air now
+ * takes a list of shows/events from the google calendar
+ * and checkes to see ifany of them are 'on now'
  * 
- * name: theme_schedule_list
- * @param object $eventFeed Data returned from GCal feed.
+ * name: theme_on_air_now
+ * @param object $events Data returned from GCal feed.
  * @return
  * 
  */
 
-function theme_on_air_now($eventFeed) {
-  foreach ($eventFeed as $event) {
-    foreach ($event->when as $when) { //looping through each event
+function theme_on_air_now($events) {
+  
+  foreach ($events->getItems() as $event) { //looping through each event
       
       //Check to see if the programme is on now, in the future or in the past
-      $status = programme_status($when);  
+      $status = programme_status($event->start->dateTime);  
       if ($status == "on") {
         $found_on_air_event = true;
         echo '<a class="on-air-link" href="http://www.bcbradio.co.uk/player/" target="name"';
-		echo " onclick=\"window.open('http://www.bcbradio.co.uk/player/index.html','name','height=665, width=380,toolbar=no,directories=no,status=no, menubar=no,scrollbars=no,resizable=no'); return false;\">";
-		echo '<div class="listenlive">On Air Now</div>';
+        echo " onclick=\"window.open('http://www.bcbradio.co.uk/player/index.html','name','height=665, width=380,toolbar=no,directories=no,status=no, menubar=no,scrollbars=no,resizable=no'); return false;\">";
+        echo '<div class="listenlive">On Air Now</div>';
         //echo '<h3 class="on-air-now">On Air Now</h3>';
-        echo '<span class="event-datetime">' . date('D jS M H:i',strtotime($when->startTime)) . ' - ' .date('H:i',strtotime($when->endTime)) . '</span>';
+        echo '<span class="event-datetime">' . date('D jS M H:i',strtotime($event->start->dateTime)) . ' - ' .date('H:i',strtotime($event->end->dateTime)) . '</span>';
         //Build the output
         //echo '<div class="programme ' . $status . '">';
         //echo $when->endTime;
@@ -229,30 +313,28 @@ function theme_on_air_now($eventFeed) {
           //Title
           echo '<h4 class="on-now-title">';
             //echo '<a href="' . $event->link[0]->href . '">';
-              echo $event->title->text;  
-              
-              
+              echo htmlentities($event->summary);  
             //echo '</a>';
           echo '</h4>';
       
         //Description
-        if (strlen($event->content)>0) {
+        if (strlen($event->description)>0) {
           echo '<p class="on-now-description">';
-          
-          echo  nl2br($event->content);
+          echo  nl2br($event->description);
           echo '<br />';
           echo '<div class="listenlive-txt">Listen Live</div>';
         }
           echo '</p></div>';
       }
-    }
-  }
+  }//end foreach event
+  
+  //If we have looped through everything and not found anything on air
+  //Show some default text instead
   if (!isset($found_on_air_event)) { //Nothing on!
     echo '<div class="textwidget"><a href="http://www.bcbradio.co.uk/player/" target="name"';
-	echo " onclick=\"window.open('http://www.bcbradio.co.uk/player/index.html','name','height=665, width=380,toolbar=no,directories=no,status=no, menubar=no,scrollbars=no,resizable=no'); return false;\" style=\"display:block; width:100%; margin:0 auto;\">";
-	echo '<div class="standby">Standby</div>';
-	echo '<div class="listenlive-link">bcbradio.co.uk/player</div></a></div>';
-
+    echo " onclick=\"window.open('http://www.bcbradio.co.uk/player/index.html','name','height=665, width=380,toolbar=no,directories=no,status=no, menubar=no,scrollbars=no,resizable=no'); return false;\" style=\"display:block; width:100%; margin:0 auto;\">";
+    echo '<div class="standby">Standby</div>';
+    echo '<div class="listenlive-link">bcbradio.co.uk/player</div></a></div>';
   }
 }
 
