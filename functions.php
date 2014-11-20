@@ -77,14 +77,6 @@ add_filter('rewrite_rules_array', 'wpse49393_rewrite_rules_array');
 $templatePath = get_stylesheet_directory();
 
 //SOME USEFUL CONSTANTS
-define('ZEND_LIB', $templatePath . '/ZendGdata-1.12.3/library'); 
-
-//the below is to initiate the Zend functions needed to parse the 
-//google calendar. Here may not be the best place, but it'll do.
-set_include_path(ZEND_LIB); //defined in functions.php
-include(ZEND_LIB .'/Zend/Loader.php');
-Zend_Loader::loadClass('Zend_Gdata');
-Zend_Loader::loadClass('Zend_Gdata_Calendar');
 
 //the below is to initiate the google-api-php-client functions needed to parse the 
 //google calendar.
@@ -214,67 +206,6 @@ function theme_schedule_list($events) {
   echo '</div><div class="clear"></div>';
 }
   
-  
-  
-  
-  
-function edad() {  
-  foreach ($eventFeed as $event) {
-    foreach ($event->when as $when) { //looping through each event
-      //if ($i==0) {
-      //  echo '<h2 class="schedule-list">' . date('l jS F',strtotime($when->startTime)) . '</h2>';
-      //  $i++;
-      //}
-      //Check to see if the programme is on now, in the future or in the past
-      $status = programme_status($when);  
-      //Build the output
-      echo '<div class="programme ' . $status . '">';
-      //echo $when->endTime;
-      //echo "\t\t\t <p><strong>" . date('l jS F',strtotime($when->startTime)) ."</strong><br/>\n";
-
-      //Formats the time          
-      echo '<div class="programme_start">' . date('G:i',strtotime($when->startTime));
-      if ($status == "on") { echo '<div class="on-air">On Air</div>'; }
-      echo '</div>';
-      
-      //Formats the programme infomation
-      echo '<div class="programme_description">';
-        //Title
-        echo '<h4 class="title">';
-          //echo '<a href="' . $event->link[0]->href . '">';
-            echo $event->title->text;  
-          //echo '</a>';
-        echo '</h4>';
-      
-      //Description
-      if (strlen($event->content)>0) {
-         //Add links to presenter pages if presenter info is given
-         //This is done by looking for the string; "Presented by: " which should then be followed by a comma separted list of presenters.
-         //presenter names are turned into slugs that should match pages on the site
-         $presenter_check = explode("Presented by: ",$event->content);
-         if (isset($presenter_check[1])) { //A string that doesn't contain the delimiter will simply return a one-length array of the original string.
-           $presenters  = explode(',',$presenter_check[1]); //This should give an arry of each presenter name
-           foreach ($presenters as $presenter) {
-             //replace the string with a link
-             //echo preg_replace($patterns, $replacements, $string);
-             $presenter = trim($presenter); //trim spaces
-             //Create the slug
-             $presenter_slug = preg_replace("/ /","-",$presenter);
-             $presenter_slug = strtolower($presenter_slug);
-             //echo $presenter_slug;
-             //Replace the presenter in the description text with a link
-             $event->content = preg_replace('/'. $presenter . '/', '<a href="http://www.bcbradio.co.uk/presenters/' . $presenter_slug . '">' . $presenter . '</a>', $event->content);
-           }
-         }
-        echo '<p>';
-        echo  nl2br($event->content);
-        if ($status == "on") { echo '<br /><a class="listen-live" href="http://www.bcbradio.co.uk/player/">Listen Live</a>'; }
-      }
-        echo '</p></div></div>';
-    }
-  }
-  echo '</div><div class="clear"></div>';
-}
 
 /* Function to display the show that is on air now
  * takes a list of shows/events from the google calendar
