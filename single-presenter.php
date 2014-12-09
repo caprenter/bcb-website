@@ -58,11 +58,15 @@ get_header(); ?>
                 $email = get_post_meta($post->ID, "email", true);
                 $twitter = get_post_meta($post->ID, "twitter-name", true);
                 $facebook = get_post_meta($post->ID, "facebook-name", true);
+		$webpage = get_post_meta($post->ID, "webpage", true);
                 if ($email || $twitter || $facebook ) {
                   echo '<h3 class="presenter-contact">Contact</h3>';
                   
 		  if ($email) {
                     echo 'Email: <a href="mailto:' . htmlentities($email) . '">' . htmlentities($email) . '</a><br/>';  
+                  } 
+		  if ($webpage) {
+                    echo 'Web: <a href="' . htmlentities($webpage) . '">' . htmlentities($webpage) . '</a><br/>';  
                   } 
                   if ($twitter) {
                     echo 'Twitter: <a href="https://twitter.com/' . htmlentities($twitter) . '">' . htmlentities($twitter) . '</a><br/>';  
