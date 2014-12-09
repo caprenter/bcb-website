@@ -351,7 +351,7 @@ a.back_presenters	{display:block; padding:20px 0 0 5px;}
 .post-type-archive-presenter .post-entry p {font-size:1.0em; line-height:1.3em; padding:10px 0px 5px 0; text-align:justify;}
 .post-type-archive-presenter div.type-presenter {padding:0 10px 10px 10px;}
 h1.present		{margin-top:0; margin-bottom:0.8em;}
-.widget-wrapper.presenter	{float:left; width:33%; margin-top:-110px}
+.widget-wrapper.presenter	{float:left; width:33%; margin-top:-110px; word-break:break-all;}
 
 /* Phones to tablets 767px and below
 -------------------------------------------------------------- */
