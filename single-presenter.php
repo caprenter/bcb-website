@@ -51,7 +51,7 @@ get_header(); ?>
 					<?php the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
           </div>
           <!--Custom Field Data-->
-          <div class="widget-wrapper" style="float:left; width:33%; margin-top:-110px">
+          <div class="widget-wrapper presenter">
             <h3 style="margin-top:0">Programmes</h3>
             <p><?php echo get_post_meta($post->ID, "programmes", true); ?></p>
               <?php 
@@ -60,9 +60,10 @@ get_header(); ?>
                 $facebook = get_post_meta($post->ID, "facebook-name", true);
                 if ($email || $twitter || $facebook ) {
                   echo '<h3 class="presenter-contact">Contact</h3>';
-                  if ($email) {
-                    echo "Email: " . htmlentities($email) . "<br/>"; 
-                  }
+                  
+		  if ($email) {
+                    echo 'Email: <a href="mailto:' . htmlentities($email) . '">' . htmlentities($email) . '</a><br/>';  
+                  } 
                   if ($twitter) {
                     echo 'Twitter: <a href="https://twitter.com/' . htmlentities($twitter) . '">' . htmlentities($twitter) . '</a><br/>';  
                   }                  
