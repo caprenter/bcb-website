@@ -127,7 +127,6 @@ function outputCalendarByDateRange($startDate, $endDate)
   
   $optParams = array("orderBy" => "startTime");
   $optParams = array("singleEvents" => true,
-                      //"timeMin" => $startDate->format('Y-m-d') . "T00:00:00Z",
                       "timeMin" => $startDate,
                       "timeMax" => $endDate,
                       "orderBy" => "startTime",);
@@ -141,8 +140,6 @@ function outputCalendarByDateRange($startDate, $endDate)
     echo "<div style=\"width:450px; \">\n";
     echo "Sorry, we can't connect to the calendar just now.";
     echo "</div>\n";
-
-    //echo 'Caught exception: ',  $e->getMessage(), "\n";
 
   }
 }
@@ -173,9 +170,7 @@ function theme_schedule_list($events) {
     echo '<div class="programme_description">';
       //Title
       echo '<h4 class="title">';
-        //echo '<a href="' . htmlentities($event->htmlLink) . '">';
-          echo htmlentities($event->summary);
-        //echo '</a>';
+      echo htmlentities($event->summary);
       echo '</h4>';
     //Description
     if (strlen($event->description)>0) {
@@ -187,12 +182,10 @@ function theme_schedule_list($events) {
         $presenters  = explode(',',$presenter_check[1]); //This should give an arry of each presenter name
         foreach ($presenters as $presenter) {
            //replace the string with a link
-           //echo preg_replace($patterns, $replacements, $string);
            $presenter = trim($presenter); //trim spaces
            //Create the slug
            $presenter_slug = preg_replace("/ /","-",$presenter);
            $presenter_slug = strtolower($presenter_slug);
-           //echo $presenter_slug;
            //Replace the presenter in the description text with a link
            $event->description = preg_replace('/'. $presenter . '/', '<a href="http://www.bcbradio.co.uk/presenters/' . $presenter_slug . '">' . $presenter . '</a>', $event->description);
         }
@@ -228,34 +221,33 @@ function theme_on_air_now($events) {
         echo '<a class="on-air-link" href="http://www.bcbradio.co.uk/player/" target="name"';
         echo " onclick=\"window.open('http://www.bcbradio.co.uk/player/index.html','name','height=665, width=380,toolbar=no,directories=no,status=no, menubar=no,scrollbars=no,resizable=no'); return false;\">";
         echo '<div class="listenlive">On Air Now</div>';
-        //echo '<h3 class="on-air-now">On Air Now</h3>';
         echo '<span class="event-datetime">' . date('D jS M H:i',strtotime($event->start->dateTime)) . ' - ' .date('H:i',strtotime($event->end->dateTime)) . '</span>';
-        //Build the output
-        //echo '<div class="programme ' . $status . '">';
-        //echo $when->endTime;
-        //echo "\t\t\t <p><strong>" . date('l jS F',strtotime($when->startTime)) ."</strong><br/>\n";
 
-        //Formats the time          
-        //echo '<div class="programme_start">' . date('G:i',strtotime($when->startTime));
-        //if ($status == "on") { echo '<div class="on-air">On Air</div>'; }
-        //echo '</div>';
-      
         //Formats the programme infomation
         echo '<div class="listenlive-title">';
           //Title
           echo '<h4 class="on-now-title">';
-            //echo '<a href="' . $event->link[0]->href . '">';
-              echo htmlentities($event->summary);  
-            //echo '</a>';
-          echo '</h4>';
+          echo htmlentities($event->summary);  
+          echo '</h4></a>';
       
         //Description
         if (strlen($event->description)>0) {
+		$presenter_check = explode("Presented by: ",$event->description);
+			if (isset($presenter_check[1])) {
+			$presenters  = explode(',',$presenter_check[1]);
+			foreach ($presenters as $presenter) {
+			   $presenter = trim($presenter);
+			   $presenter_slug = preg_replace("/ /","-",$presenter);
+			   $presenter_slug = strtolower($presenter_slug);
+			   $event->description = preg_replace('/'. $presenter . '/', '<a class="presenter_link" href="http://www.bcbradio.co.uk/presenters/' . $presenter_slug . '">' . $presenter . '</a>', $event->description);
+			}}	
           echo '<p class="on-now-description">';
           echo  nl2br($event->description);
-          echo '<br />';
-          echo '<div class="listenlive-txt">Listen Live</div>';
-        }
+          
+          echo '<a class="listenlive-txt" href="http://www.bcbradio.co.uk/player/" target="name"';
+          echo " onclick=\"window.open('http://www.bcbradio.co.uk/player/index.html','name','height=665, width=380,toolbar=no,directories=no,status=no, menubar=no,scrollbars=no,resizable=no'); return false;\">";
+          echo 'Listen Live</a>';
+        } 
           echo '</p></div>';
       }
   }//end foreach event
