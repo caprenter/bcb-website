@@ -107,11 +107,11 @@ get_header();
               //Create a link like: schedule/2013/12/21
               echo '<a href="' . get_site_url() . '/schedule/' . date("Y",$today + $i*60*60*24) . '/' . date("m",$today + $i*60*60*24) . '/' . date("d",$today + $i*60*60*24) . '/">';
               if ($i==0) { //TODAY!
-                echo '<span class="day">TODAY</span><br/><span class="date">' .  date("j M",$today + $i*60*60*24) . '</span>';
+                echo '<span class="day">TODAY</span><span class="date">' .  date("j",$today + $i*60*60*24) .  '</span><span class="month">' . date("M",$today + $i*60*60*24) . '</span>';
               } else {
                 echo '<span class="day">' . date("D",$today + $i*60*60*24) . '</span>';
-                echo '<br />';
-                echo '<span class="date">' . date("j M",$today + $i*60*60*24) . '</span>';
+                echo '<span class="date">' . date("j",$today + $i*60*60*24) . '</span>';
+		echo '<span class="month">' . date("M",$today + $i*60*60*24) . '</span>';
               }
               echo '</a>';
               echo '</li>';

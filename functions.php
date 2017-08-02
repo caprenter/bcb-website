@@ -192,7 +192,7 @@ function theme_schedule_list($events) {
       }
       echo '<p>';
       echo  nl2br($event->description);
-      if ($status == "on") { echo '<br /><a class="listen-live" href="http://www.bcbradio.co.uk/player/">Listen Live</a>'; }
+      if ($status == "on") { echo '<br /><a class="listen-live" href="http://www.bcbradio.co.uk/player/"><img src="http://www.bcbradio.co.uk/wp-content/uploads/play_button.png"/><span>Listen Live</span></a>'; }
     }
         echo '</p></div></div>';
   }
@@ -246,7 +246,7 @@ function theme_on_air_now($events) {
           
           echo '<a class="listenlive-txt" href="http://www.bcbradio.co.uk/player/" target="name"';
           echo " onclick=\"window.open('http://www.bcbradio.co.uk/player/index.html','name','height=665, width=380,toolbar=no,directories=no,status=no, menubar=no,scrollbars=no,resizable=no'); return false;\">";
-          echo 'Listen Live</a>';
+          echo 'Listen Live <img src="http://www.bcbradio.co.uk/wp-content/uploads/play_button.png"/></a>';
         } 
           echo '</p></div>';
       }
@@ -257,7 +257,7 @@ function theme_on_air_now($events) {
   if (!isset($found_on_air_event)) { //Nothing on!
     echo '<div class="textwidget"><a href="http://www.bcbradio.co.uk/player/" target="name"';
     echo " onclick=\"window.open('http://www.bcbradio.co.uk/player/index.html','name','height=665, width=380,toolbar=no,directories=no,status=no, menubar=no,scrollbars=no,resizable=no'); return false;\" style=\"display:block; width:100%; margin:0 auto;\">";
-    echo '<div class="standby">Standby</div>';
+    echo '<div class="standby">Listen Live Now <img src="http://www.bcbradio.co.uk/wp-content/uploads/play_button.png"/></div>';
     echo '<div class="listenlive-link">bcbradio.co.uk/player</div></a></div>';
   }
 }
@@ -581,3 +581,16 @@ function orderPresentersBySurname( $query )
 	return $query;
  
 }
+
+
+/**
+ * Check if viewing on mobile for redirect to mobile landing page
+ */
+
+function mobile_home_redirect(){
+if( wp_is_mobile() && is_front_page() ){
+   wp_redirect( '/mobile-home' ); 
+    exit;
+}
+}
+add_action( 'template_redirect', 'mobile_home_redirect' );
