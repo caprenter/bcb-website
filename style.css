@@ -258,7 +258,7 @@ body.custom-background	{background-image:url('http://www.bcbradio.co.uk/wp-conte
 #logo a img {visibility:hidden;}
 .main-nav {background-color:transparent; width:100%; margin:0 auto; text-align:center;}
 .menu {background:none; background-color:transparent; margin:0 auto; width: 100%; text-align:center; box-sizing:border-box;}
-.menu a {border-left:1px solid #000; color:#ACB1B5; font-size:16px; font-weight:normal; height:55px; line-height:55px; text-shadow:0 -1px 1px #0D0D42;}
+.menu a {border-left:1px solid #070a17; color:#ACB1B5; font-size:16px; font-weight:normal; height:55px; line-height:55px; text-shadow:0 -1px 1px #0D0D42;}
 .menu a:hover {background-color:#27377B; background-image:none; -webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition:all .2s ease-in-out;}
 .menu .current_page_item a, .menu .current-menu-item a	{color:#FFF;}
 
@@ -271,12 +271,6 @@ h2 a {color:#444 !important;}
 h2 a:hover {color:#666 !important;}
 .post-meta a {color:#697492;}
 .post-meta a:hover {color:#505C7C;}
-
-
-/* About Page
--------------------------------------------------------------- */
-.post-5 h1.entry-title.post-title {display: none;}
-
 
 
 /* Footer Course
@@ -346,7 +340,7 @@ a.widgetbutton	{display:block; width:100%; margin:0 auto;}
 #text-10.widget-wrapper div.textwidget {padding:0; line-height:0;}
 #text-12.widget-wrapper {border:0; background-color:transparent; padding-top:0; border-top:2px solid #777A86; border-bottom:2px solid #777A86;}
 #text-12.widget-wrapper a.widgetbutton	{display:block; padding-top:20px; width:254px; margin:0 auto; text-align:center;}
-#text-12.widget-wrapper span  {color:#565861; font-size:16px; margin-top:10px; margin-bottom:10px; display:block;}
+#text-12.widget-wrapper span  {color:#565861; font-size:18px; margin-top:10px; margin-bottom:10px; display:block;}
 #text-12.widget-wrapper:hover span {font-style:italic;}
 
 
@@ -400,6 +394,12 @@ div#recent-posts-3 {border:0; background-color:transparent; margin:0; padding:0;
 a.staff_wrap	{display:inline-block; vertical-align:top; width:150px; margin:0 auto; text-align:center; padding-bottom:20px; color:#555;}
 span.staff_name	{display:block; text-align:center; padding-top:10px; font-weight:bold;}
 span.staff_name span{display:block; font-weight:normal; line-height:1.3em; font-size:13px;}
+
+.staff_page a.staff_wrap	{display:block; margin:0 auto; padding-bottom:20px; color:#555; width:initial; text-align:initial;}
+.staff_page span.staff_name	{display:block; padding-top:10px; font-weight:bold; padding:0; position:absolute; top:1.4em; left:30px; font-size:30px; text-align:initial;}
+.staff_page span.staff_name span{display:block; font-weight:normal; line-height:1.3em; padding-top:10px; font-size:16px;}
+.staff_page span.staff_img	{display:block; position:relative;}
+.staff_page span.staff_bio	{font-size:16px; padding:0 10px; line-height:24px; display:block;}
 
 
 
@@ -475,7 +475,7 @@ a.front-title.job-col span.job-3 {font-weight:bold; padding:0;}
 .venus-alert a	{display:block; padding:20px; color:#444;}
 .venus-alert a:hover {background-color:#dfe3ff;}
 .venus-alert span {display:block; text-align:center; font-size:20px; line-height:34px;}
-.venus-alert span.title	{font-weight:bold; font-size:24px; padding:10px 0 15px 0; color:#742e96;}
+.venus-alert span.title	{font-weight:bold; font-size:24px; padding:10px 0 0 0; color:#742e96;}
 .venus-alert span.info	{width:80%; margin:auto; font-size:20px; line-height:26px;}
 .venus-alert span.date	{font-weight:bold; padding:10px 0;}
 .venus-alert span.date.more {padding-bottom:0; font-size:18px;}
@@ -506,12 +506,23 @@ h1.present		{margin-top:0; margin-bottom:0.8em;}
 .widget-wrapper.presenter	{width:560px;}
 .widget-wrapper.presenter a	{word-break:break-word;}
 
+
+/* Submenus
+-------------------------------------------------------------- */
+.menu li ul.sub-menu li {display:block; background-color:#060a17;}
+
+.menu li li	{border:none;}
+.menu li li a	{color:#ACB1B5; font-size:16px; font-weight:normal; height:55px; line-height:55px; text-shadow:0 -1px 1px #0D0D42; text-align:left; padding:0 0 0 15px;}
+.menu li li a:hover	{color:#FFF; background-color:#27377B !important;}
+
+
+
 /* Phones to tablets 1024px and below
 -------------------------------------------------------------- */
 @media screen and (max-width: 1024px) {
 div#wrapper, div#footer-wrapper, div#logo {width:100%; padding:0; margin:0; max-width:1024px; overflow:hidden;}
 div#widgets	{margin:0;}
-a.front-title	{font-size:1.8em; padding:30px; margin:10px;}
+a.front-title	{font-size:1.8em; padding:30px; margin:5px;}
 iframe		{width:90% !important;}
 .widget-wrapper	{margin:10px;}
 /* old logo - #logo		{background:url('http://www.bcbradio.co.uk/wp-content/uploads/media-logo.png') no-repeat;} */
@@ -548,7 +559,7 @@ a.newsletter-link span {line-height:200px; height:200px;}
 
 /* Mobile homepage */
 .listenagain	{display:block;}
-#text-5.widget-wrapper	{background:url('core/images/webmail.png') 75px 0px no-repeat #8093a2;}
+#text-5.widget-wrapper	{background:url('core/images/webmail.png') 125px 0px no-repeat #8093a2;}
 #mob_exa a	{display:block; width:100%; margin:0 auto; padding:20px 0;}
 #mob_exa a span	{display:block; color:#FFF; font-weight:bold; font-size:16px;}
 #mob_exa a span.title	{font-size:24px; padding:0 0 5px 0;}
@@ -557,15 +568,20 @@ a.newsletter-link span {line-height:200px; height:200px;}
 
 #text-12.widget-wrapper	{padding:0;}
 #text-12.widget-wrapper a.widgetbutton	{width:100%;}
-#text-12.widget-wrapper span	{margin:auto; font-size:23px; line-height:28px; margin-top:20px;}
+#text-12.widget-wrapper span	{margin:auto; font-size:20px; line-height:28px; margin-top:20px;}
 
 #recent-posts-3 ul	{margin:10px;}
+
+.staff_page span.staff_name	{width:50%; top:2em; left:20px; font-size:20px;}
+a.staff_wrap		{width:50%;}
 }
 
 @media screen and (max-width: 650px) {
 .js .main-nav #responsive_current_menu_item {text-align:left;}
 .js .main-nav .menu li	{display:block; background-color:#000;}
-.js .main-nav .menu li a	{border-bottom:1px solid #000; color:#666;}
+.js .main-nav .menu li a	{border-bottom:1px solid #000; color:#ccc; font-size:16px;}
+.js .main-nav .menu li a:hover, .js .main-nav .menu li li a:hover {color:#444;}	
+.js .main-nav .menu li.current_page_item, .js .menu .current_page_item a, .js .menu .current-menu-item a {background-color:#27377B;}
 }
 
 @media (max-width: 480px) {
