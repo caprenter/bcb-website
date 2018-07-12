@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-body	{font-family:'Roboto', sans-serif;}
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+body	{font-family:'Roboto', Arial, sans-serif;}
 
 /* 
 Theme Name: Responsive Child Theme
@@ -389,6 +389,11 @@ div#recent-posts-3 {border:0; background-color:transparent; margin:0; padding:0;
 #recent-posts-3 a:hover {background-color:#879aaf;}
 
 
+/* BCB Newsletter posts header sections
+-------------------------------------------------------------- */
+.post-entry h3:nth-of-type(n+2) {margin-top:2.5em; line-height:1.3em;}
+
+
 /* Staff and Management page
 -------------------------------------------------------------- */
 a.staff_wrap	{display:inline-block; vertical-align:top; width:150px; margin:0 auto; text-align:center; padding-bottom:20px; color:#555;}
@@ -413,7 +418,7 @@ span.staff_name span{display:block; font-weight:normal; line-height:1.3em; font-
 #text-6 a	{color:#7676FF;}
 
 #footer-wrapper .col-540 {height:220px; background:url('http://www.bcbradio.co.uk/wp-content/uploads/award_all.png')no-repeat bottom; margin-bottom:40px; background-size:contain;}
-#colophon-widget.col-940 {background: url('http://www.bcbradio.co.uk/wp-content/uploads/footer-back-1.png') 0px -10px no-repeat;}
+#colophon-widget.col-940 {background: url('http://www.bcbradio.co.uk/wp-content/uploads/footer-back-3.png') 0px -10px no-repeat;}
 
 /* #colophon-widget.col-940 {background: url('core/images/footer-back.png') 0px -10px no-repeat;} - old image footer */
 
@@ -422,7 +427,7 @@ span.staff_name span{display:block; font-weight:normal; line-height:1.3em; font-
 a.front-title		{display:block; font-size:2em; line-height:1.2em; padding:30px; text-align:center; color:#2d3546; border-radius:5px;}
 .front-title.mob	{padding:30px; color:#FFF; border-radius:5px; background:url('http://www.bcbradio.co.uk/wp-content/uploads/team.jpg')center center; background-size:cover; font-size:20px; height:500px; position:relative;}
 .front-title.mob.b	{background: url('http://www.bcbradio.co.uk/wp-content/uploads/desk1.jpg')center center; background-size:cover;}
-.front-title.mob span	{position:absolute; left:0; bottom:0; padding:20px; background-color:rgba(255,255,255,0.66); font-size:16px; line-height:22px; text-align:left; color:#1c212b;}
+.front-title.mob span	{position:absolute; left:0; bottom:0; padding:20px; background-color:rgba(255,255,255,0.8); font-size:16px; line-height:22px; text-align:left; color:#1c212b;}
 a.front-title.mob:hover	{background:url('http://www.bcbradio.co.uk/wp-content/uploads/team.jpg')center center; -webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition:all .2s ease-in-out;}
 a.front-title.mob.b:hover	{background:url('http://www.bcbradio.co.uk/wp-content/uploads/desk1.jpg')center center; -webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition:all .2s ease-in-out;}
 .front-title.mob span.view	{display:none; top:0; left:0; width:100%; box-sizing:border-box; font-size:30px;}
@@ -441,6 +446,14 @@ a.newsletter-link:hover span	{background-color:rgba(0,0,0,0.8);}
 /*.home_twit	{transform:scale(1.18,1.18); margin:auto; margin-left:3.2em; margin-top:4em; margin-bottom:4em;}*/
 .home_face	{transform:scale(1.23,1.23); margin:auto; margin-left:3.8em; margin-top:8em; margin-bottom:8em; overflow:hidden;}
 .socials	{margin:0 auto; text-align:center;}
+
+
+/* Template for This Week in BCB
+-------------------------------------------------------------- */
+.week_wrap	{margin:0 auto; padding:1em; margin-bottom:1em; font-size:18px; line-height:26px; color:#2d3546; border-radius:6px; position:relative; margin-top:1em; background:url(http://www.bcbradio.co.uk/wp-content/uploads/bcb_week.jpg)no-repeat center center; background-size:cover;}
+.week_tit	{background-color:#0330e5; color:#FFF; padding:1em; position:absolute; top:-25px; left:50%; transform:translateX(-50%); font-weight:bold; text-align:center;}
+.week_content   {background:rgba(255,255,255,0.9); padding:0.2em 2em; border-radius:6px;}
+.week_content h2 {margin-top:1.2em; margin-bottom:0em;}
 
 
 /* Job section
@@ -512,7 +525,7 @@ h1.present		{margin-top:0; margin-bottom:0.8em;}
 .menu li ul.sub-menu li {display:block; background-color:#060a17;}
 
 .menu li li	{border:none;}
-.menu li li a	{color:#ACB1B5; font-size:16px; font-weight:normal; height:55px; line-height:55px; text-shadow:0 -1px 1px #0D0D42; text-align:left; padding:0 0 0 15px;}
+.menu li li a	{color:#ACB1B5; font-size:16px; font-weight:normal; height:55px; line-height:55px; text-shadow:0 -1px 1px #0D0D42; text-align:left; padding:0 15px;}
 .menu li li a:hover	{color:#FFF; background-color:#27377B !important;}
 
 
@@ -568,12 +581,21 @@ a.newsletter-link span {line-height:200px; height:200px;}
 
 #text-12.widget-wrapper	{padding:0;}
 #text-12.widget-wrapper a.widgetbutton	{width:100%;}
-#text-12.widget-wrapper span	{margin:auto; font-size:20px; line-height:28px; margin-top:20px;}
+#text-12.widget-wrapper span	{margin:auto; font-size:20px; line-height:28px; margin:20px 10px 0 10px;}
 
 #recent-posts-3 ul	{margin:10px;}
 
 .staff_page span.staff_name	{width:50%; top:2em; left:20px; font-size:20px;}
 a.staff_wrap		{width:50%;}
+
+
+/* Template for This Week in BCB
+-------------------------------------------------------------- */
+.week_wrap	{width:85%;}
+.week_tit	{display:inline-table;}
+.week_content   {padding:0.2em 1em;}
+.week_content h2 {padding:0 0.25em; font-size:1.7em; margin-top:1.5em;}
+
 }
 
 @media screen and (max-width: 650px) {
