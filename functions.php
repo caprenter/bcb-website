@@ -104,7 +104,8 @@ function outputCalendarByDateRange($startDate, $endDate)
   // Using the google-api-php-client, we are required to connect using a google 
   // developer account. The account credentials are in caprenter's account
   // Thanks to https://mytechscraps.wordpress.com/2014/05/15/accessing-google-calendar-using-the-php-api/
-  include ($templatePath . 'google-api-credentials.php'); //$client_id, $service_account_name, $key_file_location
+  
+  include ('google-api-credentials.php'); //$client_id, $service_account_name, $key_file_location
   
   
   // Calendar id
