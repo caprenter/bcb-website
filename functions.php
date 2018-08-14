@@ -104,8 +104,7 @@ function outputCalendarByDateRange($startDate, $endDate)
   // Using the google-api-php-client, we are required to connect using a google 
   // developer account. The account credentials are in caprenter's account
   // Thanks to https://mytechscraps.wordpress.com/2014/05/15/accessing-google-calendar-using-the-php-api/
-  
-  include ('google-api-credentials.php'); //$client_id, $service_account_name, $key_file_location
+  include ($templatePath . 'google-api-credentials.php'); //$client_id, $service_account_name, $key_file_location
   
   
   // Calendar id
@@ -188,7 +187,10 @@ function theme_schedule_list($events) {
            $presenter_slug = preg_replace("/ /","-",$presenter);
            $presenter_slug = strtolower($presenter_slug);
            //Replace the presenter in the description text with a link
-           $event->description = preg_replace('/'. $presenter . '/', '<a href="http://www.bcbradio.co.uk/presenters/' . $presenter_slug . '">' . $presenter . '</a>', $event->description);
+           $page = get_page_by_path( $presenter_slug , OBJECT, 'presenter' );
+			   if ( isset($page) ) {
+					$event->description = preg_replace('/'. $presenter . '/', '<a class="presenter_link" href="http://www.bcbradio.co.uk/presenters/' . $presenter_slug . '">' . $presenter . '</a>', $event->description);
+				}
         }
       }
       echo '<p>';
@@ -240,7 +242,10 @@ function theme_on_air_now($events) {
 			   $presenter = trim($presenter);
 			   $presenter_slug = preg_replace("/ /","-",$presenter);
 			   $presenter_slug = strtolower($presenter_slug);
-			   $event->description = preg_replace('/'. $presenter . '/', '<a class="presenter_link" href="http://www.bcbradio.co.uk/presenters/' . $presenter_slug . '">' . $presenter . '</a>', $event->description);
+			   $page = get_page_by_path( $presenter_slug , OBJECT );
+			   if ( isset($page) ) {
+					$event->description = preg_replace('/'. $presenter . '/', '<a class="presenter_link" href="http://www.bcbradio.co.uk/presenters/' . $presenter_slug . '">' . $presenter . '</a>', $event->description);
+				}
 			}}	
           echo '<p class="on-now-description">';
           echo  nl2br($event->description);
