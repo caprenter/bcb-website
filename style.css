@@ -33,10 +33,10 @@ font-size:1.2em;
   background: #eeefef;
 } 
 .future {
-  //background: green;
+  background: green;
 } 
 .past {
-  //background: blue;
+  background: blue;
 }
 /* Programme details*/
 h4 {
@@ -542,7 +542,7 @@ iframe		{width:90% !important;}
 #logo		{background:url('http://www.bcbradio.co.uk/wp-content/uploads/primary-logo.png') no-repeat; background-color:#0330e5;}
 .presenter h1	{left:10px; color:#fff; top:-5px;}
 .presenter-content	{float:none; width:90%;}
-.post-entry		{display;block;}
+.post-entry		{display:block;}
 .widget-wrapper.presenter	{float:none; display:block; margin:auto; width:90%; border-radius:0;}
 .programme.on, .presenter-image	{border-radius:0;}
 .programme.on	{padding:20px 5px;}
