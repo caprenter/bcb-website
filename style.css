@@ -425,12 +425,12 @@ span.staff_name span{display:block; font-weight:normal; line-height:1.3em; font-
 /* Front page
 -------------------------------------------------------------- */
 a.front-title		{display:block; font-size:2em; line-height:1.2em; padding:30px; text-align:center; color:#2d3546; border-radius:5px;}
-.front-title.mob	{padding:30px; color:#FFF; border-radius:5px; background:url('http://www.bcbradio.co.uk/wp-content/uploads/team.jpg')center center; background-size:cover; font-size:20px; height:500px; position:relative;}
+.front-title.mob	{padding:30px; color:#FFF; border-radius:5px; background:url('http://www.bcbradio.co.uk/wp-content/uploads/team.jpg')center center; background-size:cover; font-size:20px; height:300px; position:relative;}
 .front-title.mob.b	{background: url('http://www.bcbradio.co.uk/wp-content/uploads/desk1.jpg')center center; background-size:cover;}
 .front-title.mob span	{position:absolute; left:0; bottom:0; padding:20px; background-color:rgba(255,255,255,0.8); font-size:16px; line-height:22px; text-align:left; color:#1c212b;}
 a.front-title.mob:hover	{background:url('http://www.bcbradio.co.uk/wp-content/uploads/team.jpg')center center; -webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition:all .2s ease-in-out;}
 a.front-title.mob.b:hover	{background:url('http://www.bcbradio.co.uk/wp-content/uploads/desk1.jpg')center center; -webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition:all .2s ease-in-out;}
-.front-title.mob span.view	{display:none; top:0; left:0; width:100%; box-sizing:border-box; font-size:30px;}
+.front-title.mob span.view	{display:none; top:0; left:0; width:100%; box-sizing:border-box; font-size:60px; line-height:1.0em; text-align:center; padding-top:20%;}
 .front-title:hover span.view	{display:block;}
 
 span.front-link		{display:block; padding-top:10px; color:#2d3546; font-size:0.6em; text-align:center; margin:0 auto; border-top:1px solid #2d3546; margin-top:20px;}
