@@ -16,6 +16,12 @@ License URI: license.txt
 
 /* =Start From Here
 -------------------------------------------------------------- */
+
+/*Default font style for posts*/
+
+.post-entry p {font-size:16px; line-height:24px;}
+
+
 /*Schedule listing*/
 h2.schedule-list {
 font-size:1.2em;
@@ -209,6 +215,7 @@ margin: 0;
 }
 .post-type-archive-presenter .post-entry img {
 margin: -22px 20px 20px 0;
+width:120px;	/* Fix layout issues when thumbnail images are different sizes */
 }
 .post-type-archive-presenter .read-more {
 clear:none;
@@ -420,6 +427,9 @@ span.staff_name span{display:block; font-weight:normal; line-height:1.3em; font-
 #footer-wrapper .col-540 {height:220px; background:url('http://www.bcbradio.co.uk/wp-content/uploads/award_all.png')no-repeat bottom; margin-bottom:40px; background-size:contain;}
 #colophon-widget.col-940 {background: url('http://www.bcbradio.co.uk/wp-content/uploads/footer-back-3.png') 0px -10px no-repeat;}
 
+div#custom_html-2	{padding:0; margin:0;}
+p#whichweek			{display:inline-block; background-color:#0330e5; padding:5px 10px;}
+
 /* #colophon-widget.col-940 {background: url('core/images/footer-back.png') 0px -10px no-repeat;} - old image footer */
 
 /* Front page
@@ -574,7 +584,7 @@ div#text-6, .footer-menu	{text-align:center;}
 #footer-wrapper .col-540 {height:initial;}
 
 a.newsletter-link {padding:0;}
-a.newsletter-link span {line-height:200px; height:200px;}
+a.newsletter-link span.ohno {line-height:200px; height:200px;}
 
 /* Mobile homepage */
 .listenagain	{display:block;}
