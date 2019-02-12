@@ -437,11 +437,11 @@ p#whichweek			{display:inline-block; background-color:#0330e5; padding:5px 10px;
 
 /* Front page
 -------------------------------------------------------------- */
-a.front-title		{display:block; font-size:2em; line-height:1.2em; padding:30px; text-align:center; color:#2d3546; border-radius:5px;}
+a.front-title		{display:block; font-size:2em; line-height:1.2em; padding:30px; text-align:center; color:#2d3546; border-radius:5px; border:1px solid #ccc;}
 .front-title.mob	{padding:30px; color:#FFF; border-radius:5px; background:url('http://www.bcbradio.co.uk/wp-content/uploads/team.jpg')center center; background-size:cover; font-size:20px; height:300px; position:relative;}
 .front-title.mob.b	{background: url('http://www.bcbradio.co.uk/wp-content/uploads/desk1.jpg')center center; background-size:cover;}
 .front-title.mob span.ohno	{position:absolute; left:0; bottom:0; padding:20px; background-color:rgba(255,255,255,0.8); font-size:16px; line-height:22px; text-align:left; color:#1c212b;}
-.front-title.mob span.view	{display:none; top:0; left:0; width:100%; box-sizing:border-box; font-size:60px; line-height:1.0em; text-align:center; background-color:rgba(0,0,0,0.5); height:100%; min-height:100%; border-radius:4px; padding:20% 20px;}
+.front-title.mob span.view	{display:none; top:0; left:0; width:100%; box-sizing:border-box; font-size:40px; line-height:1.0em; text-align:center; background-color:rgba(0,0,0,0.5); height:100%; min-height:100%; border-radius:4px; padding:20% 20px;}
 .front-title:hover span.view	{display:block;}
 .front-title:hover span.ohno	{display:none;}
 
@@ -464,8 +464,14 @@ a.newsletter-link:hover span	{background-color:rgba(0,0,0,0.8);}
 -------------------------------------------------------------- */
 .week_wrap	{margin:0 auto; padding:1em; margin-bottom:1em; font-size:18px; line-height:26px; color:#2d3546; border-radius:6px; position:relative; margin-top:1em; background:url(http://www.bcbradio.co.uk/wp-content/uploads/bcb_week.jpg)no-repeat center center; background-size:cover;}
 .week_tit	{background-color:#0330e5; color:#FFF; padding:1em; position:absolute; top:-25px; left:50%; transform:translateX(-50%); font-weight:bold; text-align:center;}
-.week_content   {background:rgba(255,255,255,0.9); padding:0.2em 2em; border-radius:6px;}
+.week_content   {background:rgba(255,255,255,0.9); padding:1.5em 2em 0.2em 2em; border-radius:6px;}
 .week_content h2 {margin-top:1.2em; margin-bottom:0em;}
+
+.home .week_wrap	{margin-top:2.5em;}
+
+.week_wrap.feat		{background:transparent; padding:0; border:1px solid #ccc;}
+.week_wrap.feat .week_content	{padding:1.5em 1.5em 0.2em 1.5em;}
+.week_wrap.feat .week_content p	{font-size:18px;}
 
 
 /* Template for Archives: This Week in BCB
@@ -525,12 +531,19 @@ a.front-title.job-col span.job-3 {font-weight:bold; padding:0;}
 
 .venus_2019_wrapper .venus-alert	{border:0;}
 .venus_2019_wrapper .venus-alert a	{padding:10px 0 0 0; height:350px; max-height:350px; box-sizing:border-box;}
+.venus_2019_wrapper .venus-alert span.title	{font-size:28px; padding:10px 0 5px 0;}
 .venus_2019_wrapper .venus-alert span.date	{padding:0;}
 .venus_2019_wrapper .venus-alert span.info	{width:90%; padding:10px 0;}
 
 /* Move widgets down for Venus 2019 section (landing page) - comment out when Venus 2019 is over
 -------------------------------------------------------------- */
-.home #widgets	{margin-top:400px;}
+.home #widgets	{margin-top:423px;}
+
+
+
+/* Venus post
+-------------------------------------------------------------- */
+.venus_date	{font-size:20px; line-height:32px; padding:20px; background-color:#f5f3f6;}
 
 
 /* Social media override widths, currently notworking
@@ -629,8 +642,11 @@ a.staff_wrap		{width:50%;}
 .week_tit	{display:inline-table;}
 .week_content   {padding:0.2em 1em;}
 .week_content h2 {padding:0 0.25em; font-size:1.7em; margin-top:1.5em;}
-
 }
+
+.week_wrap.mob	{margin-top:2em; width:96%;}
+.week_wrap.mob p	{padding:0;}
+.week_wrap.mob img	{width:100%;}
 
 @media screen and (max-width: 650px) {
 .js .main-nav #responsive_current_menu_item {text-align:left;}
