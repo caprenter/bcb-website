@@ -535,6 +535,10 @@ a.front-title.job-col span.job-3 {font-weight:bold; padding:0;}
 .venus_2019_wrapper .venus-alert span.date	{padding:0;}
 .venus_2019_wrapper .venus-alert span.info	{width:90%; padding:10px 0;}
 
+/* Audio players on venus2019 page
+-------------------------------------------------------------- */
+.mejs-container, .mejs-container .mejs-controls, .mejs-embed, .mejs-embed body {background:#94a2ad !important; border-radius:50px;}
+
 /* Move widgets down for Venus 2019 section (landing page) - comment out when Venus 2019 is over
 -------------------------------------------------------------- */
 .home #widgets	{margin-top:423px;}
