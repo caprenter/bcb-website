@@ -554,6 +554,7 @@ a.front-title.job-col span.job-3 {font-weight:bold; padding:0;}
 -------------------------------------------------------------- */
 .top_wrapper{width:920px; height:350px; margin-top:-10px; position:relative;}
 .top_vid	{width:605px; height:300px;}
+.top_wrapper.mob .top_vid {width:920px;}
 a.front-title.top_intro	{position:absolute; top:0; right:4px; width:291px; box-sizing:border-box; font-size:24px; padding:20px 30px; height:340px;}
 
 body.home #custom_html-3	{margin-top:-45px;}
