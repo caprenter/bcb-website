@@ -466,6 +466,7 @@ a.newsletter-link:hover span	{background-color:rgba(0,0,0,0.8);}
 .week_tit	{background-color:#0330e5; color:#FFF; padding:1em; position:absolute; top:-25px; left:50%; transform:translateX(-50%); font-weight:bold; text-align:center;}
 .week_content   {background:rgba(255,255,255,0.9); padding:1.5em 2em 0.2em 2em; border-radius:6px;}
 .week_content h2 {margin-top:1.2em; margin-bottom:0em;}
+.week_content img	{width:100%;}
 
 .home .week_wrap	{margin-top:2.5em;}
 
@@ -544,10 +545,22 @@ a.front-title.job-col span.job-3 {font-weight:bold; padding:0;}
 .home #widgets	{margin-top:423px;}
 
 
-
 /* Venus post
 -------------------------------------------------------------- */
 .venus_date	{font-size:20px; line-height:32px; padding:20px; background-color:#f5f3f6;}
+
+
+/* Template for Top banner landing page
+-------------------------------------------------------------- */
+.top_wrapper{width:920px; height:350px; margin-top:-10px; position:relative;}
+.top_vid	{width:605px; height:300px;}
+a.front-title.top_intro	{position:absolute; top:0; right:4px; width:291px; box-sizing:border-box; font-size:24px; padding:20px 30px; height:340px;}
+
+body.home #custom_html-3	{margin-top:-45px;}
+#custom_html-3	{padding:0; margin:0; border:0;}
+#custom_html-3 .week_tit	{width:60%;}
+.week_content h3	{font-size:1.5em; margin-top:0.5em; margin-bottom:0.5em;}
+
 
 
 /* Social media override widths, currently notworking
