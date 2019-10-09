@@ -558,12 +558,12 @@ a.front-title.job-col span.job-3 {font-weight:bold; padding:0;}
 .top_vid_mob iframe, .top_vid_mob object, .top_vid_mob embed {position:absolute; top:0; left:0px; width:100%; height:100%;}
 a.front-title.top_intro	{position:absolute; top:0; right:4px; width:291px; box-sizing:border-box; font-size:24px; padding:20px 30px; height:340px;}
 
-body.home #custom_html-3, body.home #custom_html-4	{margin-top:-45px;}
-#custom_html-3, #custom_html-4	{padding:0; margin:0; border:0;}
+body.home #custom_html-3, body.home #custom_html-4, body.home #custom_html-5 {margin-top:-45px;}
+#custom_html-3, #custom_html-4, #custom_html-5	{padding:0; margin:0; border:0;}
 #custom_html-3 .week_tit	{width:60%;}
 .week_content h3	{font-size:1.5em; margin-top:0.5em; margin-bottom:0.5em;}
 
-#custom_html-4 .week_content {padding:.5em 1em 0.2em 1em;}
+#custom_html-4 .week_content, #custom_html-5 .week_content {padding:.5em 1em 0.2em 1em;}
 
 
 
@@ -660,7 +660,7 @@ a.staff_wrap		{width:50%;}
 -------------------------------------------------------------- */
 .week_wrap	{width:85%;}
 .week_tit	{display:inline-table;}
-.week_content   {padding:0.2em 1em;}
+.week_content   {padding:1.5em 1em 0.2em 1em;}
 .week_content h2 {padding:0 0.25em; font-size:1.7em; margin-top:1.5em;}
 }
 
