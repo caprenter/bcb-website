@@ -1,6 +1,9 @@
 bcb-website
 ===========
 
+Uptime Robot: https://stats.uptimerobot.com/zpPD8sM1ZB
+
+
 This is the code to extend the Responsive Theme to create a child theme
 for the BCB site.
 
