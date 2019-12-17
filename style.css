@@ -348,10 +348,15 @@ a.widgetbutton	{display:block; width:100%; margin:0 auto;}
 	transform:scale(0.75,0.75);}
 #text-10.widget-wrapper.widget_text {padding:0; border:0; height:30px; background-color:transparent;}
 #text-10.widget-wrapper div.textwidget {padding:0; line-height:0;}
-#text-12.widget-wrapper {border:0; background-color:transparent; padding:0;}
-#text-12.widget-wrapper a.widgetbutton	{display:block; padding-top:0px; width:100%; margin:0 auto; text-align:center;}
-#text-12.widget-wrapper span  {color:#565861; font-size:18px; margin-top:10px; margin-bottom:10px; display:block;}
+#text-12.widget-wrapper,
+#text-15.widget-wrapper	{border:0; background-color:transparent; padding:0;}
+#text-12.widget-wrapper a.widgetbutton,
+#text-15.widget-wrapper a.widgetbutton{display:block; padding-top:0px; width:100%; margin:0 auto; text-align:center;}
+#text-12.widget-wrapper span 	{color:#565861; font-size:18px; margin-top:10px; margin-bottom:10px; display:block;}
+#text-15.widget-wrapper span	{color:#fff; font-size:2.2em; line-height:1.2em; display:block; background-color:rgba(0,0,0,0.6); border-radius:4px; box-sizing:border-box; padding:15px 0; margin:-10px 15px;}
+#text-15	{background: url('http://www.bcbradio.co.uk/wp-content/uploads/desk23.jpg')center center;}
 #text-12.widget-wrapper:hover span {font-style:italic;}
+#text-15.widget-wrapper:hover span {background-color:rgba(0,0,0,0.8);}
 
 
 /* BCB Webmail Sidebar Widget
@@ -675,6 +680,7 @@ a.staff_wrap		{width:50%;}
 .week_wrap.mob	{margin-top:2em; width:96%;}
 .week_wrap.mob p	{padding:0;}
 .week_wrap.mob img	{width:100%;}
+.week_wrap.mob .week_tit	{width:60%; max-width:80%;}
 
 @media screen and (max-width: 650px) {
 .js .main-nav #responsive_current_menu_item {text-align:left;}
