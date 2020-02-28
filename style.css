@@ -255,7 +255,7 @@ html {background-color:#1C1F33 !important;}
 box-shadow:         0px 0px 30px 3px #05050A;}
 .clear	{clear:both;}
 
-body.custom-background	{background-image:url('http://www.bcbradio.co.uk/wp-content/uploads/bradford_pool.jpg'); background-size:cover;}
+body.custom-background	{background-image:url('https://www.bcbradio.co.uk/wp-content/uploads/bradford_pool.jpg'); background-size:cover;}
 
 *:hover	{-webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition:all .2s ease-in-out;}
 
@@ -264,7 +264,7 @@ body.custom-background	{background-image:url('http://www.bcbradio.co.uk/wp-conte
 /* Header Course
 -------------------------------------------------------------- */
 #header {width:100%; margin:0 auto; background-color:rgba(0,0,0,0.8);}
-#logo {margin:0 auto; width:100%; height:100px; background:url('http://www.bcbradio.co.uk/wp-content/uploads/primary-logo-alpha.png') center no-repeat; background-color:#0330e5; text-align:center; float:none;}
+#logo {margin:0 auto; width:100%; height:100px; background:url('https://www.bcbradio.co.uk/wp-content/uploads/primary-logo-alpha.png') center no-repeat; background-color:#0330e5; text-align:center; float:none;}
 #logo a img {visibility:hidden;}
 .main-nav {background-color:transparent; width:100%; margin:0 auto; text-align:center;}
 .menu {background:none; background-color:transparent; margin:0 auto; width: 100%; text-align:center; box-sizing:border-box;}
@@ -305,7 +305,8 @@ h2 a:hover {color:#666 !important;}
 /* Listen Live Sidebar Widget
 -------------------------------------------------------------- */
 #wpb_widget-2.widget-wrapper, #wpb_widget-3.widget-wrapper {border:0; background-color:#000; color:#fff;}
-#wpb_widget-2.widget-wrapper, #wpb_widget-3.widget-wrapper {position:relative; padding-bottom:110px; text-align:center;}
+#wpb_widget-2.widget-wrapper, #wpb_widget-3.widget-wrapper {position:relative; padding-bottom:110px; text-align:center; margin-bottom:0;}
+.home #wpb_widget-2.widget-wrapper	{margin-bottom:20px;}
 #wpb_widget-2.widget-wrapper a, #wpb_widget-3.widget-wrapper a {color:#fff; font-weight:bold;}
 #wpb_widget-2.widget-wrapper a:hover, #wpb_widget-3.widget-wrapper a:hover {color:#FFAE02;}
 #wpb_widget-2 h3, #wpb_widget-3 h3 {color:#7999FF;}
@@ -327,7 +328,7 @@ p.on-now-description {color:#ACB1B5; font-size:1.1em; line-height:1.5em; font-we
 /* Listen Again Sidebar Widget
 -------------------------------------------------------------- */
 #text-3.widget-wrapper.widget_text	{padding:20px;}
-#text-3.widget-wrapper {border:0; background: url('http://www.bcbradio.co.uk/wp-content/uploads/play-again.png')5px 15px no-repeat #0c0f70; color:#fff; padding-top:0; text-align:center;}
+#text-3.widget-wrapper {border:0; background: url('https://www.bcbradio.co.uk/wp-content/uploads/play-again.png')5px 15px no-repeat #0c0f70; color:#fff; padding-top:0; text-align:center;}
 #text-3.widget-wrapper:hover {background-color:#0330E5;}
 #text-3.widget-wrapper.widget_text a.on-air-link	{display:none;}
 a.widgetbutton	{display:block; width:100%; margin:0 auto;}
@@ -354,9 +355,9 @@ a.widgetbutton	{display:block; width:100%; margin:0 auto;}
 #text-15.widget-wrapper a.widgetbutton{display:block; padding-top:0px; width:100%; margin:0 auto; text-align:center;}
 #text-12.widget-wrapper span 	{color:#565861; font-size:18px; margin-top:10px; margin-bottom:10px; display:block;}
 #text-15.widget-wrapper span	{color:#fff; font-size:2.2em; line-height:1.2em; display:block; background-color:rgba(0,0,0,0.6); border-radius:4px; box-sizing:border-box; padding:15px 0; margin:-10px 15px;}
-#text-15	{background: url('http://www.bcbradio.co.uk/wp-content/uploads/desk23.jpg')center center;}
+#text-15	{background: url('https://www.bcbradio.co.uk/wp-content/uploads/desk23.jpg')center center;}
 #text-12.widget-wrapper:hover span {font-style:italic;}
-#text-15.widget-wrapper:hover span {background-color:rgba(0,0,0,0.8);}
+#text-15.widget-wrapper:hover span {background-color:rgba(3,48,229,0.8);}
 
 
 /* BCB Webmail Sidebar Widget
@@ -371,7 +372,7 @@ a.widgetbutton	{display:block; width:100%; margin:0 auto;}
 
 /* Schedule - Listen Live in programme schedule
 -------------------------------------------------------------- */
-.programme.on {background:url('http://www.bcbradio.co.uk/wp-content/uploads/on-air-listen-live.png') no-repeat 492px #000; -webkit-border-radius:4px; -moz-border-radius:4px; border-radius:4px; color:#fff; position:relative; padding:25px 20px 0 20px; box-sizing:border-box; margin-bottom:10px; min-height:135px;}
+.programme.on {background:url('https://www.bcbradio.co.uk/wp-content/uploads/on-air-listen-live.png') no-repeat 492px #000; -webkit-border-radius:4px; -moz-border-radius:4px; border-radius:4px; color:#fff; position:relative; padding:25px 20px 0 20px; box-sizing:border-box; margin-bottom:10px; min-height:135px;}
 .programme.on a {color:#FFF;}
 .programme.on a:hover {color:#FFA300;}
 .on-air {font-size:0.7em; padding:0; margin:5px 2px; display:block; color:#F00; text-transform:uppercase; font-weight:bold; text-shadow:0px 0px 14px rgba(209, 12, 12, 1);}
@@ -434,8 +435,8 @@ span.staff_name span{display:block; font-weight:normal; line-height:1.3em; font-
 .footer-menu li a {border-left:1px solid #28273C;}
 #text-6 a	{color:#7676FF;}
 
-#footer-wrapper .col-540 {height:220px; background:url('http://www.bcbradio.co.uk/wp-content/uploads/award_all.png')no-repeat bottom; margin-bottom:40px; background-size:contain;}
-#colophon-widget.col-940 {background: url('http://www.bcbradio.co.uk/wp-content/uploads/footer-back-3.png') 0px -10px no-repeat;}
+#footer-wrapper .col-540 {height:220px; background:url('https://www.bcbradio.co.uk/wp-content/uploads/award_all.png')no-repeat bottom; margin-bottom:40px; background-size:contain;}
+#colophon-widget.col-940 {background: url('https://www.bcbradio.co.uk/wp-content/uploads/footer-back-3.png') 0px -10px no-repeat;}
 
 div#custom_html-2	{padding:0; margin:0;}
 p#whichweek			{display:inline-block; background-color:#0330e5; padding:5px 10px;}
@@ -445,8 +446,8 @@ p#whichweek			{display:inline-block; background-color:#0330e5; padding:5px 10px;
 /* Front page
 -------------------------------------------------------------- */
 a.front-title		{display:block; font-size:2em; line-height:1.2em; padding:30px; text-align:center; color:#2d3546; border-radius:5px; border:1px solid #ccc;}
-.front-title.mob	{padding:30px; color:#FFF; border-radius:5px; background:url('http://www.bcbradio.co.uk/wp-content/uploads/team.jpg')center center; background-size:cover; font-size:20px; height:300px; position:relative;}
-.front-title.mob.b	{background: url('http://www.bcbradio.co.uk/wp-content/uploads/desk1.jpg')center center; background-size:cover;}
+.front-title.mob	{padding:30px; color:#FFF; border-radius:5px; background:url('https://www.bcbradio.co.uk/wp-content/uploads/team.jpg')center center; background-size:cover; font-size:20px; height:300px; position:relative;}
+.front-title.mob.b	{background: url('https://www.bcbradio.co.uk/wp-content/uploads/desk1.jpg')center center; background-size:cover;}
 .front-title.mob span.ohno	{position:absolute; left:0; bottom:0; padding:20px; background-color:rgba(255,255,255,0.8); font-size:16px; line-height:22px; text-align:left; color:#1c212b;}
 .front-title.mob span.view	{display:none; top:0; left:0; width:100%; box-sizing:border-box; font-size:40px; line-height:1.0em; text-align:center; background-color:rgba(0,0,0,0.5); height:100%; min-height:100%; border-radius:4px; padding:20% 20px;}
 .front-title:hover span.view	{display:block;}
@@ -456,7 +457,7 @@ span.front-link		{display:block; padding-top:10px; color:#2d3546; font-size:0.6e
 a.front-title:hover	{background-color:#f7f7f7;}
 a.front-title:hover span.front-link	{font-style:italic;}
 
-a.newsletter-link	{display:block; background:url('http://www.bcbradio.co.uk/wp-content/uploads/desk23.jpg')center center; padding:30px; color:#FFF; border-radius:5px; background-size: cover; font-size: 20px; height:200px; position:relative; box-sizing:border-box;}
+a.newsletter-link	{display:block; background:url('https://www.bcbradio.co.uk/wp-content/uploads/desk23.jpg')center center; padding:30px; color:#FFF; border-radius:5px; background-size: cover; font-size: 20px; height:200px; position:relative; box-sizing:border-box;}
 a.newsletter-link span.ohno	{display:block; font-size:2em; text-align:center; line-height:140px; background-color:rgba(0,0,0,0.53); border-radius:4px; box-sizing:border-box;}
 a.newsletter-link:hover span	{background-color:rgba(0,0,0,0.8);}
 
@@ -469,7 +470,7 @@ a.newsletter-link:hover span	{background-color:rgba(0,0,0,0.8);}
 
 /* Template for This Week in BCB
 -------------------------------------------------------------- */
-.week_wrap	{margin:0 auto; padding:0; margin-bottom:1em; font-size:18px; line-height:26px; color:#2d3546; border-radius:6px; position:relative; margin-top:1em; background:url(http://www.bcbradio.co.uk/wp-content/uploads/bcb_week.jpg)no-repeat center center; background-size:cover;}
+.week_wrap	{margin:0 auto; padding:0; margin-bottom:1em; font-size:18px; line-height:26px; color:#2d3546; border-radius:6px; position:relative; margin-top:1em; background:url(https://www.bcbradio.co.uk/wp-content/uploads/bcb_week.jpg)no-repeat center center; background-size:cover;}
 .week_tit	{background-color:#0330e5; color:#FFF; padding:1em; position:absolute; top:-25px; left:50%; transform:translateX(-50%); font-weight:bold; text-align:center;}
 .week_content   {background:rgba(255,255,255,0.9); padding:1.5em 1em 0.2em 1em; border-radius:6px;}
 .week_content h2 {margin-top:1.2em; margin-bottom:0em;}
@@ -484,7 +485,7 @@ a.newsletter-link:hover span	{background-color:rgba(0,0,0,0.8);}
 
 /* Black History Month Template for This Week in BCB
 -------------------------------------------------------------- */
-#custom_html-3 .week_wrap	{background:url(http://www.bcbradio.co.uk/wp-content/uploads/computer_music_youth_masterclass.jpg)no-repeat center center; background-size:cover;}
+#custom_html-3 .week_wrap	{background:url(https://www.bcbradio.co.uk/wp-content/uploads/computer_music_youth_masterclass.jpg)no-repeat center center; background-size:cover;}
 #custom_html-3 .week_wrap .week_content p {margin:1em 0;}
 #custom_html-3 .week_wrap .week_content	{padding:0.2em 1em;}
 
@@ -538,7 +539,7 @@ a.front-title.job-col span.job-3 {font-weight:bold; padding:0;}
 
 /* Venus 2019 section
 -------------------------------------------------------------- */
-.venus_2019_wrapper {width:920px; height:350px; margin-top:-10px; background:url('http://www.bcbradio.co.uk/wp-content/uploads/venus00.png')no-repeat right center;}
+.venus_2019_wrapper {width:920px; height:350px; margin-top:-10px; background:url('https://www.bcbradio.co.uk/wp-content/uploads/venus00.png')no-repeat right center;}
 .venus_2019_txt, .venus_2019_img {display:inline-block; vertical-align:top;}
 .venus_2019_txt	{width:440px;}
 .venus_2019_img	{width:480px;}
@@ -553,8 +554,9 @@ a.front-title.job-col span.job-3 {font-weight:bold; padding:0;}
 -------------------------------------------------------------- */
 .mejs-container, .mejs-container .mejs-controls, .mejs-embed, .mejs-embed body {background:#94a2ad !important; border-radius:50px;}
 
-/* Move widgets down for Venus 2019 section (landing page) - comment out when Venus 2019 is over
+/* Move widgets down for landing page
 -------------------------------------------------------------- */
+#widgets	{margin:0;}
 .home #widgets	{margin-top:423px;}
 
 
@@ -571,12 +573,12 @@ a.front-title.job-col span.job-3 {font-weight:bold; padding:0;}
 .top_vid_mob iframe, .top_vid_mob object, .top_vid_mob embed {position:absolute; top:0; left:0px; width:100%; height:100%;}
 a.front-title.top_intro	{position:absolute; top:0; right:4px; width:291px; box-sizing:border-box; font-size:24px; padding:20px 30px; height:340px;}
 
-body.home #custom_html-3, body.home #custom_html-4, body.home #custom_html-5 {margin-top:-45px;}
-#custom_html-3, #custom_html-4, #custom_html-5	{padding:0; margin:0; border:0;}
+body.home #custom_html-3, body.home #custom_html-4, body.home #custom_html-5, body.home #custom_html-6 {margin-top:-45px;}
+#custom_html-3, #custom_html-4, #custom_html-5, #custom_html-6	{padding:0; margin:0; border:0;}
 #custom_html-3 .week_tit	{width:60%;}
 .week_content h3	{font-size:1.5em; margin-top:0.5em; margin-bottom:0.5em; text-align:center;}
 
-#custom_html-4 .week_content, #custom_html-5 .week_content {padding:.5em 1em 0.2em 1em;}
+#custom_html-4 .week_content, #custom_html-5 .week_content, #custom_html-6 .week_content {padding:.5em 1em 0.2em 1em;}
 
 
 
@@ -588,7 +590,7 @@ iframe#twitter-widget-0.twitter-timeline.twitter-timeline-rendered {max-width:10
 /* Presenter profiles
 -------------------------------------------------------------- */
 .presenter h1 {left:30px; color:#fff; top:10px; width:initial; min-width:250px; max-width:330px; word-break:break-word;}
-.single-presenter #widgets {margin-top:20px;}
+.single-presenter #widgets {margin-top:0px;}
 .presenter-content br	{line-height:2.4em;}
 .presenter-content p	{font-size:1.2em; line-height:1.4em;}
 a.back_presenters	{display:block; padding:20px 0 0 5px;}
@@ -606,7 +608,7 @@ img.presenter-image {width:100%;}
 .menu li ul.sub-menu li {display:block; background-color:#060a17;}
 
 .menu li li	{border:none;}
-.menu li li a	{color:#ACB1B5; font-size:16px; font-weight:normal; height:55px; line-height:55px; text-shadow:0 -1px 1px #0D0D42; text-align:left; padding:0 15px;}
+.menu li li a	{color:#ACB1B5; font-size:16px; font-weight:normal; height:40px; line-height:40px; text-shadow:0 -1px 1px #0D0D42; text-align:left; padding:0 15px;}
 .menu li li a:hover	{color:#FFF; background-color:#27377B !important;}
 
 
@@ -619,7 +621,7 @@ a.front-title	{font-size:1.8em; padding:30px; margin:5px;}
 iframe		{width:90% !important;}
 .widget-wrapper	{margin:10px;}
 /* old logo - #logo		{background:url('http://www.bcbradio.co.uk/wp-content/uploads/media-logo.png') no-repeat;} */
-#logo		{background:url('http://www.bcbradio.co.uk/wp-content/uploads/primary-logo.png') no-repeat; background-color:#0330e5;}
+#logo		{background:url('https://www.bcbradio.co.uk/wp-content/uploads/primary-logo.png') no-repeat; background-color:#0330e5;}
 .presenter h1	{left:10px; color:#fff; top:-5px;}
 .presenter-content	{float:none; width:90%;}
 .post-entry		{display:block;}
@@ -638,7 +640,7 @@ div#content img.wp-post-image	{margin:0px;}
 .post-entry			{padding:0;}
 .presenter-content		{width:90%; padding:0;}
 #colophon-widget.col-940	{background:#000;}
-#colophon-widget.col-940:after	{content:""; width:450px; height:170px; background:url('http://www.bcbradio.co.uk/wp-content/uploads/footer-back-450.png') no-repeat; display:block; margin:auto; margin-top:30px;}
+#colophon-widget.col-940:after	{content:""; width:450px; height:170px; background:url('https://www.bcbradio.co.uk/wp-content/uploads/footer-back-450.png') no-repeat; display:block; margin:auto; margin-top:30px;}
 img#wpstats			{display:none;}
 div#text-6, .footer-menu	{text-align:center;}
 .post-type-archive-presenter .post-entry p	{text-align:left;}
