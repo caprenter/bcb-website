@@ -1,6 +1,6 @@
 <?php
 
-/* Set up the Presenters as a custom post type*/
+/* Set up the Presenters and Programmes as custom post types*/
 if ( ! function_exists('custom_post_type') ) {
 
 // Register Custom Post Type
@@ -34,7 +34,7 @@ function custom_post_type() {
 		'show_in_nav_menus'   => true,
 		'show_in_admin_bar'   => true,
 		'menu_position'       => 5,
-		'menu_icon'           => '',
+		'menu_icon'           => 'dashicons-groups',
 		'can_export'          => true,
 		'has_archive'         => true, //IMPORTANT - we use archives to show all presenters on one page
 		'exclude_from_search' => false,
@@ -43,6 +43,45 @@ function custom_post_type() {
     'rewrite' => array('slug' => 'presenters'),
 	);
 	register_post_type( 'presenter', $args );
+  
+  	$labels2 = array(
+		'name'                => _x( 'Programmes', 'Post Type General Name', 'text_domain' ),
+		'singular_name'       => _x( 'Programme', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'           => __( 'Programmes', 'text_domain' ),
+		'parent_item_colon'   => __( 'Parent Programme', 'text_domain' ),
+		'all_items'           => __( 'All Programmes', 'text_domain' ),
+		'view_item'           => __( 'View Programme', 'text_domain' ),
+		'add_new_item'        => __( 'Add New Programme', 'text_domain' ),
+		'add_new'             => __( 'New Programme', 'text_domain' ),
+		'edit_item'           => __( 'Edit Programme', 'text_domain' ),
+		'update_item'         => __( 'Update Programme', 'text_domain' ),
+		'search_items'        => __( 'Search Programmes', 'text_domain' ),
+		'not_found'           => __( 'No Programmes found', 'text_domain' ),
+		'not_found_in_trash'  => __( 'No Programmes found in Trash', 'text_domain' ),
+	);
+	$args2 = array(
+		'label'               => __( 'programme', 'text_domain' ),
+		'description'         => __( 'Programme information pages', 'text_domain' ),
+		'labels'              => $labels2,
+		'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'revisions', 'custom-fields', 'page-attributes', 'post-formats', ),
+		'taxonomies'          => array('post_tag' ),
+		'hierarchical'        => true,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 6,
+		'menu_icon'           => 'dashicons-album',
+		'can_export'          => true,
+		'has_archive'         => true, //IMPORTANT - we use archives to show all Programmes on one page
+		'exclude_from_search' => false,
+		'publicly_queryable'  => true,
+		'capability_type'     => 'page',
+    'rewrite' => array('slug' => 'programmes'),
+	);
+	register_post_type( 'programme', $args2 );
+
 
 }
 
@@ -50,6 +89,8 @@ function custom_post_type() {
 add_action( 'init', 'custom_post_type', 0 );
 
 }
+
+
 
 //Add new query vars that the schedule page can use
 //Also need to add a rewrite rule so we can parse the variables out.
@@ -104,7 +145,8 @@ function outputCalendarByDateRange($startDate, $endDate)
   // Using the google-api-php-client, we are required to connect using a google 
   // developer account. The account credentials are in caprenter's account
   // Thanks to https://mytechscraps.wordpress.com/2014/05/15/accessing-google-calendar-using-the-php-api/
-  include ($templatePath . 'google-api-credentials.php'); //$client_id, $service_account_name, $key_file_location
+  global $templatePath;
+  include ($templatePath . '/google-api-credentials.php'); //$client_id, $service_account_name, $key_file_location
   
   
   // Calendar id
