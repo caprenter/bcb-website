@@ -47,36 +47,31 @@ get_header(); ?>
 
 				<div class="post-entry">
           <?php //echo print_r(get_post_custom()); ?>
-          <div class="presenter-content">
+          <div class="programme-content">
 					<?php the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
           </div>
           <!--Custom Field Data-->
-          <div class="widget-wrapper presenter">
-            <h3 style="margin-top:0">When is it on?</h3>
+          <div class="programme_dates">
             
               <?php
-                //Get the schedule info for thirty days either side of today
-              
+                //Get the schedule info for 28 days either side of today (not sure if all the cloning etc is needed - copied from the schedule pages..
+                $startDate = new DateTime(); //Date and time as it is now
                 $endDate = new DateTime($startDate->format('Y-m-d'));
                 $startDate = clone $endDate;
                 //var_dump($endDate); die;
-                $startDate->modify( '-30 days' );
-                $endDate->modify( '+30 days' );
-                //$endDate = new DateTime($startDate->format('Y-m-d') + (26*60*60)); //Set end date to be the start of the day
-                //$endDate->add(new DateInterval('P1DT2H')); //Then add an interval of 1 day and 2 hours to take us to 2am the next day
-                //$endDate = $startDate;
-
-                //outputCalendarByDateRange($startDate->format('Y-m-d'),$endDate->format('Y-m-d'));
-                //Get the output stating at the start of the start of the day in startDate (Y-m-d) and then at iso format date 'c' of end interval later. 
-                //outputCalendarByDateRange($startDate->format('Y-m-d'),$endDate->format('c'));
-                //The folowing functions can be found in functions.php
-                //$eventFeed = outputCalendarByDateRange($startDate->format('c'),$endDate->format('c'));
-                //theme_laston_nexton($eventFeed);
+                $startDate->modify( '-28 days' );
+                $endDate->modify( '+28 days' );
+                $programme = get_the_title();;
+                //echo $programme . '<br />';
+                //echo $startDate->format('Y-m-d') . '<br />';
+                //echo $endDate->format('Y-m-d') . '<br />';
+                
+                theme_laston_nexton($programme, $startDate, $endDate);
               ?>
             
             
             
-            <p><?php echo get_post_meta($post->ID, "programmes", true); ?></p>
+            <!--<p><?php echo get_post_meta($post->ID, "programmes", true); ?></p>-->
               <?php 
                 $email = get_post_meta($post->ID, "email", true);
                 $twitter = get_post_meta($post->ID, "twitter-name", true);

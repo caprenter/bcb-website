@@ -47,13 +47,14 @@ get_header(); ?>
 
 				<div class="post-entry">
           <?php //echo print_r(get_post_custom()); ?>
-          <div class="presenter-content">
+
+          <div class="programme-content">
 					<?php the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
           </div>
           <!--Custom Field Data-->
-          <div class="widget-wrapper presenter">
-            <h3 style="margin-top:0">Programmes</h3>
-            <p><?php echo get_post_meta($post->ID, "programmes", true); ?></p>
+          <!--<div class="widget-wrapper presenter">
+            <h3 style="margin-top:0">Programmes</h3>-->
+           <!-- <p><?php echo get_post_meta($post->ID, "programmes", true); ?></p>-->
               <?php 
                 $email = get_post_meta($post->ID, "email", true);
                 $twitter = get_post_meta($post->ID, "twitter-name", true);
@@ -72,7 +73,7 @@ get_header(); ?>
                 }
               ?>
 
-          </div>
+          <!--</div>-->
           <?php //echo get_post_meta($post->ID, "surname", true); ?>
 					<?php wp_link_pages( array( 'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ), 'after' => '</div>' ) ); ?>
 				</div>

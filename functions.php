@@ -171,7 +171,8 @@ function outputCalendarByDateRange($startDate, $endDate)
   $optParams = array("singleEvents" => true,
                       "timeMin" => $startDate,
                       "timeMax" => $endDate,
-                      "orderBy" => "startTime",);
+                      "orderBy" => "startTime",
+                      "maxResults" => 2500);
   
   try {
     $events = $service->events->listEvents($calName, $optParams);
@@ -210,10 +211,23 @@ function theme_schedule_list($events) {
     
     //Formats the programme infomation
     echo '<div class="programme_description">';
-      //Title
-      echo '<h4 class="title">';
-      echo htmlentities($event->summary);
-      echo '</h4>';
+    
+    //Title
+    echo '<h4 class="title">';
+    //create a link to the programme page
+    $prog_link = trim($event->summary); //trim spaces
+    //Create the slug
+    $programme_slug = preg_replace("/ /","-",$prog_link);
+    $programme_slug = strtolower($programme_slug);
+    //Replace the presenter in the description text with a link
+    $page = get_page_by_path( $programme_slug , OBJECT, 'programme' );
+    if ( isset($page) ) {
+        echo '<a class="presenter_link" href="http://www.bcbradio.co.uk/programmes/' . $programme_slug . '">' . $prog_link . '</a>';
+    } else {
+        echo htmlentities($event->summary);
+    }
+    echo '</h4>';
+    
     //Description
     if (strlen($event->description)>0) {
       //Add links to presenter pages if presenter info is given
@@ -630,6 +644,29 @@ function orderPresentersBySurname( $query )
  
 }
 
+//ORDER Programme page alphabetically 
+add_action('pre_get_posts', 'orderProgrammesAlphatbetically');
+ 
+function orderProgrammesAlphatbetically ( $query )
+{
+	// validate
+	if( is_admin() )
+	{
+		return $query;
+	}
+ 
+    // project example
+    if( isset($query->query_vars['post_type']) && $query->query_vars['post_type'] == 'programme' )
+    {
+    	$query->set('order', 'ASC'); 
+      $query->set( 'orderby', 'title' );
+    }   
+ 
+	// always return
+	return $query;
+ 
+}
+
 
 /**
  * Check if viewing on mobile for redirect to mobile landing page
@@ -642,3 +679,151 @@ if( wp_is_mobile() && is_front_page() ){
 }
 }
 add_action( 'template_redirect', 'mobile_home_redirect' );
+
+/***
+ * This will find out when a programme was last on, and is on next
+ * It may find all occurances of last on next on for a specified time period
+ * e.g. About Bradford is every day
+ * Other shows are weekly, fortnightly, weekdays only etc
+ * 
+ * Called from single-programme.php
+ * @programme - string
+ * @startDate - datetime
+ * @endDate - datetime
+ * 
+ * 
+***/
+function theme_laston_nexton ($programme, $startDate, $endDate) {
+  
+  //Get all events from the calendar for the time period 
+  $events = outputCalendarByDateRange($startDate->format('c'),$endDate->format('c'));
+  $past_programmes  = array();
+  $future_programmes = array();
+  
+  //Search through the events to match with the programme title, then display matches
+  try {
+    
+    
+      foreach ($events->getItems() as $event) {
+        //echo date('Y-m-d G:i',strtotime($event->start->dateTime)) . " - " . htmlentities($event->summary) . '<br />';
+        //See if the title matches our programme  
+        if ($programme == htmlentities($event->summary)) {
+          
+          //Check to see if the programme is on now, in the future or in the past. Store those shows to display later
+          $status = programme_status($event->start->dateTime, $event->end->dateTime);  
+          //$status = "on";
+          switch ($status) {
+              case "past":
+                  array_push($past_programmes, $event);
+                  break;
+              case "future":
+                  array_push($future_programmes, $event);
+                  break;
+              case "on":
+                  
+                  echo '<div class="programme ' . $status . '">';
+                      echo '<div>';
+                          
+                          echo '<div class="on-air" style="font-size:2rem"> On Air Now </div>';
+                          echo '<p><a class="listen-live" href="http://www.bcbradio.co.uk/player/"><img src="http://www.bcbradio.co.uk/wp-content/uploads/play_button.png"/><span>Listen Live</span></a></p>';
+                          echo '<p>' . date('D, jS F, Y - G:i',strtotime($event->start->dateTime)) . ' - ' . date('G:i',strtotime($event->end->dateTime)) . '</p>';
+                      echo '</div>';
+                  echo '</div>';
+                  break;
+          }
+        }
+      }
+      
+      //When was it next on? This will be the first element of the $future_programmes array (as they are ordered by date when we first get them
+      if(!empty($future_programmes)) {
+          $next_on = array_shift ( $future_programmes );
+          echo '<div class="programme-past">';
+              echo '<h3>Next on</h3>';
+              echo '<div>';
+                  echo '<p>' . date('D, jS F, Y - G:i',strtotime($next_on->start->dateTime)) . ' - ' . date('G:i',strtotime($next_on->end->dateTime)) . '</p>';
+              echo '</div>';
+          echo '</div>';
+      }
+      
+      //When was it last on? This will be the last element of the $past_programmes array (as they are ordered by date when we first get them
+      if(!empty($past_programmes)) {
+          $last_on = array_pop ( $past_programmes );
+          echo '<div class="programme-past">';
+              echo '<h3>Last on</h3>';
+              echo '<div>';
+                  echo '<p>' . date('D, jS F, Y - G:i',strtotime($last_on->start->dateTime)) . ' - ' . date('G:i',strtotime($last_on->end->dateTime)) . '</p>';
+                  //Description
+                  if (strlen($last_on->description)>0) {
+                    //Add links to presenter pages if presenter info is given
+                    //This is done by looking for the string; "Presented by: " which should then be followed by a comma separted list of presenters.
+                    //presenter names are turned into slugs that should match pages on the site
+                    $presenter_check = explode("Presented by: ",$last_on->description);
+                    if (isset($presenter_check[1])) { //A string that doesn't contain the delimiter will simply return a one-length array of the original string.
+                      $presenters  = explode(',',$presenter_check[1]); //This should give an arry of each presenter name
+                      foreach ($presenters as $presenter) {
+                         //replace the string with a link
+                         $presenter = trim($presenter); //trim spaces
+                         //Create the slug
+                         $presenter_slug = preg_replace("/ /","-",$presenter);
+                         $presenter_slug = strtolower($presenter_slug);
+                         //Replace the presenter in the description text with a link
+                         $page = get_page_by_path( $presenter_slug , OBJECT, 'presenter' );
+                         if ( isset($page) ) {
+                          $last_on->description = preg_replace('/'. $presenter . '/', '<a class="presenter_link" href="http://www.bcbradio.co.uk/presenters/' . $presenter_slug . '">' . $presenter . '</a>', $last_on->description);
+                        }
+                      }
+                    }
+                    echo '<p>';
+                      echo  nl2br($last_on->description);
+                    echo '</p>';
+                  }
+                  
+              echo '</div>';
+          echo '</div>';
+      }
+      
+      //Show more episodes if we have them NB some shows may have 28past shows and 28 future, so only show 5
+      if (!empty($future_programmes) || !empty($past_programmes)) {
+          echo '<div class="programme-future">';
+              echo '<h3>More episodes</h3>';
+              if (!empty($future_programmes)) {
+                  $future_programmes = array_slice($future_programmes,0,5); //reduces the number to 5
+                  echo '<h4>Coming up</h4>';
+                      echo '<ul>';
+                      foreach ($future_programmes as $event) {
+                          echo '<li>';
+                              echo date('D, jS F, Y - G:i',strtotime($event->start->dateTime)) . ' - ' . date('G:i',strtotime($event->end->dateTime));
+                          echo '</li>';
+                      }
+                      echo '</ul>';
+              }
+          
+              if (!empty($past_programmes)) {
+                  //Need to reverse the order
+                  $past_programmes = array_reverse($past_programmes);                  
+                  $past_programmes = array_slice($past_programmes,0,5); //reduces the number to 5
+                  echo '<h4>Past episodes</h4>';
+                      echo '<ul>';
+                      foreach ($past_programmes as $event) {
+                          echo '<li>';
+                              echo date('D, jS F, Y - G:i',strtotime($event->start->dateTime)) . ' - ' . date('G:i',strtotime($event->end->dateTime));
+                          echo '</li>';
+                      }
+                      echo '</ul>';
+                }
+           echo '</div>';          
+      }
+      
+  } catch (Exception $e) {
+          //Formats the can't fetch programme infomation message
+          echo '<div class="fetch-error">';
+            //Title
+            echo '<h4 class="on-now-title">';
+            echo "Sorry, we can't find information about when this show is on";  
+            echo '</div>';
+  //} finally {
+   //   print "this part is always executed n";
+  }
+  
+  
+}
