@@ -40,7 +40,7 @@ get_header(); ?>
         
         <?php responsive_entry_top(); ?>
 
-				<?php get_template_part( 'post-meta-page' ); ?>
+				<?php get_template_part( 'post-meta' ); ?>
         <?php if( has_post_thumbnail() ) : ?>
           <?php the_post_thumbnail( 'large', array( 'class' => 'programme-image' ) ); ?>
         <?php endif; ?>
