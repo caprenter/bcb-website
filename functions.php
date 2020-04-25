@@ -748,10 +748,13 @@ function theme_laston_nexton ($programme, $startDate, $endDate) {
       //When was it last on? This will be the last element of the $past_programmes array (as they are ordered by date when we first get them
       if(!empty($past_programmes)) {
           $last_on = array_pop ( $past_programmes );
+          $listen_again_link = fetch_listen_again_link ($last_on->start->dateTime, $last_on->end->dateTime);
+          //echo $listen_again_link;
+         
           echo '<div class="programme-past">';
               echo '<h3>Last on</h3>';
               echo '<div>';
-                  echo '<p>' . date('D, jS F, Y - G:i',strtotime($last_on->start->dateTime)) . ' - ' . date('G:i',strtotime($last_on->end->dateTime)) . '</p>';
+                  echo '<p>' . $listen_again_link . '</p>';
                   //Description
                   if (strlen($last_on->description)>0) {
                     //Add links to presenter pages if presenter info is given
@@ -806,7 +809,10 @@ function theme_laston_nexton ($programme, $startDate, $endDate) {
                       echo '<ul>';
                       foreach ($past_programmes as $event) {
                           echo '<li>';
-                              echo date('D, jS F, Y - G:i',strtotime($event->start->dateTime)) . ' - ' . date('G:i',strtotime($event->end->dateTime));
+                          //print_r($event->start->dateTime);
+                          $listen_again_link = fetch_listen_again_link ($event->start->dateTime, $event->end->dateTime);
+                          echo $listen_again_link;
+                              //echo date('D, jS F, Y - G:i',strtotime($event->start->dateTime)) . ' - ' . date('G:i',strtotime($event->end->dateTime));
                           echo '</li>';
                       }
                       echo '</ul>';
@@ -826,4 +832,62 @@ function theme_laston_nexton ($programme, $startDate, $endDate) {
   }
   
   
+}
+
+/*
+ * Given a date and time we can query the canstream podcast RSS to get a link for that time/date
+ * We return a formated link. That way we only have one place to change this if we need to!
+ *
+*/
+ 
+ 
+function fetch_listen_again_link ($startTime, $endTime){
+  // Get a SimplePie feed object from the listen again service
+  //This way we can link past programmes to the listen again service.
+  //Thanks to https://code.tutsplus.com/articles/building-a-recent-post-widget-powered-by-simplepie--wp-35551
+  
+  //The canstream RSS only returns (I think) 15 items (This gives us 9am to midnight)
+  //but we can request a date https://podcasts.canstream.co.uk/bcb/podcast.php?date=yyyy-mm-dd
+  //and we can page results https://podcasts.canstream.co.uk/bcb/podcast.php?page=2
+  // I haven't found a max results parameter
+  //echo date('Y-m-d', strtotime($startTime));
+  $feedURL = "https://podcasts.canstream.co.uk/bcb/podcast.php?date=" . date('Y-m-d', strtotime($startTime));
+  $rss = fetch_feed( $feedURL );
+ 
+  if ( ! is_wp_error( $rss ) ) { // Checks that the object is created correctly
+ 
+        // Figure out how many total items there are, but limit it to 5.
+        //$maxitems = $rss->get_item_quantity( $feedNumber );
+        $maxitems = 24;
+ 
+        // Build an array of all the items, starting with element 0 (first element).
+        $rss_items = $rss->get_items( 0, $maxitems );
+ 
+  }
+
+  // Loop through each feed item and display each item as a hyperlink.
+  //echo '<ul>';
+  foreach ( $rss_items as $item ) {
+      //Check to see if we can match the pubdate eg: <pubDate>Sat, 25 Apr 2020 15:00:01 +0100</pubDate>
+      //We only need to match on the hour (the supplied date time will be the start of a show, the RSS feed is 1 min into the hour)
+      //!!Above assumes we get the right date back from the RSS feed!!
+      //Should catch shows that start at half past.. 
+      $rss_hour = date('H' ,strtotime($item -> get_Date()));
+      $show_hour = date('H' ,strtotime($startTime));
+      
+      if ( $show_hour == $rss_hour ) {
+          $display = date('D, jS F, Y - G:i',strtotime($startTime)) . ' - ' . date('G:i',strtotime($endTime))  . '<a href="' . esc_url($item -> get_permalink()) . '">' . ' <span class="listen-again-link">[Listen Again]</span></a>';
+          return $display; //we can exit the loop here if we have a link      
+          
+          //echo '<li><a href="' . esc_url($item -> get_permalink()) . '" title="' . esc_html($item->get_title()) .'">';
+            //echo esc_html($item->get_title()); 
+          //echo '</a></li>';
+      } 
+  }
+
+  //echo '</ul>';
+  
+  //if we get to here we've not found a link so return a simple string
+  $display = date('D, jS F, Y - G:i',strtotime($last_on->start->dateTime)) . ' - ' . date('G:i',strtotime($last_on->end->dateTime));
+  return $display;
 }

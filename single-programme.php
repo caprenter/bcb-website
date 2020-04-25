@@ -54,6 +54,7 @@ get_header(); ?>
           <div class="programme_dates">
             
               <?php
+                //fetch_listen_again_link ("2020-04-20 11:00:00 +01:00");
                 //Get the schedule info for 28 days either side of today (not sure if all the cloning etc is needed - copied from the schedule pages..
                 $startDate = new DateTime(); //Date and time as it is now
                 $endDate = new DateTime($startDate->format('Y-m-d'));
