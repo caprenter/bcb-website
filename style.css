@@ -37,6 +37,9 @@ font-size:1.2em;
   color: #555;
   width:100%
 }
+.type-programme {
+  float:none;
+}
 /* Programme on air now, past or future*/
 .on {
   background: #eeefef;
