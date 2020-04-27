@@ -701,9 +701,16 @@ function theme_laston_nexton ($programme, $startDate, $endDate) {
   $future_programmes = array();
   
   //NB Programme names may contain a curly single quote &#8217; or ampersands and probably other stuff
+  $search[] = "&#8230;"; //... three dot elipse
+  $replace[] = "...";
+  $search[] = "&#8217;"; // curly single quote
+  $replace[] = "'";
+  //print_r($search);
+  //print_r($replace);
   
-  $programme = str_replace("&#8217;", "'", $programme); //replace curly quote with single straight quote
-  //echo $programme;  //echo html_entity_decode($programme);   //var_dump(html_entity_decode($programme));
+  $programme = str_replace($search, $replace, $programme); //replace curly quote with single straight quote
+  //echo $programme;  //echo html_entity_decode($programme);   
+  //var_dump(html_entity_decode($programme));
   //Search through the events to match with the programme title, then display matches
   try {
     
