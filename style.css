@@ -562,7 +562,7 @@ a.front-title.job-col span.job-3 {font-weight:bold; padding:0;}
 /* Move widgets down for landing page
 -------------------------------------------------------------- */
 #widgets	{margin:0;}
-.home #widgets	{margin-top:1143px;}
+.home #widgets	{margin-top:933px;}
 
 
 /* Venus post
@@ -574,6 +574,7 @@ a.front-title.job-col span.job-3 {font-weight:bold; padding:0;}
 -------------------------------------------------------------- */
 .top_wrapper{width:920px; height:350px; margin-top:-10px; position:relative;}
 .top_wrapper.announce	{height:700px; padding:20px 30px 0 30px; box-sizing:border-box; border-radius:8px; border:1px solid #ccc; font-size:16px; line-height:24px}
+.announce p	{font-size:16px; line-height:22px; margin:20px 0;}
 .top_vid	{width:605px; height:300px;}
 .top_vid_mob {position:relative; padding-bottom:56.25%; padding-top:0px; height:0; margin:0 auto; margin-left:20px; overflow:hidden; max-width:100%;}
 .top_vid_mob iframe, .top_vid_mob object, .top_vid_mob embed {position:absolute; top:0; left:0px; width:100%; height:100%;}
