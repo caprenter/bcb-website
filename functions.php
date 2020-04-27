@@ -700,6 +700,10 @@ function theme_laston_nexton ($programme, $startDate, $endDate) {
   $past_programmes  = array();
   $future_programmes = array();
   
+  //NB Programme names may contain a curly single quote &#8217; or ampersands and probably other stuff
+  
+  $programme = str_replace("&#8217;", "'", $programme); //replace curly quote with single straight quote
+  //echo $programme;  //echo html_entity_decode($programme);   //var_dump(html_entity_decode($programme));
   //Search through the events to match with the programme title, then display matches
   try {
     
@@ -707,7 +711,9 @@ function theme_laston_nexton ($programme, $startDate, $endDate) {
       foreach ($events->getItems() as $event) {
         //echo date('Y-m-d G:i',strtotime($event->start->dateTime)) . " - " . htmlentities($event->summary) . '<br />';
         //See if the title matches our programme  
-        if ($programme == htmlentities($event->summary)) {
+        //var_dump(html_entity_decode($event->summary));
+        //echo $event->summary;
+        if (html_entity_decode($programme) == html_entity_decode($event->summary)) { //html_entity_decode deals with ampersands (and more?)
           
           //Check to see if the programme is on now, in the future or in the past. Store those shows to display later
           $status = programme_status($event->start->dateTime, $event->end->dateTime);  
