@@ -695,6 +695,9 @@ add_action( 'template_redirect', 'mobile_home_redirect' );
 ***/
 function theme_laston_nexton ($programme, $startDate, $endDate) {
   
+  $show_descriptions[] = "BCB Xtra";
+  
+  
   //Get all events from the calendar for the time period 
   $events = outputCalendarByDateRange($startDate->format('c'),$endDate->format('c'));
   $past_programmes  = array();
@@ -753,7 +756,12 @@ function theme_laston_nexton ($programme, $startDate, $endDate) {
           echo '<div class="programme-past programme-next">';
               echo '<h3>Next on</h3>';
               echo '<div>';
-                  echo '<p><b>' . date('D, jS F, Y - G:i',strtotime($next_on->start->dateTime)) . ' - ' . date('G:i',strtotime($next_on->end->dateTime)) . '</b></p>';
+                  echo '<p>';
+                      echo date('D, jS F, Y - G:i',strtotime($next_on->start->dateTime)) . ' - ' . date('G:i',strtotime($next_on->end->dateTime));
+                      if (in_array((html_entity_decode($programme)), $show_descriptions)) {
+                          echo '<br/>' . show_description($next_on->description);
+                      }
+                  echo '</p>';
               echo '</div>';
           echo '</div>';
       }
@@ -767,7 +775,7 @@ function theme_laston_nexton ($programme, $startDate, $endDate) {
           echo '<div class="programme-past">';
               echo '<h3>Last on</h3>';
               echo '<div>';
-                  echo '<p>' . $listen_again_link . '</p>';
+                  echo '<p>' . $listen_again_link;
                   //Description
                   if (strlen($last_on->description)>0) {
                     //Add links to presenter pages if presenter info is given
@@ -789,11 +797,12 @@ function theme_laston_nexton ($programme, $startDate, $endDate) {
                         }
                       }
                     }
-                    echo '<p>';
-                      echo  nl2br($last_on->description);
-                    echo '</p>';
+                    echo '<br/>';
+                    //echo  nl2br($last_on->description);
+                    echo  $last_on->description;
+                    
                   }
-                  
+                echo '</p>';    
               echo '</div>';
           echo '</div>';
       }
@@ -809,6 +818,9 @@ function theme_laston_nexton ($programme, $startDate, $endDate) {
                       foreach ($future_programmes as $event) {
                           echo '<li>';
                               echo date('D, jS F, Y - G:i',strtotime($event->start->dateTime)) . ' - ' . date('G:i',strtotime($event->end->dateTime));
+                              if (in_array((html_entity_decode($programme)), $show_descriptions)) {
+                                  echo '<br/>' . show_description($event->description);
+                              }
                           echo '</li>';
                       }
                       echo '</ul>';
@@ -828,6 +840,9 @@ function theme_laston_nexton ($programme, $startDate, $endDate) {
                           $listen_again_link = fetch_listen_again_link ($event->start->dateTime, $event->end->dateTime);
                           echo $listen_again_link;
                               //echo date('D, jS F, Y - G:i',strtotime($event->start->dateTime)) . ' - ' . date('G:i',strtotime($event->end->dateTime));
+                          if (in_array((html_entity_decode($programme)), $show_descriptions)) {
+                              echo '<br/>' . show_description($event->description);
+                          }
                           echo '</li>';
                       }
                       echo '</ul>';
@@ -907,3 +922,22 @@ function fetch_listen_again_link ($startTime, $endTime){
   $display = date('D, jS F, Y - G:i',strtotime($last_on->start->dateTime)) . ' - ' . date('G:i',strtotime($last_on->end->dateTime));
   return $display;
 }
+
+/*
+ * Takes a google calendar description and formats it make it a short one liner
+ */ 
+function show_description ($description) {
+  
+  $description = trim($description);
+  //echo $description;
+  
+  if (strlen ($description) > 140) {
+      $description =  substr($description, 0, 140);
+      $description = $description . '...';
+  }
+  
+  $html = '<span class="calendardescription">' . $description . '</span>';
+  
+  return $html;
+}
+  
