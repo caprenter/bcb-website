@@ -53,7 +53,31 @@ get_header(); ?>
           <!--Custom Field Data-->
           <div class="widget-wrapper presenter">
             <h3 style="margin-top:0">Programmes</h3>
-            <p><?php echo get_post_meta($post->ID, "programmes", true); ?></p>
+            <p><?php 
+                  //echo get_post_meta($post->ID, "programmes", true); 
+                  //create a link to the programme page
+                  $programmes = get_post_meta($post->ID, "programmes", true); //may be a single programme or a comma seperated list
+                  if ($programmes) {
+                    echo '<ul>'; 
+                    $programmes = explode( ',', $programmes );
+                    foreach ($programmes as $programme) {
+                        echo '<li>'; 
+                        $prog_link = trim($programme); //trim spaces
+                        //Create the slug
+                        $programme_slug = preg_replace("/ /","-",$prog_link);
+                        $programme_slug = strtolower($programme_slug);
+                        $page = get_page_by_path( $programme_slug , OBJECT, 'programme' );
+                        if ( isset($page) ) {
+                            echo '<a class="programme_link" href="http://www.bcbradio.co.uk/programmes/' . $programme_slug . '">' . $prog_link . '</a>';
+                        } else {
+                            echo htmlentities($programme);
+                        }
+                        echo '</li>';
+                      }
+                      echo '</ul>';
+                    }
+                ?>
+            </p>
               <?php 
                 $email = get_post_meta($post->ID, "email", true);
                 $twitter = get_post_meta($post->ID, "twitter-name", true);
