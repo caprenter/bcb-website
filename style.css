@@ -402,6 +402,145 @@ a.widgetbutton	{display:block; width:100%; margin:0 auto;}
 .schedule-nav ol li.featured-day	{border:0px solid #ccc; border-right:0; border-radius:initial;}
 
 
+/* Programme page feed
+-------------------------------------------------------------- */
+.pfeed {
+display: flex;
+flex-flow: wrap;
+}
+
+.pfeed .type-programme {
+float: none;
+width: 48%;
+box-sizing: border-box;
+border: 0;
+margin: 0 0 10px 10px;
+padding: 0;
+border-radius: 4px;
+border: 1px solid #ddd;
+}
+
+.pfeed .type-programme .post-meta {
+display: none;
+}
+
+.pfeed .type-programme h2 {
+margin: 0;
+}
+
+.pfeed .type-programme h2 a {
+display: block;
+background-color: #eeecde;
+padding: 20px;
+border-radius: 4px 4px 0 0;
+font-size: 24px;
+}
+
+.pfeed .type-programme h2 a:hover {
+background-color: #f9f3ce;
+}
+
+.pfeed .type-programme .post-entry {
+padding: 0 20px;
+}
+
+/* Single Programme page feed
+-------------------------------------------------------------- */
+.single-programme .entry-title.post-title {
+margin-top: 0;
+}
+
+.single-programme .programme-content {
+border: 1px solid #ccc;
+border-radius: 4px;
+padding: 0 20px;
+}
+
+.single-programme .programme-past {
+display: inline-block;
+width: 50%;
+vertical-align: top;
+margin-top: 15px;
+}
+
+.single-programme .programme-past h3 {
+border-bottom: 5px solid #a4aece;
+margin-right: 30px;
+padding-bottom: 10px;
+color: #8c93ac;
+text-transform: uppercase;
+font-size: 20px;
+}
+
+.single-programme .programme-ep {
+display: inline-block;
+width: 50%;
+vertical-align: top;
+}
+
+.single-programme .programme-ep h4 {
+border-bottom: 5px solid #a4aece;
+margin-right: 30px;
+padding-bottom: 10px;
+color: #8c93ac;
+text-transform: uppercase;
+font-size: 20px;
+display: block;
+}
+
+.single-programme .programme-next h3,
+.single-programme .programme-next h4 {
+border-bottom: 5px solid #0330e5;
+color: #0330e5;
+}
+
+.single-programme .programme-ep ul {
+list-style-type: none;
+padding: 0;
+}
+
+.single-programme .listen-again-link {
+display: inline-block;
+background-color: #a4aece;
+padding: 0 5px;
+text-transform: uppercase;
+font-size: 12px;
+color: #fff;
+border-radius: 2px;
+}
+
+.single-programme .listen-again-link:hover {
+background-color: #0330e5;
+}
+
+.single-programme .programme.on {
+margin: -5px 0 0 0;
+padding: 0;
+min-height: initial;
+background: #511d6a;
+border-radius: 0 0 6px 6px;
+}
+
+.single-programme a.listen-live {
+display: block;
+padding: 10px 20px;
+text-transform: uppercase;
+font-weight: bold;
+font-size: 24px;
+text-align: center;
+border-radius: 4px;
+}
+
+.single-programme a.listen-live:hover {
+color:#DDD2E2;
+background-color:#7823A0;
+}	
+	
+.single-programme a.listen-live img{
+-webkit-filter: brightness(3);
+filter: brightness(3);
+margin-left: 10px;
+}
 
 /* BCB Newsletter Sidebar Widget
 -------------------------------------------------------------- */
@@ -657,6 +796,15 @@ div#text-6, .footer-menu	{text-align:center;}
 a.newsletter-link {padding:0;}
 a.newsletter-link span.ohno {line-height:200px; height:200px;}
 
+/*	Programme Feed page	*/
+.pfeed {display:block; width:initial;}
+.pfeed .type-programme {width:initial; margin: 10px 10px 0 10px;}
+.pfeed .type-programme h2 {padding:0;}
+.pfeed .type-programme .post-entry {padding: 0 20px 5px 20px;}
+	
+.single-programme .listen-again-link {margin-left:10px;}
+
+
 /* Mobile homepage */
 .listenagain	{display:block;}
 #text-5.widget-wrapper	{background:url('core/images/webmail.png') 125px 0px no-repeat #8093a2;}
@@ -682,6 +830,7 @@ a.staff_wrap		{width:50%;}
 .week_tit	{display:inline-table;}
 .week_content   {padding:1.5em 1em 0.2em 1em;}
 .week_content h2 {padding:0 0.25em; font-size:1.7em; margin-top:1.5em;}
+	
 }
 
 .week_wrap.mob	{margin-top:2em; width:96%;}
@@ -695,10 +844,12 @@ a.staff_wrap		{width:50%;}
 .js .main-nav .menu li a	{border-bottom:1px solid #000; color:#ccc; font-size:16px;}
 .js .main-nav .menu li a:hover, .js .main-nav .menu li li a:hover {color:#444;}	
 .js .main-nav .menu li.current_page_item, .js .menu .current_page_item a, .js .menu .current-menu-item a {background-color:#27377B;}
+	
 }
 
 @media (max-width: 480px) {
 #colophon-widget.col-940:after	{display:none;}
 .presenter h1			{top:-40px; font-size:1.6em; min-width:200px; max-width:200px; margin-top:1.8em;}
 .post-type-archive-presenter .presenter h2		{width:initial;}
+	
 }

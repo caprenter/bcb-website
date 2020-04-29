@@ -1,0 +1,31 @@
+<!--  This is the HTML and javascript that tells us which 'week' we are in, in the BCB 4 week cycle
+      It sits in one of the wordpress widget areas as Custom HTML -->
+<p id="whichweek"></p>
+
+<script>
+function diff_weeks(dt2, dt1)
+{
+
+var diff =(dt2.getTime() - dt1.getTime()) / 1000;
+diff /= (60 * 60 * 24 * 7);
+return Math.abs(Math.ceil(diff));
+
+}
+
+dt1 = new Date(2018,9,22); //NB months start at 0 - we just need to set a week one week here
+dt2 = new Date(); //use new Date() in final script
+weeks = diff_weeks(dt2, dt1);
+weeeks = weeks
+if (weeks > 3) {
+working_week = weeks % 4;
+if (working_week == 0) {
+working_week = 4;
+}
+} else {
+working_week = weeks;
+}
+
+document.getElementById("whichweek").innerHTML = '<a href="https://www.bcbradio.co.uk/bcb-broadcast-week/">Week ' + working_week + '</a>';
+//console.log(working_week);
+//console.log(diff_weeks(dt1, dt2));
+</script>
