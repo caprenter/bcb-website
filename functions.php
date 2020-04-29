@@ -703,7 +703,9 @@ function theme_laston_nexton ($programme, $startDate, $endDate) {
   //NB Programme names may contain a curly single quote &#8217; or ampersands and probably other stuff
   $search[] = "&#8230;"; //... three dot elipse
   $replace[] = "...";
-  $search[] = "&#8217;"; // curly single quote
+  $search[] = "&#8216;"; // curly single quote
+  $replace[] = "'";
+  $search [] = "&#8217;"; // another curly quote
   $replace[] = "'";
   //print_r($search);
   //print_r($replace);
@@ -737,9 +739,7 @@ function theme_laston_nexton ($programme, $startDate, $endDate) {
                   echo '<div class="programme ' . $status . '">';
                       echo '<div>';
                           
-                          echo '<div class="on-air" style="font-size:2rem"> On Air Now </div>';
-                          echo '<p><a class="listen-live" href="http://www.bcbradio.co.uk/player/"><img src="http://www.bcbradio.co.uk/wp-content/uploads/play_button.png"/><span>Listen Live</span></a></p>';
-                          echo '<p>' . date('D, jS F, Y - G:i',strtotime($event->start->dateTime)) . ' - ' . date('G:i',strtotime($event->end->dateTime)) . '</p>';
+                          echo '<a class="listen-live" href="http://www.bcbradio.co.uk/player/"><img src="http://www.bcbradio.co.uk/wp-content/uploads/play_button.png"/><span>Listen Live</span></a>';
                       echo '</div>';
                   echo '</div>';
                   break;
@@ -750,10 +750,10 @@ function theme_laston_nexton ($programme, $startDate, $endDate) {
       //When was it next on? This will be the first element of the $future_programmes array (as they are ordered by date when we first get them
       if(!empty($future_programmes)) {
           $next_on = array_shift ( $future_programmes );
-          echo '<div class="programme-past">';
+          echo '<div class="programme-past programme-next">';
               echo '<h3>Next on</h3>';
               echo '<div>';
-                  echo '<p>' . date('D, jS F, Y - G:i',strtotime($next_on->start->dateTime)) . ' - ' . date('G:i',strtotime($next_on->end->dateTime)) . '</p>';
+                  echo '<p><b>' . date('D, jS F, Y - G:i',strtotime($next_on->start->dateTime)) . ' - ' . date('G:i',strtotime($next_on->end->dateTime)) . '</b></p>';
               echo '</div>';
           echo '</div>';
       }
@@ -801,9 +801,9 @@ function theme_laston_nexton ($programme, $startDate, $endDate) {
       //Show more episodes if we have them NB some shows may have 28past shows and 28 future, so only show 5
       if (!empty($future_programmes) || !empty($past_programmes)) {
           echo '<div class="programme-future">';
-              echo '<h3>More episodes</h3>';
               if (!empty($future_programmes)) {
                   $future_programmes = array_slice($future_programmes,0,5); //reduces the number to 5
+				echo '<div class="programme-ep programme-next">';
                   echo '<h4>Coming up</h4>';
                       echo '<ul>';
                       foreach ($future_programmes as $event) {
@@ -812,12 +812,14 @@ function theme_laston_nexton ($programme, $startDate, $endDate) {
                           echo '</li>';
                       }
                       echo '</ul>';
+				echo '</div>';
               }
           
               if (!empty($past_programmes)) {
                   //Need to reverse the order
                   $past_programmes = array_reverse($past_programmes);                  
                   $past_programmes = array_slice($past_programmes,0,5); //reduces the number to 5
+				  echo '<div class="programme-ep">';
                   echo '<h4>Past episodes</h4>';
                       echo '<ul>';
                       foreach ($past_programmes as $event) {
@@ -829,6 +831,7 @@ function theme_laston_nexton ($programme, $startDate, $endDate) {
                           echo '</li>';
                       }
                       echo '</ul>';
+				  echo '</div>';
                 }
            echo '</div>';          
       }
@@ -889,7 +892,7 @@ function fetch_listen_again_link ($startTime, $endTime){
       $show_hour = date('H' ,strtotime($startTime));
       
       if ( $show_hour == $rss_hour ) {
-          $display = date('D, jS F, Y - G:i',strtotime($startTime)) . ' - ' . date('G:i',strtotime($endTime))  . '<a href="' . esc_url($item -> get_permalink()) . '">' . ' <span class="listen-again-link">[Listen Again]</span></a>';
+          $display = date('D, jS F, Y - G:i',strtotime($startTime)) . ' - ' . date('G:i',strtotime($endTime))  . '<a href="' . esc_url($item -> get_permalink()) . '">' . ' <span class="listen-again-link">Listen Again</span></a>';
           return $display; //we can exit the loop here if we have a link      
           
           //echo '<li><a href="' . esc_url($item -> get_permalink()) . '" title="' . esc_html($item->get_title()) .'">';

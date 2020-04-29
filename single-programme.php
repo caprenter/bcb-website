@@ -27,7 +27,7 @@ get_header(); ?>
 
 <a href="http://www.bcbradio.co.uk/programmes/" class="back_presenters">Back to Programmes</a>
 
-<div id="content" class="<?php echo implode( ' ', responsive_get_content_classes() ); ?>">
+<div id="content" class="single-programme <?php echo implode( ' ', responsive_get_content_classes() ); ?>">
 
 	<?php if( have_posts() ) : ?>
 
@@ -69,8 +69,34 @@ get_header(); ?>
                 
                 theme_laston_nexton($programme, $startDate, $endDate);
               ?>
+            
+            
+            
+            <!--<p><?php echo get_post_meta($post->ID, "programmes", true); ?></p>-->
+              <?php 
+                $email = get_post_meta($post->ID, "email", true);
+                $twitter = get_post_meta($post->ID, "twitter-name", true);
+                $facebook = get_post_meta($post->ID, "facebook-name", true);
+		$webpage = get_post_meta($post->ID, "webpage", true);
+                if ($email || $twitter || $facebook ) {
+                  echo '<h3 class="presenter-contact">Contact</h3>';
+                  
+		  if ($email) {
+                    echo 'Email: <a href="mailto:' . htmlentities($email) . '">' . htmlentities($email) . '</a><br/>';  
+                  } 
+		  if ($webpage) {
+                    echo 'Web: <a href="' . htmlentities($webpage) . '">' . htmlentities($webpage) . '</a><br/>';  
+                  } 
+                  if ($twitter) {
+                    echo 'Twitter: <a href="https://twitter.com/' . htmlentities($twitter) . '">' . htmlentities($twitter) . '</a><br/>';  
+                  }                  
+                  if ($facebook) {
+                    echo 'Facebook: <a href="https://www.facebook.com/' . htmlentities($facebook) . '">"' . htmlentities($facebook) . '</a><br/>'; 
+                  }
+                }
+              ?>
 
-          </div><!--  End Programme Dates -->
+          </div>
           <?php //echo get_post_meta($post->ID, "surname", true); ?>
 					<?php wp_link_pages( array( 'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ), 'after' => '</div>' ) ); ?>
 				</div>
