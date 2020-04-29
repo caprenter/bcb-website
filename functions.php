@@ -883,6 +883,9 @@ function fetch_listen_again_link ($startTime, $endTime){
   // I haven't found a max results parameter
   //echo date('Y-m-d', strtotime($startTime));
   $feedURL = "https://podcasts.canstream.co.uk/bcb/podcast.php?date=" . date('Y-m-d', strtotime($startTime));
+  if ( date('H' ,strtotime($startTime)) <= 8 ) {
+    $feedURL = $feedURL . '&page=2'; // Anything after midnight and the breakfast show at 8am are on page 2 of the rss feed.
+  }
   $rss = fetch_feed( $feedURL );
  
   if ( ! is_wp_error( $rss ) ) { // Checks that the object is created correctly
@@ -904,7 +907,9 @@ function fetch_listen_again_link ($startTime, $endTime){
       //!!Above assumes we get the right date back from the RSS feed!!
       //Should catch shows that start at half past.. 
       $rss_hour = date('H' ,strtotime($item -> get_Date()));
+      //echo $rss_hour;
       $show_hour = date('H' ,strtotime($startTime));
+      //echo $show_hour;
       
       if ( $show_hour == $rss_hour ) {
           $display = date('D, jS F, Y - G:i',strtotime($startTime)) . ' - ' . date('G:i',strtotime($endTime))  . '<a href="' . esc_url($item -> get_permalink()) . '">' . ' <span class="listen-again-link">Listen Again</span></a>';
@@ -919,7 +924,7 @@ function fetch_listen_again_link ($startTime, $endTime){
   //echo '</ul>';
   
   //if we get to here we've not found a link so return a simple string
-  $display = date('D, jS F, Y - G:i',strtotime($last_on->start->dateTime)) . ' - ' . date('G:i',strtotime($last_on->end->dateTime));
+  $display = date('D, jS F, Y - G:i',strtotime($startTime)) . ' - ' . date('G:i',strtotime($endTime));
   return $display;
 }
 
