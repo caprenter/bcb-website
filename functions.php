@@ -736,7 +736,7 @@ function theme_laston_nexton ($programme, $startDate, $endDate) {
                   break;
               case "on":
                   
-                  echo '<div class="programme ' . $status . '">';
+                  echo '<div class="single-programme programme ' . $status . '">';
                       echo '<div>';
                           
                           echo '<a class="listen-live" href="http://www.bcbradio.co.uk/player/"><img src="http://www.bcbradio.co.uk/wp-content/uploads/play_button.png"/><span>Listen Live</span></a>';
