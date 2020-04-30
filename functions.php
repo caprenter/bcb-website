@@ -755,11 +755,13 @@ function theme_laston_nexton ($programme, $startDate, $endDate) {
           $next_on = array_shift ( $future_programmes );
           echo '<div class="programme-past programme-next">';
               echo '<h3>Next on</h3>';
-              echo '<div class="programme-wrap">';
-                      echo '<div class="event-datetime">' . date('D, jS F, Y - G:i',strtotime($next_on->start->dateTime)) . ' - ' . date('G:i',strtotime($next_on->end->dateTime)) . '</div>';
+              echo '<div>';
+                  echo '<p>';
+                      echo date('D, jS F, Y - G:i',strtotime($next_on->start->dateTime)) . ' - ' . date('G:i',strtotime($next_on->end->dateTime));
                       if (in_array((html_entity_decode($programme)), $show_descriptions)) {
-                          echo show_description($next_on->description);
+                          echo '<br/>' . show_description($next_on->description);
                       }
+                  echo '</p>';
               echo '</div>';
           echo '</div>';
       }
@@ -772,8 +774,8 @@ function theme_laston_nexton ($programme, $startDate, $endDate) {
          
           echo '<div class="programme-past">';
               echo '<h3>Last on</h3>';
-              echo '<div class="programme-wrap">';
-                  echo $listen_again_link;
+              echo '<div>';
+                  echo '<p>' . $listen_again_link;
                   //Description
                   if (strlen($last_on->description)>0) {
                     //Add links to presenter pages if presenter info is given
@@ -795,11 +797,12 @@ function theme_laston_nexton ($programme, $startDate, $endDate) {
                         }
                       }
                     }
-                    echo '<div class="calendardescription">';
-                    echo  nl2br($last_on->description);
-                    //echo  $last_on->description;
-                    echo '</div>';
+                    echo '<br/>';
+                    //echo  nl2br($last_on->description);
+                    echo  $last_on->description;
+                    
                   }
+                echo '</p>';    
               echo '</div>';
           echo '</div>';
       }
@@ -811,16 +814,16 @@ function theme_laston_nexton ($programme, $startDate, $endDate) {
                   $future_programmes = array_slice($future_programmes,0,5); //reduces the number to 5
 				echo '<div class="programme-ep programme-next">';
                   echo '<h4>Coming up</h4>';
-                      //echo '<ul>';
+                      echo '<ul>';
                       foreach ($future_programmes as $event) {
-                          echo '<div class="programme-wrap">';
-                              echo '<div class="event-datetime">' . date('D, jS F, Y - G:i',strtotime($event->start->dateTime)) . ' - ' . date('G:i',strtotime($event->end->dateTime)) . '</div>';
+                          echo '<li>';
+                              echo date('D, jS F, Y - G:i',strtotime($event->start->dateTime)) . ' - ' . date('G:i',strtotime($event->end->dateTime));
                               if (in_array((html_entity_decode($programme)), $show_descriptions)) {
-                                  echo show_description($event->description);
+                                  echo '<br/>' . show_description($event->description);
                               }
-                          echo '</div>';
+                          echo '</li>';
                       }
-                      //echo '</ul>';
+                      echo '</ul>';
 				echo '</div>';
               }
           
@@ -830,19 +833,19 @@ function theme_laston_nexton ($programme, $startDate, $endDate) {
                   $past_programmes = array_slice($past_programmes,0,5); //reduces the number to 5
 				  echo '<div class="programme-ep">';
                   echo '<h4>Past episodes</h4>';
-                     // echo '<ul>';
+                      echo '<ul>';
                       foreach ($past_programmes as $event) {
-                          echo '<div class="programme-wrap">';
+                          echo '<li>';
                           //print_r($event->start->dateTime);
                           $listen_again_link = fetch_listen_again_link ($event->start->dateTime, $event->end->dateTime);
                           echo $listen_again_link;
                               //echo date('D, jS F, Y - G:i',strtotime($event->start->dateTime)) . ' - ' . date('G:i',strtotime($event->end->dateTime));
                           if (in_array((html_entity_decode($programme)), $show_descriptions)) {
-                              echo show_description($event->description);
+                              echo '<br/>' . show_description($event->description);
                           }
-                          echo '</div>';
+                          echo '</li>';
                       }
-                     // echo '</ul>';
+                      echo '</ul>';
 				  echo '</div>';
                 }
            echo '</div>';          
@@ -909,7 +912,7 @@ function fetch_listen_again_link ($startTime, $endTime){
       //echo $show_hour;
       
       if ( $show_hour == $rss_hour ) {
-          $display = '<div class="event-datetime">' . date('D, jS F, Y - G:i',strtotime($startTime)) . ' - ' . date('G:i',strtotime($endTime))  . '</div>' . '<a href="' . esc_url($item -> get_permalink()) . '">' . ' <span class="listen-again-link">Listen Again</span></a>';
+          $display = date('D, jS F, Y - G:i',strtotime($startTime)) . ' - ' . date('G:i',strtotime($endTime))  . '<a href="' . esc_url($item -> get_permalink()) . '">' . ' <span class="listen-again-link">Listen Again</span></a>';
           return $display; //we can exit the loop here if we have a link      
           
           //echo '<li><a href="' . esc_url($item -> get_permalink()) . '" title="' . esc_html($item->get_title()) .'">';
@@ -921,7 +924,7 @@ function fetch_listen_again_link ($startTime, $endTime){
   //echo '</ul>';
   
   //if we get to here we've not found a link so return a simple string
-  $display = '<div class="event-datetime">' . date('D, jS F, Y - G:i',strtotime($startTime)) . ' - ' . date('G:i',strtotime($endTime)) . '</div>';
+  $display = date('D, jS F, Y - G:i',strtotime($startTime)) . ' - ' . date('G:i',strtotime($endTime));
   return $display;
 }
 
@@ -930,8 +933,7 @@ function fetch_listen_again_link ($startTime, $endTime){
  */ 
 function show_description ($description) {
   
-  //$description = trim($description);
-  $description = nl2br($description);
+  $description = trim($description);
   //echo $description;
   
   if (strlen ($description) > 140) {
@@ -939,7 +941,7 @@ function show_description ($description) {
       $description = $description . '...';
   }
   
-  $html = '<div class="calendardescription">' . $description . '</div>';
+  $html = '<span class="calendardescription">' . $description . '</span>';
   
   return $html;
 }
