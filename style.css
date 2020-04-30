@@ -333,8 +333,8 @@ p.on-now-description {color:#ACB1B5; font-size:1.1em; line-height:1.5em; font-we
 
 /* Listen Again Sidebar Widget
 -------------------------------------------------------------- */
-#text-3.widget-wrapper.widget_text	{padding:20px;}
-#text-3.widget-wrapper {border:0; background: url('https://www.bcbradio.co.uk/wp-content/uploads/play-again.png')5px 15px no-repeat #0c0f70; color:#fff; padding-top:0; text-align:center;}
+#text-3.widget-wrapper.widget_text	{padding:15px 15px 10px 15px;}
+#text-3.widget-wrapper {border:0; background-color:#3B53B9; color:#fff; padding-top:0; text-align:center;}
 #text-3.widget-wrapper:hover {background-color:#0330E5;}
 #text-3.widget-wrapper.widget_text a.on-air-link	{display:none;}
 a.widgetbutton	{display:block; width:100%; margin:0 auto;}
@@ -573,11 +573,11 @@ display: none;
 
 /* BCB Newsletter Sidebar Widget
 -------------------------------------------------------------- */
-div#recent-posts-3 {border:0; background-color:transparent; margin:0; padding:0;}
+div#recent-posts-3 {border:0; background-color:transparent; margin:0 0 15px 0; padding:0;}
 #recent-posts-3 .widget-title	{display:none;}
 #recent-posts-3 ul	{list-style-type:none; margin:0; padding:0;}
-#recent-posts-3 li a	{color:#fff; display:block !important; padding:10px; margin-bottom:5px; border-radius:4px; background-color:#657382;}
-#recent-posts-3 a:hover {background-color:#879aaf;}
+#recent-posts-3 li a	{color:#444; display:block !important; padding:10px 20px; margin-bottom:5px; border-radius:4px; background-color:#f4f2e2; font-size:16px; line-height:24px;}
+#recent-posts-3 a:hover {background-color:#f9f3ce;}
 
 
 /* BCB Newsletter posts header sections
