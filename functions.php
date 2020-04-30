@@ -742,7 +742,7 @@ function theme_laston_nexton ($programme, $startDate, $endDate) {
                   echo '<div class="single-programme programme ' . $status . '">';
                       echo '<div>';
                           
-                          echo '<a class="listen-live" href="http://www.bcbradio.co.uk/player/"><img src="http://www.bcbradio.co.uk/wp-content/uploads/play_button.png"/><span>Listen Live</span></a>';
+                          echo '<a class="listen-live" href="http://www.bcbradio.co.uk/player/"><span>Listen Live</span><img src="http://www.bcbradio.co.uk/wp-content/uploads/play_button.png"/></a>';
                       echo '</div>';
                   echo '</div>';
                   break;

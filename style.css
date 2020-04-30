@@ -314,7 +314,7 @@ h2 a:hover {color:#666 !important;}
 #wpb_widget-2.widget-wrapper, #wpb_widget-3.widget-wrapper {position:relative; padding-bottom:110px; text-align:center; margin-bottom:0;}
 .home #wpb_widget-2.widget-wrapper	{margin-bottom:20px;}
 #wpb_widget-2.widget-wrapper a, #wpb_widget-3.widget-wrapper a {color:#fff; font-weight:bold;}
-#wpb_widget-2.widget-wrapper a:hover, #wpb_widget-3.widget-wrapper a:hover {color:#FFAE02;}
+#wpb_widget-2.widget-wrapper a:hover, #wpb_widget-3.widget-wrapper a:hover {color:#ABB4FF;}
 #wpb_widget-2 h3, #wpb_widget-3 h3 {color:#7999FF;}
 #wpb_widget-2 p, #wpb_widget-3 p {margin:0;}
 .listenlive	{color:red; text-transform:uppercase; font-weight:bold; font-size:32px; text-shadow:0px 0px 14px rgba(209, 12, 12, 1); border:5px solid #2f2c2c; margin-bottom:15px; padding:15px 0; border-radius:4px; line-height:1em; width:100%; margin:auto; box-sizing:border-box;}
@@ -380,9 +380,10 @@ a.widgetbutton	{display:block; width:100%; margin:0 auto;}
 -------------------------------------------------------------- */
 .programme.on {background:url('https://www.bcbradio.co.uk/wp-content/uploads/on-air-listen-live.png') no-repeat 492px #000; -webkit-border-radius:4px; -moz-border-radius:4px; border-radius:4px; color:#fff; position:relative; padding:25px 20px 0 20px; box-sizing:border-box; margin-bottom:10px; min-height:135px;}
 .programme.on a {color:#FFF;}
-.programme.on a:hover {color:#FFA300;}
+.programme.on a:hover {color:#ABB4FF;}
 .on-air {font-size:0.7em; padding:0; margin:5px 2px; display:block; color:#F00; text-transform:uppercase; font-weight:bold; text-shadow:0px 0px 14px rgba(209, 12, 12, 1);}
 .programme_description a {color:#0015d2;}
+.programme_description a:hover {color:#6D7BEE;}
 .programme_description a.listen-live {padding:0; display:block; position:absolute; top:12px; right:20px; width:120px; line-height:1.0em; text-align:center; color:#CDCDCD;}
 .programme_description a.listen-live:hover span {color:#fff; -webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; -o-transition:all .2s ease-in-out; -ms-transition:all .2s ease-in-out; transition:all .2s ease-in-out;}
 .programme_description a.listen-live img   {display:block; text-align:center; margin:0 auto; width:80px; -webkit-filter:brightness(3); filter:brightness(3);}
@@ -468,6 +469,7 @@ margin-top: 15px;
 color:#444;
 padding: 3px 0px 0 10px;
 background-color: #eee;
+width: initial;
 }
 	
 .single-programme .programme-past h3 {
@@ -560,7 +562,6 @@ margin-left: 10px;
 }
 
 .single-programme .calendardescription {
-font-weight: bold;
 font-size: 16px;
 line-height: 20px;
 margin: 5px 15px 0 10px;
