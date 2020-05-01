@@ -49,29 +49,6 @@ get_header(); ?>
           <div class="programme-content">
 					<?php the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
           </div>
-          <!--Custom Field Data-->
-          <!--<div class="widget-wrapper presenter">
-            <h3 style="margin-top:0">Programmes</h3>-->
-           <!-- <p><?php echo get_post_meta($post->ID, "programmes", true); ?></p>-->
-              <?php 
-                $email = get_post_meta($post->ID, "email", true);
-                $twitter = get_post_meta($post->ID, "twitter-name", true);
-                $facebook = get_post_meta($post->ID, "facebook-name", true);
-                if ($email || $twitter || $facebook ) {
-                  echo '<h3 class="presenter-contact">Contact</h3>';
-                  if ($email) {
-                    echo "Email: " . htmlentities($email) . "<br/>"; 
-                  }
-                  if ($twitter) {
-                    echo 'Twitter: <a href="https://twitter.com/' . htmlentities($twitter) . '">' . htmlentities($twitter) . '</a><br/>';  
-                  }                  
-                  if ($facebook) {
-                    echo 'Facebook: <a href="https://www.facebook.com/' . htmlentities($facebook) . '">"' . htmlentities($facebook) . '</a><br/>'; 
-                  }
-                }
-              ?>
-
-          <!--</div>-->
           <?php //echo get_post_meta($post->ID, "surname", true); ?>
 					<?php wp_link_pages( array( 'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ), 'after' => '</div>' ) ); ?>
 				</div>
