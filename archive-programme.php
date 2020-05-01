@@ -47,7 +47,7 @@ get_header(); ?>
           <?php //echo print_r(get_post_custom()); ?>
 
           <div class="programme-content">
-					<?php the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
+					<?php the_content( __( '', 'responsive' ) ); ?>
           </div>
           <?php //echo get_post_meta($post->ID, "surname", true); ?>
 					<?php wp_link_pages( array( 'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ), 'after' => '</div>' ) ); ?>
