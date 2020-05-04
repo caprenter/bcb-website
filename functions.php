@@ -216,9 +216,11 @@ function theme_schedule_list($events) {
     echo '<h4 class="title">';
     //create a link to the programme page
     $prog_link = trim($event->summary); //trim spaces
+    
     //Create the slug
-    $programme_slug = preg_replace("/ /","-",$prog_link);
-    $programme_slug = strtolower($programme_slug);
+    $programme_slug = sanitize_title($prog_link); //Use the inbuilt wordpress function to clean the sting to make a slug
+    //$programme_slug = preg_replace("/ /","-",$prog_link);
+    //$programme_slug = strtolower($programme_slug);
     //Replace the presenter in the description text with a link
     $page = get_page_by_path( $programme_slug , OBJECT, 'programme' );
     if ( isset($page) ) {
