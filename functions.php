@@ -235,15 +235,20 @@ function theme_schedule_list($events) {
       //Add links to presenter pages if presenter info is given
       //This is done by looking for the string; "Presented by: " which should then be followed by a comma separted list of presenters.
       //presenter names are turned into slugs that should match pages on the site
+      $event->description = strip_tags($event->description,'<br><a>'); //Strip out any rogue html that may be there, but keep line breaks
       $presenter_check = explode("Presented by: ",$event->description);
+
       if (isset($presenter_check[1])) { //A string that doesn't contain the delimiter will simply return a one-length array of the original string.
         $presenters  = explode(',',$presenter_check[1]); //This should give an arry of each presenter name
         foreach ($presenters as $presenter) {
            //replace the string with a link
            $presenter = trim($presenter); //trim spaces
+
            //Create the slug
-           $presenter_slug = preg_replace("/ /","-",$presenter);
-           $presenter_slug = strtolower($presenter_slug);
+           $presenter_slug = sanitize_title($presenter); //using inbuilt wordpress function to create slug from string
+           //$presenter_slug = preg_replace("/ /","-",$presenter);
+           //$presenter_slug = strtolower($presenter_slug);
+
            //Replace the presenter in the description text with a link
            $page = get_page_by_path( $presenter_slug , OBJECT, 'presenter' );
 			   if ( isset($page) ) {
