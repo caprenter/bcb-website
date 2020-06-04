@@ -966,16 +966,33 @@ function fetch_listen_again_link ($startTime, $endTime){
  */ 
 function show_description ($description) {
   
+  //var_dump( $description);
+  //Explode our string
+  //If 'Presented' is not found we have an array with a single item. 
+  //If it is found we have an array with 2 items  -our description and our presented by sentance (with Presented missing!)
+  $description = explode("Presented",$description); 
+  //print_r($description);
   //$description = trim($description);
-  $description = nl2br($description);
+  //$description = nl2br($description);
   //echo $description;
   
-  if (strlen ($description) > 140) {
-      $description =  substr($description, 0, 140);
-      $description = $description . '...';
+  $body = $description[0];
+  
+  if (strlen ($body) > 140) {
+      $body =  substr($body, 0, 140);
+      $body = $body . '...';
   }
   
-  $html = '<div class="calendardescription">' . $description . '</div>';
+  $body = '<div class="cal-desc-body">' . $body;
+  
+  if (count($description) > 1) {
+      $presenter = $description[1];
+      $body = $body . '</div><div class="cal-desc-presenter">Presented' . $presenter . '</div>';
+    } else {
+      $body = $body . '</div>';
+    }
+  
+  $html = '<div class="calendardescription">' . $body . '</div>';
   
   return $html;
 }
