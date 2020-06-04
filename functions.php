@@ -762,9 +762,9 @@ function theme_laston_nexton ($programme, $startDate, $endDate) {
           $next_on = array_shift ( $future_programmes );
           //Is it on Today, or tomorrow?
           if ( date('d m y',strtotime($next_on->start->dateTime)) == date('d m y',strtotime('today')) ) {
-            $start_string = "Today<br>" . date('D, jS F, Y - G:i',strtotime($next_on->start->dateTime));
+            $start_string = "<b>Today</b><br>" . date('D, jS F, Y - G:i',strtotime($next_on->start->dateTime));
           } elseif ( date('d m y',strtotime($next_on->start->dateTime)) == date('d m y',strtotime('tomorrow')) ) {
-            $start_string = "Tomorrow<br> " . date('D, jS F, Y - G:i',strtotime($next_on->start->dateTime));
+            $start_string = "<b>Tomorrow</b><br> " . date('D, jS F, Y - G:i',strtotime($next_on->start->dateTime));
           } else {
             $start_string = date('D, jS F, Y - G:i',strtotime($next_on->start->dateTime));
           }
@@ -938,9 +938,9 @@ function fetch_listen_again_link ($startTime, $endTime){
         
           //Was it last on Today, or yesterday?
           if ( date('d m y',strtotime($startTime)) == date('d m y',strtotime('today')) ) {
-            $start_string = "Today<br>" . date('D, jS F - G:i',strtotime($startTime));
+            $start_string = "<b>Today</b><br>" . date('D, jS F - G:i',strtotime($startTime));
           } elseif ( date('d m y',strtotime($startTime)) == date('d m y',strtotime('yesterday')) ) {
-            $start_string = "Yesterday<br>" . date('D, jS F - G:i',strtotime($startTime));
+            $start_string = "<b>Yesterday</b><br>" . date('D, jS F - G:i',strtotime($startTime));
           } else {
             $start_string = date('D, jS F, Y - G:i',strtotime($startTime));
           }

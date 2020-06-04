@@ -424,13 +424,8 @@ border: 1px solid #ddd;
 display: none;
 }
 
-.type-programme img {
+.pfeed .type-programme img {
     margin: 0;
-}
-
-.single-programme .type-programme img {
-    margin-bottom: -5px;
-    width: 100%;
 }
 
 .pfeed .type-programme h2 {
@@ -455,6 +450,11 @@ padding: 0 20px;
 
 /* Single Programme page feed
 -------------------------------------------------------------- */
+.single-programme .type-programme img {
+    margin-bottom: -5px;
+    width: 100%;
+}
+
 .single-programme .entry-title.post-title {
 margin-top: 0;
 }
@@ -566,7 +566,8 @@ background-color:#7823A0;
 .single-programme a.listen-live img{
 -webkit-filter: brightness(3);
 filter: brightness(3);
-margin-left: 10px;
+margin: 0 0 0 10px;
+width: initial;
 }
 
 .single-programme .calendardescription {
