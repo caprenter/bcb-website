@@ -414,7 +414,6 @@ flex-flow: wrap;
 float: none;
 width: 48%;
 box-sizing: border-box;
-border: 0;
 margin: 0 0 10px 10px;
 padding: 0;
 border-radius: 4px;
@@ -423,6 +422,15 @@ border: 1px solid #ddd;
 
 .pfeed .type-programme .post-meta {
 display: none;
+}
+
+.type-programme img {
+    margin: 0;
+}
+
+.single-programme .type-programme img {
+    margin-bottom: -5px;
+    width: 100%;
 }
 
 .pfeed .type-programme h2 {
