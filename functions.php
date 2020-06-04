@@ -833,9 +833,9 @@ function theme_laston_nexton ($programme, $startDate, $endDate) {
                                 foreach ($future_programmes as $event) {
                                     //Is it on Today, or tomorrow?
                                     if ( date('d m y',strtotime($event->start->dateTime)) == date('d m y',strtotime('today')) ) {
-                                      $start_string = "Today<br>" . date('D, jS F, Y - G:i',strtotime($event->start->dateTime));
+                                      $start_string = "<b>Today</b><br>" . date('D, jS F, Y - G:i',strtotime($event->start->dateTime));
                                     } elseif ( date('d m y',strtotime($event->start->dateTime)) == date('d m y',strtotime('tomorrow')) ) {
-                                      $start_string = "Tomorrow<br> " . date('D, jS F, Y - G:i',strtotime($event->start->dateTime));
+                                      $start_string = "<b>Tomorrow</b><br> " . date('D, jS F, Y - G:i',strtotime($event->start->dateTime));
                                     } else {
                                       $start_string = date('D, jS F, Y - G:i',strtotime($event->start->dateTime));
                                     }
