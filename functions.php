@@ -703,6 +703,7 @@ add_action( 'template_redirect', 'mobile_home_redirect' );
 function theme_laston_nexton ($programme, $startDate, $endDate) {
   
   $show_descriptions[] = "BCB Xtra";
+  $show_descriptions[] = "About Bradford";
   
   
   //Get all events from the calendar for the time period 
@@ -793,27 +794,9 @@ function theme_laston_nexton ($programme, $startDate, $endDate) {
                   echo $listen_again_link;
                   //Description
                   if (strlen($last_on->description)>0) {
-                    //Add links to presenter pages if presenter info is given
-                    //This is done by looking for the string; "Presented by: " which should then be followed by a comma separted list of presenters.
-                    //presenter names are turned into slugs that should match pages on the site
-                    $presenter_check = explode("Presented by: ",$last_on->description);
-                    if (isset($presenter_check[1])) { //A string that doesn't contain the delimiter will simply return a one-length array of the original string.
-                      $presenters  = explode(',',$presenter_check[1]); //This should give an arry of each presenter name
-                      foreach ($presenters as $presenter) {
-                         //replace the string with a link
-                         $presenter = trim($presenter); //trim spaces
-                         //Create the slug
-                         $presenter_slug = preg_replace("/ /","-",$presenter);
-                         $presenter_slug = strtolower($presenter_slug);
-                         //Replace the presenter in the description text with a link
-                         $page = get_page_by_path( $presenter_slug , OBJECT, 'presenter' );
-                         if ( isset($page) ) {
-                          $last_on->description = preg_replace('/'. $presenter . '/', '<a class="presenter_link" href="http://www.bcbradio.co.uk/presenters/' . $presenter_slug . '">' . $presenter . '</a>', $last_on->description);
-                        }
-                      }
-                    }
+                    $description = show_description($last_on->description);
                     echo '<div class="calendardescription">';
-                    echo  nl2br($last_on->description);
+                    echo  $description;
                     //echo  $last_on->description;
                     echo '</div>';
                   }
@@ -966,6 +949,30 @@ function fetch_listen_again_link ($startTime, $endTime){
  */ 
 function show_description ($description) {
   
+  
+  //Add links to presenter pages if presenter info is given
+  //This is done by looking for the string; "Presented by: " which should then be followed by a comma separted list of presenters.
+  //presenter names are turned into slugs that should match pages on the site
+  $presenter_check = explode("Presented by: ",$description);
+  if (isset($presenter_check[1])) { //A string that doesn't contain the delimiter will simply return a one-length array of the original string.
+    $presenters  = explode(',',$presenter_check[1]); //This should give an arry of each presenter name
+    foreach ($presenters as $presenter) {
+       //replace the string with a link
+       $presenter = trim($presenter); //trim spaces
+       //Create the slug
+       $presenter_slug = preg_replace("/ /","-",$presenter);
+       $presenter_slug = strtolower($presenter_slug);
+       //Replace the presenter in the description text with a link
+       $page = get_page_by_path( $presenter_slug , OBJECT, 'presenter' );
+       if ( isset($page) ) {
+        $description = preg_replace('/'. $presenter . '/', '<a class="presenter_link" href="http://www.bcbradio.co.uk/presenters/' . $presenter_slug . '">' . $presenter . '</a>', $description);
+      }
+    }
+  }
+  
+  //Now put the Description in it's own div
+  //And the Presenter info in it's own div
+  
   //var_dump( $description);
   //Explode our string
   //If 'Presented' is not found we have an array with a single item. 
@@ -978,10 +985,10 @@ function show_description ($description) {
   
   $body = $description[0];
   
-  if (strlen ($body) > 140) {
-      $body =  substr($body, 0, 140);
-      $body = $body . '...';
-  }
+  //if (strlen ($body) > 400) {
+  //    $body =  substr($body, 0, 400);
+  //    $body = $body . '...';
+  //}
   
   $body = '<div class="cal-desc-body">' . $body;
   
