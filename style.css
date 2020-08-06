@@ -344,8 +344,8 @@ a.widgetbutton	{display:block; width:100%; margin:0 auto;}
 .listenagain img{-webkit-filter: brightness(3); filter:brightness(3); width:40px;}
 #text-8.widget-wrapper {border:0; background-color:transparent; padding-top:0; border-top:2px solid #777A86; border-bottom:2px solid #777A86;}
 #text-8.widget-wrapper {padding:0;}
-#text-8.widget-wrapper a.widgetbutton	{display:block; padding:20px 20px 15px 20px; width:254px; margin:0 auto; text-align:center;}
-#text-8.widget-wrapper span  {color:#565861; font-weight:bold; font-size:1.4em;}
+#text-8.widget-wrapper a.widgetbutton	{display:block; padding:15px 20px 10px 20px; width:254px; margin:0 auto; text-align:center;}
+#text-8.widget-wrapper span  {color:#565861; font-weight:bold; font-size:24px;}
 #text-8.widget-wrapper:hover span {font-style:italic;}
 #text-9.widget-wrapper.widget_text {padding:0; border:0; height:120px;}
 #text-9.widget-wrapper div.textwidget {padding:0; line-height:0;}
@@ -648,6 +648,7 @@ a.newsletter-link:hover span	{background-color:rgba(0,0,0,0.8);}
 /*.home_twit	{transform:scale(1.18,1.18); margin:auto; margin-left:3.2em; margin-top:4em; margin-bottom:4em;}*/
 .home_face	{transform:scale(1.23,1.23); margin:auto; margin-left:3.8em; margin-top:8em; margin-bottom:8em; overflow:hidden;}
 .socials	{margin:0 auto; text-align:center;}
+#text-13.widget-wrapper {padding:10px 10px 5px 10px;}
 
 
 /* Template for This Week in BCB
@@ -763,6 +764,8 @@ body.home #custom_html-3, body.home #custom_html-4, body.home #custom_html-5, bo
 .week_content h3	{font-size:1.5em; margin-top:0.5em; margin-bottom:0.5em; text-align:center;}
 
 #custom_html-4 .week_content, #custom_html-5 .week_content, #custom_html-6 .week_content, #custom_html-7 .week_content {padding:.5em 1em 0.2em 1em;}
+#custom_html-6 .week_wrap	{margin-top:0;}
+.home #custom_html-6 .week_wrap	{margin-top:2.5em;}
 #custom_html-7 .week_wrap	{margin-bottom:0;}
 .home #custom_html-7 .week_wrap	{margin-top:0;}
 .home #custom_html-7 .week_wrap	{margin-bottom:1em;}
