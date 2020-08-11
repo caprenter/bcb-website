@@ -199,7 +199,7 @@ margin-top:0;
 margin-top: 69px;
 }
 .presenter-contact {
-margin-top:0;
+margin-bottom:15px;
 }
 
 /*Presenters archive pages to list all presenters*/
@@ -449,11 +449,11 @@ background-color: #f9f3ce;
 .pfeed .type-programme h2 a::after {
 content: "";
 position: absolute;
-top: 27px;
+top: 26px;
 right: 10px;
 border: solid black;
 border-width: 0 3px 3px 0;
-padding: 3px;
+padding: 4px;
 transform: rotate(-45deg);
 -webkit-transform: rotate(-45deg);
 }
