@@ -581,6 +581,13 @@ margin: 5px 15px 0 10px;
 display: none;
 }
 
+.single-programme .calendardescription .calendardescription {
+    margin: 0;
+}
+
+.single-programme .cal-desc-body {padding: 10px 0;}
+.single-programme .cal-desc-presenter {font-size: 14px;}
+
 /* Project main page
 -------------------------------------------------------------- */
 #post-4201 ul {margin:0; padding:0; display:flex; flex-flow:wrap;}
