@@ -64,8 +64,7 @@ get_header(); ?>
                         echo '<li>'; 
                         $prog_link = trim($programme); //trim spaces
                         //Create the slug
-                        $programme_slug = preg_replace("/ /","-",$prog_link);
-                        $programme_slug = strtolower($programme_slug);
+                        $programme_slug = sanitize_title($prog_link); //Use the inbuilt wordpress function to clean the sting to make a slug 
                         $page = get_page_by_path( $programme_slug , OBJECT, 'programme' );
                         if ( isset($page) ) {
                             echo '<a class="programme_link" href="http://www.bcbradio.co.uk/programmes/' . $programme_slug . '">' . $prog_link . '</a>';
