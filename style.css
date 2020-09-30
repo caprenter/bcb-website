@@ -311,7 +311,8 @@ h2 a:hover {color:#666 !important;}
 /* Listen Live Sidebar Widget
 -------------------------------------------------------------- */
 #wpb_widget-2.widget-wrapper, #wpb_widget-3.widget-wrapper {border:0; background-color:#000; color:#fff;}
-#wpb_widget-2.widget-wrapper, #wpb_widget-3.widget-wrapper {position:relative; padding-bottom:110px; text-align:center; margin-bottom:0;}
+#wpb_widget-2.widget-wrapper, #wpb_widget-3.widget-wrapper {position:relative; padding-bottom:110px; text-align:center;}
+#wpb_widget-3.widget-wrapper {margin-bottom:0;}
 .home #wpb_widget-2.widget-wrapper	{margin-bottom:20px;}
 #wpb_widget-2.widget-wrapper a, #wpb_widget-3.widget-wrapper a {color:#fff; font-weight:bold;}
 #wpb_widget-2.widget-wrapper a:hover, #wpb_widget-3.widget-wrapper a:hover {color:#ABB4FF;}
@@ -357,6 +358,7 @@ a.widgetbutton	{display:block; width:100%; margin:0 auto;}
 #text-10.widget-wrapper div.textwidget {padding:0; line-height:0;}
 #text-12.widget-wrapper,
 #text-15.widget-wrapper	{border:0; background-color:transparent; padding:0;}
+#text-12.widget-wrapper	{margin:0;}
 #text-12.widget-wrapper a.widgetbutton,
 #text-15.widget-wrapper a.widgetbutton{display:block; padding-top:0px; width:100%; margin:0 auto; text-align:center;}
 #text-12.widget-wrapper span 	{color:#565861; font-size:18px; margin-top:10px; margin-bottom:10px; display:block;}
@@ -786,7 +788,7 @@ a.front-title.job-col span.job-3 {font-weight:bold; padding:0;}
 
 /* Move widgets down for landing page
 -------------------------------------------------------------- */
-#widgets	{margin:0;}
+.home #widgets	{margin:0;}
 .home #widgets	{margin-top:933px;}
 
 
@@ -813,7 +815,8 @@ body.home #custom_html-3, body.home #custom_html-4, body.home #custom_html-5, bo
 #custom_html-4 .week_content, #custom_html-5 .week_content, #custom_html-6 .week_content, #custom_html-7 .week_content {padding:.5em 1em 0.2em 1em;}
 #custom_html-6 .week_wrap	{margin-top:0;}
 .home #custom_html-6 .week_wrap	{margin-top:2.5em;}
-#custom_html-7 .week_wrap	{margin-bottom:0;}
+#custom_html-7 .week_wrap	{margin:0;}
+#custom_html-7 .week_wrap h3	{font-size:1.45em;}
 .home #custom_html-7 .week_wrap	{margin-top:0;}
 .home #custom_html-7 .week_wrap	{margin-bottom:1em;}
 
