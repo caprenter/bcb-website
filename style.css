@@ -720,6 +720,12 @@ a.newsletter-link:hover span	{background-color:rgba(0,0,0,0.8);}
 #custom_html-3 .week_wrap .week_content p {margin:1em 0;}
 #custom_html-3 .week_wrap .week_content	{padding:0.2em 1em;}
 
+/* Black History Month 2020 Project Page
+-------------------------------------------------------------- */
+.bhm_profile_wrap	{margin-bottom:30px;}
+.bhm_profile 		{width:200px; float:left; padding:0 20px 0 0;}
+.bhm_profile_text	{font-size:16px; line-height:24px;}
+
 /* Template for Archives: This Week in BCB
 -------------------------------------------------------------- */
 div#post-4522 .week_wrap	{margin-top:3em; background:initial; border:3px solid #c5cbe4;}
