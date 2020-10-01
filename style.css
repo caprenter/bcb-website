@@ -821,7 +821,7 @@ body.home #custom_html-3, body.home #custom_html-4, body.home #custom_html-5, bo
 #custom_html-4 .week_content, #custom_html-5 .week_content, #custom_html-6 .week_content, #custom_html-7 .week_content {padding:.5em 1em 0.2em 1em;}
 #custom_html-6 .week_wrap	{margin-top:0;}
 .home #custom_html-6 .week_wrap	{margin-top:2.5em;}
-#custom_html-7 .week_wrap	{margin:0;}
+#custom_html-7 .week_wrap	{margin:0 auto;}
 #custom_html-7 .week_wrap h3	{font-size:1.45em;}
 .home #custom_html-7 .week_wrap	{margin-top:0;}
 .home #custom_html-7 .week_wrap	{margin-bottom:1em;}
