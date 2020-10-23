@@ -52,10 +52,14 @@ get_header();
            * Our day is from 3am in the morning until 2am the following day
            * BCB's day is really 8am through to 2am the next day
            * 
+           * NB when calculating the dates/days daylight savings causes us problems 
+           * See: https://github.com/caprenter/bcb-website/issues/37
+           * I think this has been dealt with by calculating the day based off 3am in the morning instead of midnight
+           * 
           */
           
           //Create the navigation for the schedule
-          //days are calculated at midnight
+          //days are calculated at midnight !! Later they are calculated at 3am.
           $days_past = -4; //go back one more day than you want. This is past 3 days
           $days_future = 6; //go forward one less day than you want. This is future 7 days
           
