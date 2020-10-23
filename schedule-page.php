@@ -92,6 +92,7 @@ get_header();
             }
             //Loop through the range of days and print a link to each day
             for ($i=$days_past;$i<=$days_future;$i++) {
+              //echo $i;
               //Need to highlight the date we are on...
               if (isset($days_difference)) {
                 if ($i == $days_difference) {
@@ -105,13 +106,14 @@ get_header();
                 echo '<li>';
               }
               //Create a link like: schedule/2013/12/21
-              echo '<a href="' . get_site_url() . '/schedule/' . date("Y",$today + $i*60*60*24) . '/' . date("m",$today + $i*60*60*24) . '/' . date("d",$today + $i*60*60*24) . '/">';
+              echo '<a href="' . get_site_url() . '/schedule/' . date("Y",$today + $i*60*60*24 + 10800) . '/' . date("m",$today + $i*60*60*24 + 10800) . '/' . date("d",$today + $i*60*60*24 + 10800) . '/">';
+              //This is the day,month display - NB NB We add 3hours to the date generator so that we cope with daylight savings time!
               if ($i==0) { //TODAY!
-                echo '<span class="day">TODAY</span><span class="date">' .  date("j",$today + $i*60*60*24) .  '</span><span class="month">' . date("M",$today + $i*60*60*24) . '</span>';
+                echo '<span class="day">TODAY</span><span class="date">' .  date("j",$today + $i*60*60*24 + 10800) .  '</span><span class="month">' . date("M",$today + $i*60*60*24 + 10800) . '</span>';
               } else {
-                echo '<span class="day">' . date("D",$today + $i*60*60*24) . '</span>';
-                echo '<span class="date">' . date("j",$today + $i*60*60*24) . '</span>';
-		echo '<span class="month">' . date("M",$today + $i*60*60*24) . '</span>';
+                echo '<span class="day">' . date("D",$today + $i*60*60*24 + 10800) . '</span>'; 
+                echo '<span class="date">' . date("j",$today + $i*60*60*24 + 10800) . '</span>';
+                echo '<span class="month">' . date("M",$today + $i*60*60*24 + 10800) . '</span>';
               }
               echo '</a>';
               echo '</li>';
