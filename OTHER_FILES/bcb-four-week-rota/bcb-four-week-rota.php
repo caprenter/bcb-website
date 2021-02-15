@@ -34,7 +34,7 @@ function wp_fourweekrota_shortcode() {
 	// begin output buffering
     ob_start();
     
-	$str = '2019-11-25'; //week 2 NB First result will be the week after this because we increment immediately
+	$str = '2020-12-21'; //week 2 NB First result will be the week after this because we increment immediately
 	$week = 1; //set it two earlier because we increment straight away, and array keys start at zero, so $week = 0 returns 'one'
 	$readable_week = array( 'One', 'Two', 'Three', 'Four');
 	$month = "";
