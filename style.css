@@ -303,6 +303,7 @@ h2 a:hover {color:#666 !important;}
 -------------------------------------------------------------- */
 .widget-wrapper	{background-color:transparent;}
 .widget-title h3 {padding:5px 0 10px 0;}
+.textwidget p {margin:1em 0;}
 #text-8 .textwidget {padding-bottom:5px;}
 
 #text-7.widget-wrapper	{border:0; background-color:transparent;} /* Exa Sponsor */
@@ -358,7 +359,6 @@ a.widgetbutton	{display:block; width:100%; margin:0 auto;}
 #text-10.widget-wrapper div.textwidget {padding:0; line-height:0;}
 #text-12.widget-wrapper,
 #text-15.widget-wrapper	{border:0; background-color:transparent; padding:0;}
-#text-12.widget-wrapper	{margin:0;}
 #text-12.widget-wrapper a.widgetbutton,
 #text-15.widget-wrapper a.widgetbutton{display:block; padding-top:0px; width:100%; margin:0 auto; text-align:center;}
 #text-12.widget-wrapper span 	{color:#565861; font-size:18px; margin-top:10px; margin-bottom:10px; display:block;}
@@ -703,7 +703,7 @@ a.newsletter-link:hover span	{background-color:rgba(0,0,0,0.8);}
 -------------------------------------------------------------- */
 .week_wrap	{margin:0 auto; padding:0; margin-bottom:1em; font-size:18px; line-height:26px; color:#2d3546; border-radius:6px; position:relative; background:url(https://www.bcbradio.co.uk/wp-content/uploads/bcb_week.jpg)no-repeat center center; background-size:cover;}
 .week_tit	{background-color:#0330e5; color:#FFF; padding:1em; position:absolute; top:-25px; left:50%; transform:translateX(-50%); font-weight:bold; text-align:center;}
-.week_content    {background:rgba(255,255,255,0.9); padding:1.5em 1em 0.2em 1em; border-radius:6px;}
+.week_content    {background:rgba(255,255,255,0.9); padding:0.5em 1em 0.2em 1em; border-radius:6px;}
 .week_content h2 {margin-top:1.2em; margin-bottom:0em;}
 .week_content img{width:100%;}
 
@@ -714,12 +714,11 @@ a.newsletter-link:hover span	{background-color:rgba(0,0,0,0.8);}
 .week_wrap.feat .week_content	{padding:1.5em 1.5em 0.2em 1.5em;}
 .week_wrap.feat .week_content p	{font-size:18px;}
 
-#custom_html-3, #custom_html-4, #custom_html-5, #custom_html-6, #custom_html-7, #custom_html-8	{padding:0; margin:0; border:0;}
+#custom_html-3, #custom_html-4, #custom_html-5, #custom_html-6, #custom_html-7, #custom_html-8, #custom_html-9	{padding:0; margin:0; border:0;}
 #custom_html-3 .week_tit	{width:60%;}
-.week_content h3	{font-size:1.45em; margin-top:0.5em; margin-bottom:0.5em; text-align:center;}
+.week_content h3	{font-size:1.3em; margin-top:0.5em; margin-bottom:0.5em; text-align:center;}
 
 #custom_html-4 .week_content, #custom_html-5 .week_content, #custom_html-6 .week_content, #custom_html-7 .week_content {padding:.5em 1em 0.2em 1em;}
-
 
 /* Black History Month Template for This Week in BCB
 -------------------------------------------------------------- */
@@ -802,7 +801,7 @@ a.front-title.job-col span.job-3 {font-weight:bold; padding:0;}
 /* Move widgets down for landing page
 -------------------------------------------------------------- */
 .home #widgets	{margin:0;}
-.home #widgets	{margin-top:933px;}
+.home #widgets	{margin-top:983px;}
 
 
 /* Venus post
