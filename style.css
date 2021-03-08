@@ -324,13 +324,22 @@ h2 a:hover {color:#666 !important;}
 .listenlive-title {padding-top:10px;}
 p.on-now-description {color:#ACB1B5; font-size:1.1em; line-height:1.5em; font-weight:normal;}
 .listenlive-txt	{font-size:1.4em; color:#6580A7; font-weight:bold; padding:30px 0 10px 0;}
-#widgets a.listenlive-txt, #wpb_widget-3 a.listenlive-txt {display:block; font-size:1.6em; color:#FFF; font-weight:bold; text-align:center; text-transform:uppercase;}
-#widgets a.listenlive-txt:hover, #wpb_widget-3 a.listenlive-txt:hover	{color:#DDD2E2; background-color:#7823A0;}
+#widgets a.listenlive-txt,
+#wpb_widget-3 a.listenlive-txt,
+a.listenlive-txt.in-page		{display:block; font-size:1.6em; color:#FFF; font-weight:bold; text-align:center; text-transform:uppercase;}
+#widgets a.listenlive-txt:hover,
+#wpb_widget-3 a.listenlive-txt:hover,
+a.listenlive-txt.in-page:hover	{color:#DDD2E2; background-color:#7823A0;}
+
 .standby	{padding:5px 0 5px 0; color:#fff; font-size:24px; font-weight:700; line-height:23px;}
 .listenlive-link {color:#7999FF; font-weight:bold; font-size:1.2em; padding-top:10px;}
 
-#widgets a.listenlive-txt, #wpb_widget-3 a.listenlive-txt	{position:absolute; background-color:#511D6A; padding:10px 20px; max-width:100%; width:100%; box-sizing:border-box; bottom:0; left:0; border-radius:0 0 4px 4px;}
-#widgets a.listenlive-txt img, #wpb_widget-3 a.listenlive-txt img{-webkit-filter:brightness(3); filter:brightness(3);}
+#widgets a.listenlive-txt,
+#wpb_widget-3 a.listenlive-txt	{position:absolute; background-color:#511D6A; padding:10px 20px; max-width:100%; width:100%; box-sizing:border-box; bottom:0; left:0; border-radius:0 0 4px 4px;}
+a.listenlive-txt.in-page		{background-color:#511D6A; padding:10px 20px; max-width:100%; width:100%; box-sizing:border-box; border-radius:4px 4px;}
+#widgets a.listenlive-txt img,
+#wpb_widget-3 a.listenlive-txt img,
+a.listenlive-txt.in-page img	{-webkit-filter:brightness(3); filter:brightness(3);}
 
 
 /* Listen Again Sidebar Widget
